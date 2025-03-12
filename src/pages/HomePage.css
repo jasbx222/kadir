@@ -1,0 +1,30 @@
+.card{
+    border: 2px solid ;
+    background-color: #FFF5E4;
+    border-radius: 20px;
+    display: flex; 
+    text-align: center;
+    align-items: center;
+}
+.card-chart{
+    
+    background-color: #FFF5E4;
+    
+}
+.icon{
+
+   color: #8884d8;
+   
+}
+.card-text{
+    color: #8884d8;
+}
+
+@media screen and (max-width:600px){
+    .card{
+        width: 200px;
+     }
+     .card-chart{
+        width: 400px;
+     }
+}
