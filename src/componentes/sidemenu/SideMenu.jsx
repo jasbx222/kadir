@@ -11,25 +11,21 @@ import {
   ShoppingCartIcon,
   SquareChevronRight,
 } from "lucide-react";
-import './SideMenu.css';
+import "./SideMenu.css";
 import { useState } from "react";
 export default function SideMenu() {
-  const [show,SetShow]= useState(true);
+  const [show, SetShow] = useState(true);
 
-  const HandleShowButton =()=>{
-      SetShow(show!=show)
-     
-  }
+  const HandleShowButton = () => {
+    SetShow(show != show);
+  };
   return (
-    
-
-
     <div className="flex">
-   
       <div
-     
         className={`
-          fixed ${show?'navbar':''} z-30 top-0 left-0 h-full  bg-gray-950 text-white w-64 transform 
+          fixed ${
+            show ? "navbar" : ""
+          } z-30 top-0 left-0 h-full  bg-gray-950 text-white w-64 transform 
           "translate-x-0"  "-translate-x-full
          transition-transform duration-300 ease-in-out md:translate-x-0
           
@@ -39,12 +35,11 @@ export default function SideMenu() {
           <h2 className="text-lg font-semibold">
             <img className="logo" src={logo} alt="" />
           </h2>
-         
         </div>
         {SideMenuUL.map((links) => (
           <nav className="mt-4">
             <Link
-              to="/home"
+              to="/"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <House /> {links.homePage}
@@ -88,9 +83,6 @@ export default function SideMenu() {
           </nav>
         ))}
       </div>
-
-     
-   
-</div>
+    </div>
   );
 }

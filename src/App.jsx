@@ -1,6 +1,5 @@
 import "./App.css";
-import SideMenu from "./componentes/sidemenu/SideMenu";
-import Container from "./pages/Container";
+import Container from "./pages/container/Container";
 function App() {
   return (
 

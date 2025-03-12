@@ -1,6 +1,6 @@
 import { Download, Headset, Pickaxe, WalletCards } from "lucide-react";
 import "./HomePage.css";
-import ChartComponent from "../componentes/chart/Charts";
+import ChartComponent from "../../componentes/chart/Charts";
 const HomePage = () => {
   return (
     <div className="home">
@@ -31,7 +31,7 @@ const HomePage = () => {
             />
             <dt className="order-last text-lg font-medium text-gray-500">
               {" "}
-              عدد الحرفين
+            عدد الحرفين الفعال
             </dt>
 
             <dd className="text-4xl font-extrabold card-text md:text-5xl">
@@ -57,14 +57,14 @@ const HomePage = () => {
           </div>
 
           <div className="flex flex-col px-4 py-8 text-center card ">
-            <Download
+          <Pickaxe
               size={40}
               color="#8884d8"
               strokeWidth={3}
               className="mb-2"
             />
             <dt className="order-last text-lg font-medium text-gray-500">
-              التنزيلات
+              الاكسباير من الحرفين
             </dt>
 
             <dd className="text-4xl font-extrabold card-text md:text-5xl">
