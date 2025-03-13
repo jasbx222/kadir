@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-import CryptoJS from "crypto-js"; // Import CryptoJS
+import CryptoJS from "crypto-js"; 
 import "./Login.css";
 
-const SECRET_KEY = "mysyhshshshshshhshshshgxgxgsgvwgfsvvs"; // Replace with a strong secret key
+const SECRET_KEY = "mysyhshshshshshhshshshgxgxgsgvwgfsvvs"; 
 
 const Login = () => {
   const [email, setEmail] = useState("");
@@ -39,6 +39,9 @@ const Login = () => {
 
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <div>
+        <img src={logo} alt="loginImg" className="loginImg" />
+      </div>
       <div className="mx-auto max-w-lg">
         <form
           onSubmit={HandleSubmit}
