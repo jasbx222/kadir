@@ -11,7 +11,7 @@ const Login = () => {
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
       <div>
-        <img src={logo} alt="loginImg" className="loginImg" />
+{/*         <img src={logo} alt="loginImg" className="loginImg" /> */}
       </div>
       <div className="mx-auto max-w-lg">
         <form className="mt-6 mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
