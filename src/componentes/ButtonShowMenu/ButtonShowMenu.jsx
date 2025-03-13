@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import { AlignJustify } from "lucide-react";
-import SideMenu from "../../componentes/sidemenu/SideMenu";
+import SideMenu from "../sidemenu/SideMenu";
 import "./ButtonShowMenu.css";
 
 const ButtonShowMenu = () => {

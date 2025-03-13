@@ -1,6 +1,7 @@
 import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
-
+import logo from "../../assets/img/kadir.jpg";
+import "./Login.css";
 const Login = () => {
   const input = useRef();
   useEffect(() => {
@@ -9,11 +10,11 @@ const Login = () => {
 
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+      <div>
+        <img src={logo} alt="loginImg" className="loginImg" />
+      </div>
       <div className="mx-auto max-w-lg">
-        <form
-      
-          className="mt-6 mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
-        >
+        <form className="mt-6 mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8">
           <p className="text-center text-lg font-medium">
             صفحة تسجيل دخول المستخدم
           </p>

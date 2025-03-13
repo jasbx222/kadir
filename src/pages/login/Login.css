@@ -1,0 +1,17 @@
+.loginImg{
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+ position: relative;
+ left: 20px;
+}
+
+@media  screen and (max-width:780px){
+    .loginImg{
+      position: relative;
+      left: 35px;
+        width: 100px;
+        height: 100px;
+    }
+    
+}

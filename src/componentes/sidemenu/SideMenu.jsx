@@ -19,6 +19,7 @@ export default function SideMenu() {
       <div
         className={`
           fixed
+          rounded-xl
            z-30 top-0 left-0 h-full  bg-black text-white w-64 transform 
           "translate-x-0"  "-translate-x-full
          transition-transform duration-300 ease-in-out md:translate-x-0
