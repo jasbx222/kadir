@@ -2,10 +2,12 @@ import { Link } from "react-router-dom";
 import { SideMenuUL } from "./SideMenuData";
 import logo from "../../assets/img/kadir.jpg";
 import {
+  BadgePlus,
   Bell,
   ClipboardPlus,
   GitPullRequest,
   House,
+  Search,
   Settings,
   Shapes,
   Signpost,
@@ -49,6 +51,12 @@ export default function SideMenu() {
               <Signpost  /> {links.ads}
             </Link>
             <Link
+              to="/searchart"
+              className="flex items-center gap-2 p-3 hover:bg-gray-700"
+            >
+              <Search  /> {links.search}
+            </Link>
+            <Link
               to="/"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
@@ -65,6 +73,12 @@ export default function SideMenu() {
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <GitPullRequest /> {links.request}
+            </Link>
+            <Link
+              to="/department"
+              className="flex items-center gap-2 p-3 hover:bg-gray-700"
+            >
+             <BadgePlus/> {links.addDepartment}
             </Link>
             <Link
               to="/"

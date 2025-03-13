@@ -8,18 +8,23 @@ import ButtonShowMenu from "./pages/ButtonShowMenu/ButtonShowMenu";
 import ReportPage from "./pages/reports/Reports";
 import Requests from "./pages/requests/Requests";
 import RequestDetals from "./pages/requests/RequestDetals";
+import Department from "./pages/department/Department";
+import SearchArt from "./pages/artisans/SearchArt";
 function App() {
  
   return (
     <Router>
+      <ButtonShowMenu/>
       <div className="flex justify-evenly items-center">
-        <ButtonShowMenu/>
+
         <Routes>
           <Route path="/home" element={<HomePage />} />
           <Route path="/" element={<Login />} />
           <Route path="/artisans" element={<Artisans />} />
+          <Route path="/searchart" element={<SearchArt />} />
           <Route path="/reports" element={<ReportPage />} />
           <Route path="/request" element={<Requests />} />
+          <Route path="/department" element={<Department />} />
           <Route path="/requestid/:id" element={<RequestDetals />} />
           <Route path="/*" element={<Notfound />} />
         </Routes>

@@ -3,9 +3,7 @@ import * as XLSX from "xlsx";
 import { FaFileExcel } from "react-icons/fa";
 import { reportsData } from "./reportsData";
 const ReportPage = () => {
-  const [orders] = useState(
-    reportsData
-);
+  const [orders] = useState(reportsData);
 
   // تصدير التقرير حسب الحرفي
   const exportOrdersByArtisan = () => {

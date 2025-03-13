@@ -6,6 +6,8 @@ export const SideMenuUL=[
         artisans:'صفحة الحرفيين',
         request:'صفحة الطلبات',
         ads:'صفحات الاعلانات',
+        search:'ابحث عن حرفي  ',
+        addDepartment:' اضافة اقسام',
        notic:'اشعارات بالطلبات',
        setting:'صفحة الاعدادات'
     }
