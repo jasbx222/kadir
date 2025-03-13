@@ -1,0 +1,15 @@
+.map{
+    background-image: url('https://th.bing.com/th/id/R.cd119c367ee0a82eaa8169271e9da8d2?rik=kynZZz71EjQFOQ&pid=ImgRaw&r=0');
+background-position: center;
+background-repeat: no-repeat;
+background-size: cover;
+height: 100lvh;
+width: 100%;
+}
+
+.btnMap{
+    width: 300px;
+    height: 300px;
+    font-size: 30px;
+    background-color: darkgreen;
+}

@@ -10,6 +10,7 @@ import Requests from "./pages/requests/Requests";
 import RequestDetals from "./pages/requests/RequestDetals";
 import Department from "./pages/department/Department";
 import AdsPage from "./pages/ads/AdsPage";
+import LocationButton from "./componentes/locaionbutton/LocationButton";
 function App() {
   return (
     <Router>
@@ -22,6 +23,7 @@ function App() {
           <Route path="/reports" element={<ReportPage />} />
           <Route path="/request" element={<Requests />} />
           <Route path="/ads" element={<AdsPage />} />
+          <Route path="/location" element={<LocationButton />} />
           <Route path="/department" element={<Department />} />
           <Route path="/requestid/:id" element={<RequestDetals />} />
           <Route path="/*" element={<Notfound />} />
