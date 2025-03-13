@@ -1,14 +1,13 @@
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
 import { FaFileExcel } from "react-icons/fa";
-
+import { reportsData } from "./reportsData";
 const ReportPage = () => {
-  const [orders] = useState([
-    { id: 1, artisan: "حرفي 1", department: "قسم 1", branch: "فرع 1", total: 200 },
-    { id: 2, artisan: "حرفي 2", department: "قسم 1", branch: "فرع 2", total: 150 },
-    { id: 3, artisan: "حرفي 1", department: "قسم 2", branch: "فرع 1", total: 300 },
-  ]);
+  const [orders] = useState(
+    reportsData
+);
 
+  // تصدير التقرير حسب الحرفي
   const exportOrdersByArtisan = () => {
     const data = orders.map(order => ({
       "رقم الطلب": order.id,
@@ -23,30 +22,25 @@ const ReportPage = () => {
     XLSX.writeFile(workbook, "تقرير_الطلبات.xlsx");
   };
 
+  // تصدير التقرير حسب القسم
   const exportOrdersByDepartment = () => {
-    const departmentTotals = orders.reduce((acc, order) => {
-      acc[order.department] = acc[order.department] || {};
-      acc[order.department][order.branch] =
-        (acc[order.department][order.branch] || 0) + order.total;
+    const data = orders.reduce((acc, order) => {
+      const key = `${order.department}-${order.branch}`;
+      if (!acc[key]) acc[key] = { "القسم": order.department, "الفرع": order.branch, "الإجمالي": 0 };
+      acc[key]["الإجمالي"] += order.total;
       return acc;
     }, {});
 
-    const data = [];
-    Object.entries(departmentTotals).forEach(([department, branches]) => {
-      Object.entries(branches).forEach(([branch, total]) => {
-        data.push({ "القسم": department, "الفرع": branch, "الإجمالي": total });
-      });
-    });
-
-    const worksheet = XLSX.utils.json_to_sheet(data);
+    const formattedData = Object.values(data);
+    const worksheet = XLSX.utils.json_to_sheet(formattedData);
     const workbook = XLSX.utils.book_new();
     XLSX.utils.book_append_sheet(workbook, worksheet, "إجمالي الطلبات");
     XLSX.writeFile(workbook, "إجمالي_الطلبات.xlsx");
   };
 
   return (
-    <div className="p-8 bg-gray-100 min-h-screen flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-extrabold mb-6 text-gray-800">📊 صفحة التقارير</h1>
+    <div className="p-8  min-h-screen flex flex-col items-center justify-center">
+      <h1 className="text-3xl font-extrabold mb-6 text-red-500">📊 صفحة التقارير</h1>
       <div className="flex space-x-6">
         <button
           onClick={exportOrdersByArtisan}

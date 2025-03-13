@@ -8,7 +8,7 @@ import {
   House,
   Settings,
   Shapes,
-  ShoppingCartIcon,
+  Signpost,
 } from "lucide-react";
 import "./SideMenu.css";
 export default function SideMenu() {
@@ -40,13 +40,13 @@ export default function SideMenu() {
               to="/artisans"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
-              <Shapes /> {links.harfi}
+              <Shapes /> {links.artisans}
             </Link>
             <Link
               to="/"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
-              <ShoppingCartIcon /> {links.market}
+              <Signpost  /> {links.ads}
             </Link>
             <Link
               to="/"
@@ -55,13 +55,13 @@ export default function SideMenu() {
               <Bell /> {links.notic}
             </Link>
             <Link
-              to="/"
+              to="/reports"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <ClipboardPlus /> {links.reports}
             </Link>
             <Link
-              to="/"
+              to="/request"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <GitPullRequest /> {links.request}
