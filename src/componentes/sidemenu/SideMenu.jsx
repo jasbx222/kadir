@@ -55,7 +55,7 @@ export default function SideMenu() {
               <Bell /> {links.notic}
             </Link>
             <Link
-              to="/"
+              to="/reports"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <ClipboardPlus /> {links.reports}
