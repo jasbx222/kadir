@@ -8,6 +8,7 @@ import {
   ClipboardPlus,
   GitPullRequest,
   House,
+  MapPin,
   Search,
   Settings,
   Shapes,
@@ -95,7 +96,14 @@ export default function SideMenu() {
                         <Settings /> {links.setting}
                       </Link>
                     </li>
-                    <li></li>
+                    <li>
+                    <Link
+                        to="/location"
+                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
+                      >
+                       <MapPin /> {links.location}
+                      </Link>
+                    </li>
                     <li></li>
                   </ul>
                 </div>
