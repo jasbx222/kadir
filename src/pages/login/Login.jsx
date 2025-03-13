@@ -92,9 +92,7 @@ const Login = () => {
             style={{ backgroundColor: "#8884d8" }}
             className="block w-full rounded-lg  px-5 py-3 text-sm font-medium text-white"
           >
-          <Link to={'/home'}>
-          تسجيل دخول
-          </Link>
+            <Link to={"/home"}>تسجيل دخول</Link>
           </button>
         </form>
       </div>

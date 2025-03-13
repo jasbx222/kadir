@@ -68,7 +68,7 @@ const HomePage = () => {
             </dt>
 
             <dd className="text-4xl font-extrabold card-text md:text-5xl">
-              86k
+              8
             </dd>
           </div>
         </dl>
