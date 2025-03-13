@@ -1,20 +1,41 @@
+import { useEffect, useState } from "react";
+import { AlignJustify } from "lucide-react";
 import SideMenu from "../../componentes/sidemenu/SideMenu";
 import "./ButtonShowMenu.css";
-import { AlignJustify } from "lucide-react";
-import { useState } from "react";
+
 const ButtonShowMenu = () => {
-  const [show, setShow] = useState(true);
+  const [show, setShow] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+      if (window.innerWidth > 768) {
+        setShow(true);
+      } else {
+        setShow(false);
+      }
+    };
+
+    window.addEventListener("resize", handleResize);
+    handleResize();
+
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const HandleButtonMenu = () => {
-    setShow(!show);
+    setShow((prev) => !prev);
   };
 
   return (
     <div>
-      <button className="btn" onClick={HandleButtonMenu}>
-        <AlignJustify size={40} />{" "}
-      </button>
+      {isMobile && (
+        <button className="btn" onClick={HandleButtonMenu}>
+          <AlignJustify size={40} />
+        </button>
+      )}
       <div className="flex justify-around items-center">
-        {show ? <SideMenu /> : ""}
+        {show && <SideMenu />}
       </div>
     </div>
   );
