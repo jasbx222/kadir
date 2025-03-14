@@ -9,10 +9,10 @@ const Requests = () => {
   return (
     <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white">
       <table className="w-full text-sm text-left text-gray-700 border border-gray-300 rounded-lg overflow-hidden">
-        <caption className="p-5 text-lg font-semibold text-gray-900 bg-gray-100 rounded-t-lg">
+        <caption className="p-5 text-lg font-semibold text-gray-900  rounded-t-lg">
           الطلبات
         </caption>
-        <thead className="text-xs text-gray-600 uppercase bg-gray-200">
+        <thead className="text-xs text-gray-600 uppercase">
           <tr>
             <th scope="col" className="px-4 py-3">اسم مقدم الخدمة</th>
             <th scope="col" className="px-4 py-3">تاريخ وقت العملية</th>

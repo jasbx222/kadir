@@ -27,9 +27,9 @@ const ButtonShowMenu = () => {
   };
 
   return (
-    <div>
+    <div className="">
       {isMobile && (
-        <button className="btn" onClick={HandleButtonMenu}>
+        <button className="btn " onClick={HandleButtonMenu}>
           <AlignJustify size={40} />
         </button>
       )}
