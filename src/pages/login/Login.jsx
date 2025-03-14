@@ -1,49 +1,42 @@
 import React, { useEffect, useRef, useState } from "react";
-import CryptoJS from "crypto-js"; 
+// import CryptoJS from "crypto-js";
 import "./Login.css";
-
-const SECRET_KEY = "mysyhshshshshshhshshshgxgxgsgvwgfsvvs"; 
+// const SECRET_KEY = "mysyhshshshshshhshshshgxgxgsgvwgfsvvs";
 
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
 
-  const encryptData = (data) => {
-    return CryptoJS.AES.encrypt(data, SECRET_KEY).toString();
-  };
+  // const encryptData = (data) => {
+  //   return CryptoJS.AES.encrypt(data, SECRET_KEY).toString();
+  // };
 
   const HandleSubmit = (e) => {
     e.preventDefault();
+   
+    // const encrypetdEmail = encryptData(email);
+    // const encryptedPassword = encryptData(password);
 
-    const encrypetdEmail = encryptData(email);
-    const encryptedPassword = encryptData(password);
-
-    fetch("http://localhost:4000/create", {
-      method: "POST",
-      body: JSON.stringify({
-        email: encryptedEmail,
-        password: encryptedPassword,
-      }),
-      headers: {
-        "Content-type": "application/json; charset=UTF-8",
-      },
-    })
-      .then((response) => response.json())
-      .then((json) => console.log(json));
+    // fetch("http://localhost:4000/create", {
+    //   method: "POST",
+    //   body: JSON.stringify({
+    //     email: encrypetdEmail,
+    //     password: encryptedPassword,
+    //   }),
+    //   headers: {
+    //     "Content-type": "application/json; charset=UTF-8",
+    //   },
+    // })
+    //   .then((response) => response.json())
+    //   .then((json) => console.log(json));
   };
 
   const input = useRef();
   useEffect(() => {
     input.current.focus();
   }, []);
-
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
-<<<<<<< HEAD
-    
-=======
-   
->>>>>>> bcc2793b6b897f3ca3fa214856f968380b342140
       <div className="mx-auto max-w-lg">
         <form
           onSubmit={HandleSubmit}
@@ -92,6 +85,7 @@ const Login = () => {
         </form>
       </div>
     </div>
+    
   );
 };
 

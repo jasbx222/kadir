@@ -2,7 +2,6 @@ import { useEffect, useState } from "react";
 import { AlignJustify } from "lucide-react";
 import SideMenu from "../sidemenu/SideMenu";
 import "./ButtonShowMenu.css";
-
 const ButtonShowMenu = () => {
   const [show, setShow] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);

@@ -1,18 +1,19 @@
 import { Link } from "react-router-dom";
 import { SideMenuUL } from "./SideMenuData";
 import logo from "../../assets/img/kadir.jpg";
-import { useState } from "react";
+import {  useState } from "react";
 import {
   BadgePlus,
-  ChevronDown,
   ClipboardPlus,
   GitPullRequest,
   House,
+  LogOut,
   MapPin,
   Search,
   Settings,
   Shapes,
   Signpost,
+  User,
 } from "lucide-react";
 import "./SideMenu.css";
 export default function SideMenu() {
@@ -36,6 +37,7 @@ export default function SideMenu() {
         </div>
         {SideMenuUL.map((links) => (
           <nav className="mt-4">
+            {/* <div className="user text-center">   <h1>Hello {user}</h1></div> */}
             <Link
               to="/home"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
@@ -68,7 +70,7 @@ export default function SideMenu() {
               <Signpost /> {links.ads}
             </Link>
             <Link
-              to="/department"
+              to="/AddCategoryManager"
               className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
             >
               <BadgePlus /> {links.addDepartment}
@@ -80,8 +82,8 @@ export default function SideMenu() {
                 style={{ width: "250px" }}
                 className="flex  items-center   gap-2 p-3 bg-black text-white px-4 py-2 hover:bg-gray-700 transition"
               >
-                <ChevronDown size={30} />
-                المزيد
+                <Settings />
+                {links.setting}
               </button>
 
               {/* Dropdown Menu */}
@@ -90,21 +92,31 @@ export default function SideMenu() {
                   <ul className="py-2">
                     <li>
                       <Link
-                        to="/"
-                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
+                        style={{ width: "250px" }}
+                        to="/accountSettings"
+                        className="flex  items-center   gap-2 p-3 bg-black text-white px-4 py-2 hover:bg-gray-700 transition"
                       >
-                        <Settings /> {links.setting}
+                        <User /> {links.accountSettings}
                       </Link>
                     </li>
                     <li>
-                    <Link
+                      <Link
+                        style={{ width: "250px" }}
                         to="/location"
                         className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
                       >
-                       <MapPin /> {links.location}
+                        <MapPin /> {links.location}
                       </Link>
                     </li>
-                    <li></li>
+                    <li>
+                      <Link
+                        style={{ width: "250px" }}
+                        to="/location"
+                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
+                      >
+                        <LogOut /> {links.logout}
+                      </Link>
+                    </li>
                   </ul>
                 </div>
               )}
