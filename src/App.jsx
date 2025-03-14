@@ -26,10 +26,10 @@ function App() {
   return (
     <Router>
       <Context.Provider value={user}>
-        {user.name === "jassim mohamed" ? <ButtonShowMenu /> : ""}
-        <div className="flex justify-evenly
-          gap-10
+       
+        <div className="flex justify-around
           items-center">
+           {user.name === "jassim mohamed" ? <ButtonShowMenu /> : ""}
           <Routes>
             <Route path="/home" element={<HomePage />} />
             {user.name === "jassim mohamed" ? (
