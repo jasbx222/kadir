@@ -37,7 +37,10 @@ const Login = () => {
   }, []);
   return (
     <div className="mx-auto max-w-screen-xl px-4 py-16 sm:px-6 lg:px-8">
+<<<<<<< HEAD
 
+=======
+>>>>>>> 167a7a91275ee941ad3726fba5478497fdea4aa9
       <div className="mx-auto max-w-lg">
         <form
           onSubmit={HandleSubmit}
