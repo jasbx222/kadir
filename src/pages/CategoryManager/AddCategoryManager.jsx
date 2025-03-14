@@ -35,7 +35,7 @@ export default function AddCategoryManager() {
   );
 
   return (
-    <div className="p-6 max-w-4xl mx-auto w-full">
+    <div className="p-6 max-w-4xl mx-auto w-full ml-12">
       <h1 className="text-xl font-bold mb-4 text-center">إدارة الأقسام</h1>
       <button
         onClick={() => setShowForm(!showForm)}
