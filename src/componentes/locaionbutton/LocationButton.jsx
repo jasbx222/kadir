@@ -4,8 +4,6 @@ import "./LocationButton.css";
 export default function LocationButton() {
   const [loading, setLoading] = useState(false);
 
-  useEffect(() => {}, []);
-
   const handleGetLocation = () => {
     setLoading(true);
 
