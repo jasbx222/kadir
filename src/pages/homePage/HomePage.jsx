@@ -5,11 +5,7 @@ const HomePage = () => {
   return (
     <div className="home">
 
-<<<<<<< HEAD
       <div className="mx-auto max-w-screen-xl  px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
-=======
-      <div className="mx-auto max-w-screen-xl ml-14 px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
->>>>>>> 167a7a91275ee941ad3726fba5478497fdea4aa9
         <dl className="mg-6 grid grid-cols-1 gap-10   sm:mt-8 sm:grid-cols-2  lg:grid-cols-4">
           {DataHomePage.map((data) => (
             <div className="flex flex-col px-4 py-8 text-center card">
