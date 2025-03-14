@@ -4,8 +4,8 @@ import ChartComponent from "../../componentes/chart/Charts";
 const HomePage = () => {
   return (
     <div className="home">
-   
-      <div className="mx-auto max-w-screen-xl px-4 py-8 sm:px-6 ml-5 sm:py-12 lg:px-8">
+
+      <div className="mx-auto max-w-screen-xl  px-4 py-8 sm:px-6 sm:py-12 lg:px-8">
         <dl className="mg-6 grid grid-cols-1 gap-10   sm:mt-8 sm:grid-cols-2  lg:grid-cols-4">
           {DataHomePage.map((data) => (
             <div className="flex flex-col px-4 py-8 text-center card">
@@ -20,7 +20,7 @@ const HomePage = () => {
           ))}
         </dl>
       </div>
-      <div className="flex flex-col px-4 py-8 -z-30 text-center card-chart ">
+      <div className="flex flex-col ml-12 px-4 py-8 -z-30 text-center card-chart ">
         <ChartComponent />
       </div>
     </div>
