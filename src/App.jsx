@@ -26,10 +26,11 @@ function App() {
   return (
     <Router>
       <Context.Provider value={user}>
-       
-        <div className="flex justify-around
-          items-center">
-           {user.name === "jassim mohamed" ? <ButtonShowMenu /> : ""}
+        <div
+          className="flex justify-around
+          items-center"
+        >
+          {user.name === "jassim mohamed" ? <ButtonShowMenu /> : ""}
           <Routes>
             <Route path="/home" element={<HomePage />} />
             {user.name === "jassim mohamed" ? (
@@ -41,7 +42,10 @@ function App() {
             <Route path="/reports" element={<ReportPage />} />
             <Route path="/request" element={<Requests />} />
             <Route path="/ads" element={<AdsPage />} />
-            <Route path="/AddCategoryManager" element={<AddCategoryManager />} />
+            <Route
+              path="/AddCategoryManager"
+              element={<AddCategoryManager />}
+            />
             <Route path="/accountSettings" element={<AccountSettings />} />
             <Route path="/location" element={<LocationButton />} />
             <Route path="/requestid/:id" element={<RequestDetals />} />

@@ -2,7 +2,7 @@ import React from 'react'
 
 const AdsTable = ({ads}) => {
   return (
-    <div className="overflow-x-auto mt-4">
+    <div className="overflow-x-auto mt-4 ml-5">
     <table className="w-full border-collapse border border-gray-300 text-center">
       <thead>
         <tr className="bg-gray-200">

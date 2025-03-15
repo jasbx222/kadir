@@ -55,7 +55,7 @@ export default function AdsPage() {
       <h1 className="text-xl font-bold mt-5 mb-4 text-center">إدارة  الإعلان</h1>
       <button
         onClick={() => setShowForm(!showForm)}
-        className="mb-4 flex items-center gap-2 bg-purple-400 text-white px-4 py-2 rounded-lg hover:bg-purple-400 transition"
+        className="mb-4 ml-5 flex items-center gap-2 bg-purple-400 text-white px-4 py-2 rounded-lg hover:bg-purple-400 transition"
       >
         <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع " : "إضافة إعلان"}
       </button>

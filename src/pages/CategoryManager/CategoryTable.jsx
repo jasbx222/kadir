@@ -2,7 +2,7 @@ import React from 'react'
 
 const CategoryTable = ({filteredCategories,}) => {
   return (
-    <div className="overflow-x-auto">
+    <div className="overflow-x-auto ml-5">
         <table className="w-full border-collapse border border-gray-300 mt-4">
           <thead>
             <tr className="bg-gray-200">
