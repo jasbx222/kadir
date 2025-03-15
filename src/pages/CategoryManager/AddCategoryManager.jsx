@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { PlusCircle } from "lucide-react";
+import CategoryTable from "./CategoryTable";
 
 export default function AddCategoryManager() {
   const [categories, setCategories] = useState([]);
@@ -24,6 +25,12 @@ export default function AddCategoryManager() {
       setCategoryDetails("");
       setShowForm(false);
     }
+    swal({
+      title: "تم اضافة المعلومات بنجاح",
+      text: "هل تريد مغاردة الصفحة ؟",
+      icon: "success",
+      dangerMode: false,
+    });
   };
 
   const removeCategory = (index) => {
@@ -35,7 +42,7 @@ export default function AddCategoryManager() {
   );
 
   return (
-    <div className="p-6 max-w-4xl mx-auto w-full mr-12">
+    <div className=" max-w-4xl mr-5 mt-5  mx-auto w-full">
       <h1 className="text-xl font-bold mb-4 text-center">إدارة الأقسام</h1>
       <button
         onClick={() => setShowForm(!showForm)}
@@ -81,45 +88,7 @@ export default function AddCategoryManager() {
           className="border p-2 rounded w-full"
         />
       </div>
-      <div className="overflow-x-auto">
-        <table className="w-full border-collapse border border-gray-300 mt-4">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border border-gray-300 p-2">اسم القسم</th>
-              <th className="border border-gray-300 p-2">الصورة</th>
-              <th className="border border-gray-300 p-2">التفاصيل</th>
-              <th className="border border-gray-300 p-2">الإجراءات</th>
-            </tr>
-          </thead>
-          <tbody>
-            {filteredCategories.map((category, index) => (
-              <tr key={index} className="text-center border border-gray-300">
-                <td className="border border-gray-300 p-2 break-words max-w-xs">
-                  {category.name}
-                </td>
-                <td className="border border-gray-300 p-2">
-                  <img
-                    src={category.image}
-                    alt={category.name}
-                    className="w-16 h-16 mx-auto object-cover rounded-lg"
-                  />
-                </td>
-                <td className="border border-gray-300 p-2 break-words max-w-xs">
-                  {category.details}
-                </td>
-                <td className="border border-gray-300 p-2">
-                  <button
-                    onClick={() => removeCategory(index)}
-                    className="bg-red-500 text-white px-4 py-1 rounded"
-                  >
-                    حذف
-                  </button>
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+     <CategoryTable filteredCategories={filteredCategories}/>
     </div>
   );
 }

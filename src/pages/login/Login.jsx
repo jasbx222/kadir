@@ -1,34 +1,21 @@
 import React, { useEffect, useRef, useState } from "react";
 // import CryptoJS from "crypto-js";
 import "./Login.css";
-// const SECRET_KEY = "mysyhshshshshshhshshshgxgxgsgvwgfsvvs";
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-
-  // const encryptData = (data) => {
-  //   return CryptoJS.AES.encrypt(data, SECRET_KEY).toString();
-  // };
-
+  useEffect(() => {
+    HandleSubmit;
+  }, []);
   const HandleSubmit = (e) => {
     e.preventDefault();
-   
-    // const encrypetdEmail = encryptData(email);
-    // const encryptedPassword = encryptData(password);
-
-    // fetch("http://localhost:4000/create", {
-    //   method: "POST",
-    //   body: JSON.stringify({
-    //     email: encrypetdEmail,
-    //     password: encryptedPassword,
-    //   }),
-    //   headers: {
-    //     "Content-type": "application/json; charset=UTF-8",
-    //   },
-    // })
-    //   .then((response) => response.json())
-    //   .then((json) => console.log(json));
+    if (email || password === "" || null)
+      swal({
+        title: "احد الحقول فارغة يرجى تعبئتها بالمعلومات المطلوبة",
+        text: "هل تريد مغادرة الصفحة ؟",
+        icon: "warning",
+        dangerMode: true,
+      });
   };
 
   const input = useRef();
@@ -43,7 +30,7 @@ const Login = () => {
           className="mt-6 mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
         >
           <p className="text-center text-lg font-medium">
-            صفحة تسجيل دخول المستخدم
+            صفحة تسجيل دخول الادمن
           </p>
 
           <div>
@@ -80,12 +67,11 @@ const Login = () => {
             style={{ backgroundColor: "#8884d8" }}
             className="block w-full rounded-lg px-5 py-3 text-sm font-medium text-white"
           >
-            login
+            تسجيل الدخول
           </button>
         </form>
       </div>
     </div>
-    
   );
 };
 

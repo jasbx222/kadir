@@ -1,4 +1,5 @@
 import { useState } from "react";
+import swal from "sweetalert";
 import {
   Upload,
   Calendar,
@@ -7,6 +8,7 @@ import {
   ImagePlus,
   PlusCircle,
 } from "lucide-react";
+import AdsTable from "./AdsTable";
 
 export default function AdsPage() {
   const [adTitle, setAdTitle] = useState("");
@@ -40,10 +42,17 @@ export default function AdsPage() {
     setCategory("عام");
     setImage(null);
     setShowForm(false);
+    swal({
+      title: "تم اضافة المعلومات بنجاح",
+      text: "هل تريد مغاردة الصفحة ؟",
+      icon: "success",
+      dangerMode: false,
+    });
   };
 
   return (
-    <div className="max-w-5xl mt-5 mx-auto p-6 bg-white shadow-lg rounded-xl w-full">
+    <div className="max-w-4xl mr-5 mt-5  mx-auto w-full  bg-white shadow-lg rounded-xl">
+      <h1 className="text-xl font-bold mt-5 mb-4 text-center">إدارة  الإعلان</h1>
       <button
         onClick={() => setShowForm(!showForm)}
         className="mb-4 flex items-center gap-2 bg-purple-400 text-white px-4 py-2 rounded-lg hover:bg-purple-400 transition"
@@ -122,36 +131,7 @@ export default function AdsPage() {
         </form>
       )}
 
-      <div className="overflow-x-auto mt-4">
-        <table className="w-full border-collapse border border-gray-300 text-center">
-          <thead>
-            <tr className="bg-gray-200">
-              <th className="border border-gray-300 p-3">عنوان الإعلان</th>
-              <th className="border border-gray-300 p-3">التفاصيل</th>
-              <th className="border border-gray-300 p-3">التاريخ</th>
-              <th className="border border-gray-300 p-3">الصورة</th>
-            </tr>
-          </thead>
-          <tbody>
-            {ads.map((ad, index) => (
-              <tr key={index} className="border border-gray-300">
-                <td className="border border-gray-300 p-3">{ad.title}</td>
-                <td className="border border-gray-300 p-3">{ad.details}</td>
-                <td className="border border-gray-300 p-3">{ad.date}</td>
-                <td className="border border-gray-300 p-3">
-                  {ad.image && (
-                    <img
-                      src={ad.image}
-                      alt={ad.title}
-                      className="w-20 h-20 mx-auto object-cover rounded-lg"
-                    />
-                  )}
-                </td>
-              </tr>
-            ))}
-          </tbody>
-        </table>
-      </div>
+     <AdsTable ads={ads}/>
     </div>
   );
 }
