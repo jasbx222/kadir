@@ -4,10 +4,10 @@ import { FaPen, FaRegEye } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { requestData } from './requestData';
 import Pageinition from '../../componentes/pageination/Pageinition';
-
+import './Request.css'
 const Requests = () => {
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white">
+    <div className="relative request overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white" >
       <table className="w-full text-sm text-left text-gray-700 border border-gray-300 rounded-lg overflow-hidden">
         <caption className="p-5 text-lg font-semibold text-gray-900  rounded-t-lg">
           الطلبات
