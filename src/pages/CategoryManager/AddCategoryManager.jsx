@@ -27,7 +27,7 @@ export default function AddCategoryManager() {
     }
     swal({
       title: "تم اضافة المعلومات بنجاح",
-      text: "هل تريد مغاردة الصفحة ؟",
+      text: "هل تريد مغادرة الصفحة؟",
       icon: "success",
       dangerMode: false,
     });
@@ -42,16 +42,16 @@ export default function AddCategoryManager() {
   );
 
   return (
-    <div className=" max-w-4xl mr-5 mt-5  mx-auto w-full">
+    <div className="max-w-4xl mx-auto p-5 w-full">
       <h1 className="text-xl font-bold mb-4 text-center">إدارة الأقسام</h1>
       <button
         onClick={() => setShowForm(!showForm)}
-        className="mb-4 flex ml-5 items-center gap-2 bg-purple-400 text-white px-4 py-2 rounded-lg hover:bg-purple-400 transition"
+        className="mb-4 flex items-center justify-center gap-2 bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition w-full sm:w-auto"
       >
         <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع " : "إضافة قسم"}
       </button>
       {showForm && (
-        <div className="flex flex-col sm:flex-row ml-5 gap-2 mb-4">
+        <div className="flex flex-col sm:flex-row gap-2 mb-4">
           <input
             type="text"
             placeholder="اسم القسم"
@@ -73,13 +73,13 @@ export default function AddCategoryManager() {
           />
           <button
             onClick={addCategory}
-            className="bg-purple-400 ml-5 text-white px-4 py-2 rounded w-full sm:w-auto"
+            className="bg-purple-500 text-white px-4 py-2 rounded w-full sm:w-auto hover:bg-purple-600"
           >
             إضافة قسم
           </button>
         </div>
       )}
-      <div className="mb-4 ml-5">
+      <div className="mb-4">
         <input
           type="text"
           placeholder="بحث عن قسم..."
@@ -88,7 +88,7 @@ export default function AddCategoryManager() {
           className="border p-2 rounded w-full"
         />
       </div>
-     <CategoryTable filteredCategories={filteredCategories}/>
+      <CategoryTable filteredCategories={filteredCategories} />
     </div>
   );
 }

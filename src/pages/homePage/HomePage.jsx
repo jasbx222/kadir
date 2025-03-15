@@ -21,7 +21,7 @@ const HomePage = () => {
           ))}
         </dl>
       </div>
-      <div className="flex flex-col ml-12 px-4 py-8 -z-30 text-center card-chart ">
+      <div className="flex flex-col px-4 py-8 -z-30 text-center card-chart ">
         <ChartComponent />
       </div>
     </div>
