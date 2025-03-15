@@ -18,7 +18,7 @@ export const Context = createContext(null);
 
 function App() {
   const user = {
-    name: "jassm mohamed",
+    name: "jassim mohamed",
     email: "jassim-mohamed@email",
     password: "123455678",
     img: "https://th.bing.com/th/id/R.a69e7e8f62a7410d57a19b74c7a43644?rik=ZyvQN437cofFVg&pid=ImgRaw&r=0",
