@@ -27,7 +27,7 @@ function App() {
     <Router>
       <Context.Provider value={user}>
         <div
-          className="flex justify-around
+          className="flex justify-evenly
           items-center"
         >
           {user.name === "jassim mohamed" ? <ButtonShowMenu /> : ""}

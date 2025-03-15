@@ -44,9 +44,10 @@ export default function AddCategoryManager() {
   return (
     <div className="max-w-4xl mx-auto p-5 w-full">
       <h1 className="text-xl font-bold mb-4 text-center">إدارة الأقسام</h1>
+     
       <button
         onClick={() => setShowForm(!showForm)}
-        className="mb-4 flex items-center justify-center gap-2 bg-purple-500 text-white px-4 py-2 rounded-lg hover:bg-purple-600 transition w-full sm:w-auto"
+        className="mb-4 ml-5 flex items-center gap-2 bg-purple-400 text-white px-4 py-2 rounded-lg hover:bg-purple-400 transition"
       >
         <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع " : "إضافة قسم"}
       </button>
