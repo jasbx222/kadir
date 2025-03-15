@@ -79,7 +79,7 @@ export default function AddCategoryManager() {
           </button>
         </div>
       )}
-      <div className="mb-4">
+      <div className="mb-4 ml-5">
         <input
           type="text"
           placeholder="بحث عن قسم..."
