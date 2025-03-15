@@ -51,7 +51,7 @@ export default function AddCategoryManager() {
         <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع " : "إضافة قسم"}
       </button>
       {showForm && (
-        <div className="flex flex-col sm:flex-row gap-2 mb-4">
+        <div className="flex flex-col sm:flex-row ml-5 gap-2 mb-4">
           <input
             type="text"
             placeholder="اسم القسم"
@@ -73,7 +73,7 @@ export default function AddCategoryManager() {
           />
           <button
             onClick={addCategory}
-            className="bg-purple-400 text-white px-4 py-2 rounded w-full sm:w-auto"
+            className="bg-purple-400 ml-5 text-white px-4 py-2 rounded w-full sm:w-auto"
           >
             إضافة قسم
           </button>

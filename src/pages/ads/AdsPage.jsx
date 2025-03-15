@@ -51,7 +51,7 @@ export default function AdsPage() {
   };
 
   return (
-    <div className="max-w-4xl mr-5 mt-5  mx-auto w-full  bg-white shadow-lg rounded-xl">
+    <div className="max-w-4xl ml-5 mr-5 mt-5  mx-auto w-full  bg-white shadow-lg rounded-xl">
       <h1 className="text-xl font-bold mt-5 mb-4 text-center">إدارة  الإعلان</h1>
       <button
         onClick={() => setShowForm(!showForm)}
