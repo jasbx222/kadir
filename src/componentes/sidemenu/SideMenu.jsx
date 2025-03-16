@@ -1,15 +1,13 @@
 import { Link } from "react-router-dom";
 import { SideMenuUL } from "./SideMenuData";
 import logo from "../../assets/img/kadir.jpg";
-import {  useState } from "react";
+import { useState } from "react";
 import {
   BadgePlus,
   ClipboardPlus,
   GitPullRequest,
   House,
   LogOut,
-  MapPin,
-  Search,
   Settings,
   Shapes,
   Signpost,
@@ -89,7 +87,7 @@ export default function SideMenu() {
               {/* Dropdown Menu */}
               {isOpen && (
                 <div className="absolute  left-0 mt-2 w-56bg-gray-800 shadow-lg rounded-lg border border-gray-950 z-10">
-                  <ul className="py-2">
+                  <ul className="py-1">
                     <li>
                       <Link
                         style={{ width: "250px" }}
@@ -99,19 +97,11 @@ export default function SideMenu() {
                         <User /> {links.accountSettings}
                       </Link>
                     </li>
+
                     <li>
                       <Link
                         style={{ width: "250px" }}
-                        to="/location"
-                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
-                      >
-                        <MapPin /> {links.location}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link
-                        style={{ width: "250px" }}
-                        to="/location"
+                        to="/logout"
                         className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
                       >
                         <LogOut /> {links.logout}

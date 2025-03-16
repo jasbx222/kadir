@@ -4,15 +4,16 @@ import { FaPen, FaRegEye } from "react-icons/fa";
 import { Link } from 'react-router-dom';
 import { requestData } from './requestData';
 import Pageinition from '../../componentes/pageination/Pageinition';
-import './Request.css'
+import './Request.css';
+
 const Requests = () => {
   return (
-    <div className="relative overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white" style={{width:'50%'}}>
+    <div className="relative md:relative md:left-28 overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white w-full max-w-6xl mx-auto">
       <table className="w-full text-sm text-left text-gray-700 border border-gray-300 rounded-lg overflow-hidden">
-        <caption className="p-5 text-lg font-semibold text-gray-900  rounded-t-lg">
+        <caption className="p-5 text-lg font-semibold text-gray-900 rounded-t-lg">
           الطلبات
         </caption>
-        <thead className="text-xs text-gray-600 uppercase">
+        <thead className="text-xs text-gray-600 uppercase bg-gray-100">
           <tr>
             <th scope="col" className="px-4 py-3">اسم مقدم الخدمة</th>
             <th scope="col" className="px-4 py-3">تاريخ وقت العملية</th>
@@ -23,9 +24,9 @@ const Requests = () => {
         <tbody>
           {requestData.map((r) => (
             <tr key={r.id} className="bg-white border-b hover:bg-gray-100 transition">
-              <td className="px-4 py-4 font-medium text-gray-900">{r.service_provider_name}</td>
-              <td className="px-4 py-4">{r.operation_date_time}</td>
-              <td className="px-4 py-4">{r.number_of_calls}</td>
+              <td className="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">{r.service_provider_name}</td>
+              <td className="px-4 py-4 whitespace-nowrap">{r.operation_date_time}</td>
+              <td className="px-4 py-4 whitespace-nowrap">{r.number_of_calls}</td>
               <td className="px-4 py-4 flex justify-center items-center gap-4 text-lg">
                 <Link to={`/requestid/${r.id}`} className="text-blue-600 hover:text-blue-800 transition">
                   <FaPen />

@@ -1,5 +1,5 @@
 import React from 'react'
-
+import { Eye, PenLine, Trash2 } from 'lucide-react';
 const CategoryTable = ({filteredCategories,}) => {
   return (
     <div className="overflow-x-auto ml-5">
@@ -28,12 +28,24 @@ const CategoryTable = ({filteredCategories,}) => {
                 <td className="border border-gray-300 p-2 break-words max-w-xs">
                   {category.details}
                 </td>
-                <td className="border border-gray-300 p-2">
+                <td className="border  border-gray-300 p-2">
                   <button
                     onClick={() => removeCategory(index)}
-                    className="bg-red-500 text-white px-4 py-1 rounded"
+                    className="bg-red-500 text-white px-2 py-1 m-2 rounded"
                   >
-                    حذف
+      <Trash2 />
+                  </button>
+                  <button
+                   
+                    className="bg-blue-400 text-white px-2 m-2 py-1 rounded"
+                  >
+<PenLine />
+                  </button>
+                  <button
+                   
+                    className="bg-green-300 text-white px-2 m-2 py-1 rounded"
+                  >
+      <Eye />
                   </button>
                 </td>
               </tr>

@@ -7,7 +7,6 @@ export const SideMenuUL=[
         request:'صفحة الطلبات',
         ads:'صفحات الاعلانات',
         addDepartment:' اضافة اقسام',
-        location:'موقعي ',
        setting:'صفحة الاعدادات',
        accountSettings:'اعدادات الحساب ',
        logout:'تسجيل  خروج'
