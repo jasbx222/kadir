@@ -28,7 +28,7 @@ function App() {
           
     <Router>
 
-    <Header/>
+    {/* <Header/> */}
 
         <div
           className="flex justify-evenly
