@@ -110,10 +110,29 @@ export default function SideMenu() {
                   </ul>
                 </div>
               )}
+
+            
             </div>
           </nav>
         ))}
+
+{/* <div className="help" style={{
+                backgroundColor:'#fff',
+                width:'200px',
+                height:'150px',
+                margin:'10px',
+                borderRadius:'20px',
+                textAlign:'center',
+                position:'relative',
+                top:'100px',
+        
+
+              }}>
+              <span>  Lorem ipsum dolor sit amet consectetur adipisicing elit. Error, ab.</span>
+              </div> */}
       </div>
+
+
     </div>
   );
 }
