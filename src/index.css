@@ -6,3 +6,11 @@
     margin: 0px;
     padding: 0px;
 }
+
+*{
+    font-family: "Noto Naskh Arabic", serif;
+    font-optical-sizing: auto;
+    font-weight: 571;
+    font-style: normal;
+  }
+  

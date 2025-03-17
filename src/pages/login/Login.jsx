@@ -4,16 +4,26 @@ import "./Login.css";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  useEffect(() => {
-    HandleSubmit;
-  }, []);
   const HandleSubmit = (e) => {
+    fetch('http://localhost:4000/create', {
+      method: 'POST',
+      body: JSON.stringify({
+        email:email,
+        password: password
+     
+      }),
+      headers: {
+        'Content-type': 'application/json; charset=UTF-8',
+      },
+    })
+      .then((response) => response.json())
+      .then((json) => console.log(json));
     e.preventDefault();
-    if (email || password === "" || null)
+
       swal({
-        title: "احد الحقول فارغة يرجى تعبئتها بالمعلومات المطلوبة",
+        title: "تم ارسال بياناتك بنجاح",
         text: "هل تريد مغادرة الصفحة ؟",
-        icon: "warning",
+        icon: "success",
         dangerMode: true,
       });
   };

@@ -40,13 +40,14 @@ function App() {
             {user.name === "jassim mohamed" ? (
               <Route path="/" element={<HomePage />} />
             ) : (
-              <Route path="/" element={<Login />} />
+              <Route path="/login" element={<Login />} />
             )}
             <Route path="/artisans" element={<Artisans />} />
             <Route path="/line" element={<LineChartComponent />} />
             <Route path="/reports" element={<ReportPage />} />
             <Route path="/request" element={<Requests />} />
             <Route path="/ads" element={<AdsPage />} />
+            <Route path="/login" element={<Login />} />
             <Route
               path="/AddCategoryManager"
               element={<AddCategoryManager />}

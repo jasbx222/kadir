@@ -8,9 +8,7 @@ const Header = () => {
   
   return (
     <div className="flex justify-between items-center p-4 bg-white shadow-md w-full">
-      <div className="flex items-center space-x-4">
-
-      </div>
+      
       
       <div className="relative">
         <Notification />
