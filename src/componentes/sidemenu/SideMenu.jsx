@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { SideMenuUL } from "./SideMenuData";
-import logo from "../../assets/img/kadir.jpg";
+import logo from "../../assets/img/kadirs.jpg";
 import { useState } from "react";
 import {
   BadgePlus,
@@ -22,7 +22,7 @@ export default function SideMenu() {
         className={`
           fixed
          
-           z-30 top-0 left-0 h-full  bg-black text-white w-64 transform 
+           z-30 top-0 left-0 h-full  sidemenu text-white w-64 transform 
           "translate-x-0"  "-translate-x-full
          transition-transform duration-300 ease-in-out md:translate-x-0
           
@@ -78,7 +78,7 @@ export default function SideMenu() {
               <button
                 onClick={() => setIsOpen(!isOpen)}
                 style={{ width: "250px" }}
-                className="flex  items-center   gap-2 p-3 bg-black text-white px-4 py-2 hover:bg-gray-700 transition"
+                className="flex  items-center   gap-2 p-3  text-white px-4 py-2 hover:bg-gray-700 transition"
               >
                 <Settings />
                 {links.setting}
@@ -92,7 +92,7 @@ export default function SideMenu() {
                       <Link
                         style={{ width: "250px" }}
                         to="/accountSettings"
-                        className="flex  items-center   gap-2 p-3 bg-black text-white px-4 py-2 hover:bg-gray-700 transition"
+                        className="flex  items-center   gap-2 p-3  text-white px-4 py-2 hover:bg-gray-700 transition"
                       >
                         <User /> {links.accountSettings}
                       </Link>

@@ -18,7 +18,7 @@ const ChartComponent = () => {
             <Legend />
             <Bar 
               dataKey="الطلبات" 
-              fill="#8884d8" 
+              fill="#2A3890" 
               barSize={window.innerWidth < 768 ? 20 : 50} 
             />
           </BarChart>

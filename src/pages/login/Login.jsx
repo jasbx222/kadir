@@ -74,7 +74,7 @@ const Login = () => {
 
           <button
             type="submit"
-            style={{ backgroundColor: "#8884d8" }}
+            style={{ backgroundColor: "#2A3890" }}
             className="block w-full rounded-lg px-5 py-3 text-sm font-medium text-white"
           >
             تسجيل الدخول

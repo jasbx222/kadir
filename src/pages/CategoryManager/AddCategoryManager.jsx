@@ -47,9 +47,12 @@ export default function AddCategoryManager() {
      
       <button
         onClick={() => setShowForm(!showForm)}
-        className="mb-4 ml-5 flex items-center gap-2 bg-purple-400 text-white px-4 py-2 rounded-lg hover:bg-purple-400 transition"
+        style={{
+          backgroundColor:'#2A3890'
+        }}
+        className="mb-4 ml-5 flex items-center gap-2 text-white px-4 py-2 rounded-lg transition"
       >
-        <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع " : "إضافة قسم"}
+        <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع " : "إضافة "}
       </button>
       {showForm && (
         <div className="flex flex-col sm:flex-row gap-2 mb-4">
@@ -73,8 +76,11 @@ export default function AddCategoryManager() {
             className="border p-2 rounded w-full"
           />
           <button
+          style={{
+            backgroundColor:'#2A3890'
+          }}
             onClick={addCategory}
-            className="bg-purple-500 text-white px-4 py-2 rounded w-full sm:w-auto hover:bg-purple-600"
+         className=" text-white btn-cat px-4 py-2 rounded w-full sm:w-auto "
           >
             إضافة قسم
           </button>

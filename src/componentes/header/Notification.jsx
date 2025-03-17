@@ -1,6 +1,7 @@
 import { useState } from "react";
-import { BellRingIcon } from "lucide-react";
-
+import { BellRingIcon, X } from "lucide-react";
+import { NotifData } from "./NotifData";
+import { Link } from "react-router-dom";
 const Notification = () => {
   const [isOpen, setIsOpen] = useState(false);
 
@@ -17,19 +18,21 @@ const Notification = () => {
       </button>
 
       {isOpen && (
-        <div className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 z-20">
+        <div
+          dir="rtl"
+          className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 z-20"
+        >
           <h3 className="text-sm font-semibold text-gray-700 mb-2">
             الإشعارات
           </h3>
-          <ul>
-            <li className="p-2 border-b text-gray-600 hover:bg-gray-100">
-              إشعار 1{" "}
-            </li>
-            <li className="p-2 border-b text-gray-600 hover:bg-gray-100">
-              إشعار 2{" "}
-            </li>
-            <li className="p-2 text-gray-600 hover:bg-gray-100">إشعار 3 </li>
-          </ul>
+          {NotifData.map((li) => (
+            <ul>
+              <li className="p-2 border-b flex text-gray-600 hover:bg-gray-100">
+                <Link to={"/request"}>{li.title} </Link>
+                <X color="red" />
+              </li>
+            </ul>
+          ))}
         </div>
       )}
     </div>

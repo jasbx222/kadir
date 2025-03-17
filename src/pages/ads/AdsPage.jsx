@@ -55,9 +55,10 @@ export default function AdsPage() {
       <h1 className="text-xl font-bold mt-5 mb-4 text-center">إدارة  الإعلان</h1>
       <button
         onClick={() => setShowForm(!showForm)}
-        className="mb-4 ml-5 flex items-center gap-2 bg-purple-400 text-white px-4 py-2 rounded-lg hover:bg-purple-400 transition"
+        style={{backgroundColor:'#2A3890'}}
+        className="mb-4 ml-5 flex items-center rounded gap-2  text-white px-4 py-2 rounded-lgtransition"
       >
-        <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع " : "إضافة إعلان"}
+        <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع " : "إضافة "}
       </button>
 
       {showForm && (
@@ -124,7 +125,8 @@ export default function AdsPage() {
 
           <button
             type="submit"
-            className="w-full flex items-center justify-center gap-2 bg-purple-400 text-white font-medium py-3 rounded-lg hover:bg-blue-700 transition"
+            style={{backgroundColor:'#2A3890'}}
+            className="w-full flex items-center justify-center gap-2  text-white font-medium py-3 rounded-lg hover:bg-blue-700 transition"
           >
             <Upload className="w-5 h-5" /> رفع الإعلان
           </button>
