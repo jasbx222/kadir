@@ -1,48 +1,49 @@
-
+import './Artisans.css'
 export default function ArtisanForm() {
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
       <h2 className="text-xl font-bold mb-4">إضافة حساب حرفي</h2>
       <form className="space-y-4">
-        <input
-          type="text"
-          name="name"
-          placeholder="الاسم"
-          className="w-full p-2 border rounded"
-        />
+        <label htmlFor="">الاسم </label>
+        <input type="text" name="name" className="w-full addform p-2 border rounded" />
+        <label htmlFor="">صورة الحرفي</label>
         <input
           type="file"
           name="profileImage"
           accept="image/*"
-          className="w-full p-2 border rounded"
+          className="w-full addform p-2 border rounded"
         />
+        <label htmlFor="">صورة الخدمة</label>
         <input
           type="file"
           multiple
           accept="image/*"
-          className="w-full p-2 border rounded"
+          className="w-full addform p-2 border rounded"
         />
+        <label htmlFor=""> الوصف </label>
         <textarea
           name="description"
-          placeholder="وصف الخدمة"
-          className="w-full p-2 border rounded"
+          className="w-full textarea-art p-2 border rounded"
         ></textarea>
+        <label htmlFor="">السعر </label>
         <input
           type="number"
           name="price"
-          placeholder="السعر"
-          className="w-full p-2 border rounded"
+          className="w-full addform p-2 border rounded"
         />
+        <label htmlFor="">كلمة المرور </label>
+        <input type="text" className="w-full p-2 addform border rounded" />
+        <label htmlFor="">تاريخ الانشاء</label>
         <input
-          type="text"
-      
-          placeholder="كلمة المرور"
-          className="w-full p-2 border rounded"
+          type="date"
+          name="dateAdd"
+          className="w-full addform p-2 border rounded"
         />
+        <label htmlFor="">تاريخ الانتهاء</label>
         <input
           type="date"
           name="expiryDate"
-          className="w-full p-2 border rounded"
+          className="w-full  addform p-2 border rounded"
         />
         <button
           type="submit"
