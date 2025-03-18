@@ -2,7 +2,6 @@ import "./App.css";
 import HomePage from "./pages/homePage/HomePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./pages/login/Login";
-import Artisans from "./pages/artisans/Artisans";
 import Notfound from "./componentes/notFound/notFound";
 import ButtonShowMenu from "./componentes/ButtonShowMenu/ButtonShowMenu";
 import ReportPage from "./pages/reports/Reports";
@@ -14,6 +13,8 @@ import AccountSettings from "./pages/Acountsettings/AcountSettings";
 import AddCategoryManager from "./pages/CategoryManager/AddCategoryManager";
 import LineChartComponent from "./componentes/linechart/LineChart";
 import Header from "./componentes/header/Header";
+import Artisans from "./pages/artisans/Artisans";
+import ArtisanForm from "./pages/artisans/AddArtisans";
 export const Context = createContext(null);
 
 function App() {
@@ -25,10 +26,8 @@ function App() {
   };
   return (
     <Context.Provider value={user}>
-          
-    <Router>
-
-    <Header/>
+      <Router>
+        <Header />
 
         <div
           className="flex justify-evenly
@@ -48,6 +47,7 @@ function App() {
             <Route path="/request" element={<Requests />} />
             <Route path="/ads" element={<AdsPage />} />
             <Route path="/login" element={<Login />} />
+            <Route path="/add_new_artisan" element={<ArtisanForm />} />
             <Route
               path="/AddCategoryManager"
               element={<AddCategoryManager />}
@@ -57,8 +57,7 @@ function App() {
             <Route path="/*" element={<Notfound />} />
           </Routes>
         </div>
-   
-    </Router>
+      </Router>
     </Context.Provider>
   );
 }

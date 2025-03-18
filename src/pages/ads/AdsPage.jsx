@@ -52,10 +52,10 @@ export default function AdsPage() {
 
   return (
     <div className="max-w-4xl ml-5 mr-5 mt-5  mx-auto w-full  bg-white shadow-lg rounded-xl">
-      <h1 className="text-xl font-bold mt-5 mb-4 text-center">إدارة  الإعلان</h1>
+      <h1 className="text-xl font-bold mt-5 mb-4 text-center">إدارة الإعلان</h1>
       <button
         onClick={() => setShowForm(!showForm)}
-        style={{backgroundColor:'#2A3890'}}
+        style={{ backgroundColor: "#2A3890" }}
         className="mb-4 ml-5 flex items-center rounded gap-2  text-white px-4 py-2 rounded-lgtransition"
       >
         <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع " : "إضافة "}
@@ -93,7 +93,8 @@ export default function AdsPage() {
 
           <div>
             <label className="flex items-center gap-2 text-gray-700 font-medium">
-              <Calendar className="w-5 h-5 text-gray-500" /> تاريخ الإعلان
+              <Calendar className="w-5 h-5 text-gray-500" /> تاريخ انتهاء
+              الإعلان
             </label>
             <input
               type="date"
@@ -125,7 +126,7 @@ export default function AdsPage() {
 
           <button
             type="submit"
-            style={{backgroundColor:'#2A3890'}}
+            style={{ backgroundColor: "#2A3890" }}
             className="w-full flex items-center justify-center gap-2  text-white font-medium py-3 rounded-lg hover:bg-blue-700 transition"
           >
             <Upload className="w-5 h-5" /> رفع الإعلان
@@ -133,7 +134,7 @@ export default function AdsPage() {
         </form>
       )}
 
-     <AdsTable ads={ads}/>
+      <AdsTable ads={ads} />
     </div>
   );
 }

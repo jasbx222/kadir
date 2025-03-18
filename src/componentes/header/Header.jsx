@@ -11,7 +11,7 @@ const Header = () => {
       <div className="hidden md:flex">{""}</div>
 
       <div className=" relative left-80 top-24 md:top-0 md:mr-10 md:static md:left-0">
-      <Notification />
+        <Notification />
       </div>
     </div>
   );
