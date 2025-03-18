@@ -44,11 +44,11 @@ export default function AddCategoryManager() {
   return (
     <div className="max-w-4xl mx-auto p-5 w-full">
       <h1 className="text-xl font-bold mb-4 text-center">إدارة الأقسام</h1>
-     
+
       <button
         onClick={() => setShowForm(!showForm)}
         style={{
-          backgroundColor:'#2A3890'
+          backgroundColor: "#2A3890",
         }}
         className="mb-4 ml-5 flex items-center gap-2 text-white px-4 py-2 rounded-lg transition"
       >
@@ -76,11 +76,11 @@ export default function AddCategoryManager() {
             className="border p-2 rounded w-full"
           />
           <button
-          style={{
-            backgroundColor:'#2A3890'
-          }}
+            style={{
+              backgroundColor: "#2A3890",
+            }}
             onClick={addCategory}
-         className=" text-white btn-cat px-4 py-2 rounded w-full sm:w-auto "
+            className=" text-white btn-cat px-4 py-2 rounded w-full sm:w-auto "
           >
             إضافة قسم
           </button>

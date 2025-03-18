@@ -10,7 +10,6 @@ export default function AccountSettings() {
   const handlePasswordChange = () => {
     swal({
       title: "تم  تحديث الباسورد بنجاح",
-      text: "هل تريد مغاردة الصفحة ؟",
       icon: "success",
       dangerMode: false,
     });
