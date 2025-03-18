@@ -8,7 +8,12 @@ export default function AccountSettings() {
   const [newPassword, setnewPassword] = useState("");
 
   const handlePasswordChange = () => {
-    alert("Password updated successfully!");
+    swal({
+      title: "تم  تحديث الباسورد بنجاح",
+      text: "هل تريد مغاردة الصفحة ؟",
+      icon: "success",
+      dangerMode: false,
+    });
   };
 
   return (

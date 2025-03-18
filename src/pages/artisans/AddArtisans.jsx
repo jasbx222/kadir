@@ -6,6 +6,16 @@ export default function ArtisanForm() {
       <form className="space-y-4">
         <label htmlFor="">الاسم </label>
         <input type="text" name="name" className="w-full addform p-2 border rounded" />
+     
+
+  <label for="countries" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">اختار القسم</label>
+  <select id="countries" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+    <option value="US">تكنلوجيا</option>
+    <option value="CA">بناء</option>
+    <option value="FR">سباكة</option>
+    <option value="DE">نجارة</option>
+  </select>
+
         <label htmlFor="">صورة الحرفي</label>
         <input
           type="file"

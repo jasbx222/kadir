@@ -1,8 +1,8 @@
-import {  Pen, Trash2, Eye, Search } from "lucide-react";
+import {  Pen, Trash2, Eye } from "lucide-react";
 import React, { useState } from "react";
 import { CgAdd } from "react-icons/cg";
 import { Link } from "react-router-dom";
-import { artisans } from "./artisans";
+import { artisans } from "./artisan";
 
 
 const Artisans = () => {
