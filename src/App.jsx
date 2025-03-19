@@ -11,7 +11,6 @@ import AdsPage from "./pages/ads/AdsPage";
 import { createContext } from "react";
 import AccountSettings from "./pages/Acountsettings/AcountSettings";
 import AddCategoryManager from "./pages/CategoryManager/AddCategoryManager";
-import LineChartComponent from "./componentes/linechart/LineChart";
 import Header from "./componentes/header/Header";
 import Artisans from "./pages/artisans/Artisans";
 import ArtisanForm from "./pages/artisans/AddArtisans";
@@ -35,24 +34,23 @@ function App() {
         >
           {user.name === "jassim mohamed" ? <ButtonShowMenu /> : ""}
           <Routes>
-            <Route path="/home" element={<HomePage />} />
+            <Route path="/الصفحة_الرئيسية" element={<HomePage />} />
             {user.name === "jassim mohamed" ? (
               <Route path="/" element={<HomePage />} />
             ) : (
-              <Route path="/login" element={<Login />} />
+              <Route path="/تسجيل_الدخول" element={<Login />} />
             )}
-            <Route path="/artisans" element={<Artisans />} />
-            <Route path="/line" element={<LineChartComponent />} />
-            <Route path="/reports" element={<ReportPage />} />
-            <Route path="/request" element={<Requests />} />
-            <Route path="/ads" element={<AdsPage />} />
-            <Route path="/login" element={<Login />} />
-            <Route path="/add_new_artisan" element={<ArtisanForm />} />
+            <Route path="/الحرفين" element={<Artisans />} />
+            <Route path="/التقارير" element={<ReportPage />} />
+            <Route path="/الطلبات" element={<Requests />} />
+            <Route path="/الاعلانات" element={<AdsPage />} />
+            <Route path="/تسجيل_الدخول" element={<Login />} />
+            <Route path="/اضافة_حرفي" element={<ArtisanForm />} />
             <Route
-              path="/AddCategoryManager"
+              path="/اضافة_قسم"
               element={<AddCategoryManager />}
             />
-            <Route path="/accountSettings" element={<AccountSettings />} />
+            <Route path="/الاعدادات" element={<AccountSettings />} />
             <Route path="/requestid/:id" element={<RequestDetals />} />
             <Route path="/*" element={<Notfound />} />
           </Routes>

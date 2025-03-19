@@ -37,38 +37,38 @@ export default function SideMenu() {
           <nav className="mt-4">
             {/* <div className="user text-center">   <h1>Hello {user}</h1></div> */}
             <Link
-              to="/home"
+              to="/الصفحة_الرئيسية"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <House /> {links.homePage}
             </Link>
             <Link
-              to="/artisans"
+              to="/الحرفين"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <Shapes /> {links.artisans}
             </Link>
 
             <Link
-              to="/request"
+              to="/الطلبات"
               className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
             >
               <GitPullRequest /> {links.request}
             </Link>
             <Link
-              to="/reports"
+              to="/التقارير"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <ClipboardPlus /> {links.reports}
             </Link>
             <Link
-              to="/ads"
+              to="/الاعلانات"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <Signpost /> {links.ads}
             </Link>
             <Link
-              to="/AddCategoryManager"
+              to="/اضافة_قسم"
               className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
             >
               <BadgePlus /> {links.addDepartment}
@@ -91,7 +91,7 @@ export default function SideMenu() {
                     <li>
                       <Link
                         style={{ width: "250px" }}
-                        to="/accountSettings"
+                        to="/الاعدادات"
                         className="flex  items-center   gap-2 p-3  text-white px-4 py-2 hover:bg-gray-700 transition"
                       >
                         <User /> {links.accountSettings}
@@ -101,7 +101,7 @@ export default function SideMenu() {
                     <li>
                       <Link
                         style={{ width: "250px" }}
-                        to="/login"
+                        to="/تسجيل_الدخول"
                         className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
                       >
                         <LogOut /> {links.logout}

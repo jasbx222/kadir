@@ -9,7 +9,7 @@ const AdsTable = ({ ads }) => {
           <tr className="bg-gray-200">
             <th className="border border-gray-300 p-3">عنوان الإعلان</th>
             <th className="border border-gray-300 p-3">التفاصيل</th>
-            <th className="border border-gray-300 p-3">التاريخ</th>
+            <th className="border border-gray-300 p-3">تاريخ انتهاء الاعلان</th>
             <th className="border border-gray-300 p-3">الصورة</th>
             <th className="border border-gray-300 p-3">الاجرائات</th>
           </tr>

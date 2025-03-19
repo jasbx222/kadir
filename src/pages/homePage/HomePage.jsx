@@ -1,7 +1,6 @@
 import { DataHomePage } from "./homepageData";
 import "./HomePage.css";
 import ChartComponent from "../../componentes/chart/Charts";
-// import Profile from "../../componentes/profile/Profile";
 const HomePage = () => {
   return (
     <div className="home">
@@ -23,6 +22,8 @@ const HomePage = () => {
       </div>
       <div className="flex flex-col px-4 py-8 -z-30 text-center card-chart ">
         <ChartComponent />
+
+   
       </div>
     </div>
   );

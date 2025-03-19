@@ -17,10 +17,10 @@ export default function AccountSettings() {
 
   return (
     <div className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-2xl">
-      <h2 className="text-2xl font-bold mb-5">إعدادات الحساب</h2>
+      <h2 className="text-2xl font-bold mb-5 text-center">إعدادات الحساب</h2>
       <div className="space-y-4">
         <div>
-          <div className="img">
+          <div className="img flex justify-center">
             <img
               src={user.img}
               style={{

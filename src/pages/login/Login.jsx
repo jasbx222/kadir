@@ -24,7 +24,7 @@ const Login = () => {
         title: "تم ارسال بياناتك بنجاح",
         text: "هل تريد مغادرة الصفحة ؟",
         icon: "success",
-        dangerMode: true,
+        dangerMode: false,
       });
   };
 
