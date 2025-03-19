@@ -18,7 +18,7 @@ export const Context = createContext(null);
 
 function App() {
   const user = {
-    name: "jassim mohamed",
+    name: "jsassim mohamed",
     email: "jassim-mohamed@email",
     password: "123455678",
     img: "https://th.bing.com/th/id/R.a69e7e8f62a7410d57a19b74c7a43644?rik=ZyvQN437cofFVg&pid=ImgRaw&r=0",
@@ -32,14 +32,12 @@ function App() {
           className="flex justify-evenly
           items-center"
         >
-          {user.name === "jassim mohamed" ? <ButtonShowMenu /> : ""}
+          <ButtonShowMenu />
           <Routes>
-            <Route path="/homePage" element={<HomePage />} />
-            {user.name === "jassim mohamed" ? (
-              <Route path="/" element={<HomePage />} />
-            ) : (
-              <Route path="/login" element={<Login />} />
-            )}
+            <Route path="/" element={<HomePage />} />
+
+            <Route path="/login" element={<Login />} />
+
             <Route path="/artisans" element={<Artisans />} />
             <Route path="/reports" element={<ReportPage />} />
             <Route path="/request" element={<Requests />} />

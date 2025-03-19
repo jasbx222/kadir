@@ -37,7 +37,7 @@ export default function SideMenu() {
           <nav className="mt-4">
             {/* <div className="user text-center">   <h1>Hello {user}</h1></div> */}
             <Link
-              to="/homePage"
+              to="/"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <House /> {links.homePage}
