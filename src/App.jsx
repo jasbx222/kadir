@@ -34,23 +34,23 @@ function App() {
         >
           {user.name === "jassim mohamed" ? <ButtonShowMenu /> : ""}
           <Routes>
-            <Route path="/الصفحة_الرئيسية" element={<HomePage />} />
+            <Route path="/homePage" element={<HomePage />} />
             {user.name === "jassim mohamed" ? (
               <Route path="/" element={<HomePage />} />
             ) : (
-              <Route path="/تسجيل_الدخول" element={<Login />} />
+              <Route path="/login" element={<Login />} />
             )}
-            <Route path="/الحرفين" element={<Artisans />} />
-            <Route path="/التقارير" element={<ReportPage />} />
-            <Route path="/الطلبات" element={<Requests />} />
-            <Route path="/الاعلانات" element={<AdsPage />} />
-            <Route path="/تسجيل_الدخول" element={<Login />} />
-            <Route path="/اضافة_حرفي" element={<ArtisanForm />} />
+            <Route path="/artisans" element={<Artisans />} />
+            <Route path="/reports" element={<ReportPage />} />
+            <Route path="/request" element={<Requests />} />
+            <Route path="/ads" element={<AdsPage />} />
+            <Route path="/login" element={<Login />} />
+            <Route path="/add_new_artisan" element={<ArtisanForm />} />
             <Route
-              path="/اضافة_قسم"
+              path="/AddCategoryManager"
               element={<AddCategoryManager />}
             />
-            <Route path="/الاعدادات" element={<AccountSettings />} />
+            <Route path="/accountSettings" element={<AccountSettings />} />
             <Route path="/requestid/:id" element={<RequestDetals />} />
             <Route path="/*" element={<Notfound />} />
           </Routes>

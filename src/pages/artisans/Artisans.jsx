@@ -25,7 +25,7 @@ const Artisans = () => {
           className="border p-2 rounded-md w-1/3"
         />
       </div>
-      <div style={{width:'30px'}}><Link className=" relative bottom-10"  to={'/add_new_artisan'}><CgAdd size={30} color="#2A3890"/></Link></div>
+      <div style={{width:'30px'}}><Link className=" relative bottom-10"  to={'/اضافة_حرفي'}><CgAdd size={30} color="#2A3890"/></Link></div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredArtisan.map((artisan, index) => (
           <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden">
