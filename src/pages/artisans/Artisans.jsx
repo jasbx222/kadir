@@ -14,7 +14,7 @@ const Artisans = () => {
   );
 
   return (
-    <div className="container mx-auto md:relative md:left-40 p-4">
+    <div className="container artisan mx-auto md:relative md:left-40 p-4">
       <div className="flex justify-center items-center mb-4">
    
         <input 
