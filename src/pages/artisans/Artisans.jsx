@@ -25,7 +25,7 @@ const Artisans = () => {
           className="border p-2 rounded-md w-1/3"
         />
       </div>
-      <div style={{width:'30px'}}><Link className=" relative bottom-10"  to={'/اضافة_حرفي'}><CgAdd size={30} color="#2A3890"/></Link></div>
+      <div style={{width:'30px'}}><Link className=" relative bottom-10"  to={'/add_new_artisan'}><CgAdd size={30} color="#2A3890"/></Link></div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
         {filteredArtisan.map((artisan, index) => (
           <div key={index} className="bg-white rounded-2xl shadow-lg overflow-hidden">
@@ -34,8 +34,8 @@ const Artisans = () => {
               <img src={artisan.image} alt={artisan.name} className="w-16 h-16 rounded-full mx-auto border-2 border-white -mt-10" />
               <h3 className="text-lg font-bold mt-2">{artisan.name}</h3>
               <p className="text-gray-500">{artisan.specialty}</p>
-              <p className="text-sm text-gray-400">تاريخ الانشاء: 2025/2/3</p>
-              <p className="text-sm text-gray-400">تاريخ الانتهاء: 2025/2/3</p>
+              <p className="text-sm text-gray-400">تاريخ الانشاء: {artisan.startDate}</p>
+              <p className="text-sm text-gray-400">تاريخ الانتهاء: {artisan.endDate}</p>
               <p className="text-sm text-gray-400 flex justify-around mt-2">
                 <span><Trash2 color="red" /></span>
                 <span><Pen color="green" /></span>
