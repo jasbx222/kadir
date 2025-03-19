@@ -90,7 +90,6 @@ export default function AddCategoryManager() {
         <input
           type="text"
           placeholder="بحث عن قسم..."
-          
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
           className="border p-2 rounded w-full w-100 text-center "

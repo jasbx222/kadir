@@ -1,10 +1,10 @@
-import React from 'react';
+import React from "react";
 import { MdDelete } from "react-icons/md";
 import { FaPen, FaRegEye } from "react-icons/fa";
-import { Link } from 'react-router-dom';
-import { requestData } from './requestData';
-import Pageinition from '../../componentes/pageination/Pageinition';
-import './Request.css';
+import { Link } from "react-router-dom";
+import { requestData } from "./requestData";
+import Pageinition from "../../componentes/pageination/Pageinition";
+import "./Request.css";
 
 const Requests = () => {
   return (
@@ -15,26 +15,52 @@ const Requests = () => {
         </caption>
         <thead className="text-xs text-gray-600 uppercase bg-gray-100">
           <tr>
-            <th scope="col" className="px-4 py-3">اسم مقدم الخدمة</th>
-            <th scope="col" className="px-4 py-3">تاريخ وقت العملية</th>
-            <th scope="col" className="px-4 py-3">عدد مرات الاتصال</th>
-            <th scope="col" className="px-4 py-3 text-center">الإجراءات</th>
+            <th scope="col" className="px-4 py-3">
+              اسم مقدم الخدمة
+            </th>
+            <th scope="col" className="px-4 py-3">
+              تاريخ وقت العملية
+            </th>
+            <th scope="col" className="px-4 py-3">
+              عدد مرات الاتصال
+            </th>
+            <th scope="col" className="px-4 py-3 text-center">
+              الإجراءات
+            </th>
           </tr>
         </thead>
         <tbody>
           {requestData.map((r) => (
-            <tr key={r.id} className="bg-white border-b hover:bg-gray-100 transition">
-              <td className="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">{r.service_provider_name}</td>
-              <td className="px-4 py-4 whitespace-nowrap">{r.operation_date_time}</td>
-              <td className="px-4 py-4 whitespace-nowrap">{r.number_of_calls}</td>
+            <tr
+              key={r.id}
+              className="bg-white border-b hover:bg-gray-100 transition"
+            >
+              <td className="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">
+                {r.service_provider_name}
+              </td>
+              <td className="px-4 py-4 whitespace-nowrap">
+                {r.operation_date_time}
+              </td>
+              <td className="px-4 py-4 whitespace-nowrap">
+                {r.number_of_calls}
+              </td>
               <td className="px-4 py-4 flex justify-center items-center gap-4 text-lg">
-                <Link to={`/requestid/${r.id}`} className="text-blue-600 hover:text-blue-800 transition">
+                <Link
+                  to={`/requestid/${r.id}`}
+                  className="text-blue-600 hover:text-blue-800 transition"
+                >
                   <FaPen />
                 </Link>
-                <Link to="#" className="text-green-500 hover:text-green-700 transition">
+                <Link
+                  to="#"
+                  className="text-green-500 hover:text-green-700 transition"
+                >
                   <FaRegEye />
                 </Link>
-                <Link to="#" className="text-red-500 hover:text-red-700 transition">
+                <Link
+                  to="#"
+                  className="text-red-500 hover:text-red-700 transition"
+                >
                   <MdDelete />
                 </Link>
               </td>

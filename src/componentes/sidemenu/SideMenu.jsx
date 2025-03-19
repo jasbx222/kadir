@@ -111,16 +111,10 @@ export default function SideMenu() {
                   </ul>
                 </div>
               )}
-
-            
             </div>
           </nav>
         ))}
-
-
       </div>
-
-
     </div>
   );
 }
