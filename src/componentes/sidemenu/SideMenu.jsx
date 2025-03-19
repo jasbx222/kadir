@@ -21,6 +21,7 @@ export default function SideMenu() {
       <div
         className={`
           fixed
+          overflow-auto 
          
            z-30 top-0 left-0 h-full  sidemenu text-white w-64 transform 
           "translate-x-0"  "-translate-x-full

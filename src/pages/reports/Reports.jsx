@@ -1,7 +1,9 @@
 import React, { useState } from "react";
 import * as XLSX from "xlsx";
-import { FaFileExcel } from "react-icons/fa";
 import { reportsData } from "./reportsData";
+import ReportsTable from "./ReportsTable";
+import ReportsFunctions from "./ReportsFunctions";
+
 const ReportPage = () => {
   const [orders] = useState(reportsData);
 
@@ -37,22 +39,19 @@ const ReportPage = () => {
   };
 
   return (
-    <div className="p-8  min-h-screen flex flex-col items-center justify-center">
-      <h1 className="text-3xl font-extrabold mb-6 text-red-500">📊 صفحة التقارير</h1>
-      <div className="flex space-x-6">
-        <button
-          onClick={exportOrdersByArtisan}
-          className="flex items-center bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-lg"
-        >
-          <FaFileExcel className="mr-2 text-2xl" /> تصدير تقرير الطلبات حسب الحرفي
-        </button>
-        <button
-          onClick={exportOrdersByDepartment}
-          className="flex items-center bg-green-600 text-white px-6 py-3 rounded-lg hover:bg-green-700 transition duration-300 shadow-lg"
-        >
-          <FaFileExcel className="mr-2 text-2xl" /> تصدير تقرير إجمالي الطلبات حسب القسم
-        </button>
-      </div>
+
+    <div
+      className="
+      container
+      md:relative
+    md:left-20
+      "
+      style={{
+        width: "80%",
+      }}
+    >
+    <ReportsFunctions exportOrdersByArtisan={exportOrdersByArtisan} exportOrdersByDepartment={exportOrdersByDepartment} orders={orders}/>
+
     </div>
   );
 };

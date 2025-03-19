@@ -42,7 +42,7 @@ export default function AddCategoryManager() {
   );
 
   return (
-    <div className="max-w-4xl mx-auto p-5 w-full">
+    <div className="max-w-4xl mx-auto p-5 md:relative md:left-24 w-full">
       <h1 className="text-xl font-bold mb-4 text-center">إدارة الأقسام</h1>
 
       <button
@@ -86,13 +86,17 @@ export default function AddCategoryManager() {
           </button>
         </div>
       )}
-      <div className="mb-4">
+      <div className="mb-4 justify-center items-center flex w-50">
         <input
           type="text"
           placeholder="بحث عن قسم..."
+          
           value={filter}
           onChange={(e) => setFilter(e.target.value)}
-          className="border p-2 rounded w-full"
+          className="border p-2 rounded w-full w-100 text-center "
+          style={{
+            width: "50%",
+          }}
         />
       </div>
       <CategoryTable filteredCategories={filteredCategories} />

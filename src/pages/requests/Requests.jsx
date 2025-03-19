@@ -8,7 +8,7 @@ import './Request.css';
 
 const Requests = () => {
   return (
-    <div className="relative md:relative md:left-28 overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white w-full max-w-6xl mx-auto">
+    <div className=" request relative md:left-28 overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white w-full max-w-6xl mx-auto">
       <table className="w-full text-sm text-left text-gray-700 border border-gray-300 rounded-lg overflow-hidden">
         <caption className="p-5 text-lg font-semibold text-gray-900 rounded-t-lg">
           الطلبات

@@ -2,7 +2,7 @@ import React from 'react'
 import { Eye, PenLine, Trash2 } from 'lucide-react';
 const CategoryTable = ({filteredCategories,}) => {
   return (
-    <div className="overflow-x-auto ml-5">
+    <div className="overflow-x-auto md:relative md:left-24 ml-4">
         <table className="w-full border-collapse border border-gray-300 mt-4">
           <thead>
             <tr className="bg-gray-200">

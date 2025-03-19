@@ -21,6 +21,9 @@ const Artisans = () => {
           type="text" 
           placeholder="ابحث عن الحرفي..." 
           value={search} 
+          style={{
+            width: "50%",
+          }}
           onChange={(e) => setSearch(e.target.value)} 
           className="border p-2 rounded-md w-1/3"
         />
