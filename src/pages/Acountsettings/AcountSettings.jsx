@@ -1,12 +1,11 @@
-import { useContext, useState } from "react";
-import { Context } from "../../App";
+import { useState } from "react";
+import { useAuth } from "../../componentes/context/UseContext";
 export default function AccountSettings() {
-  const user = useContext(Context);
+  const { user } = useAuth();
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState("");
   const [newPassword, setnewPassword] = useState("");
-
   const handlePasswordChange = () => {
     swal({
       title: "تم  تحديث الباسورد بنجاح",
@@ -20,16 +19,6 @@ export default function AccountSettings() {
       <h2 className="text-2xl font-bold mb-5 text-center">إعدادات الحساب</h2>
       <div className="space-y-4">
         <div>
-          <div className="img flex justify-center">
-            <img
-              src={user.img}
-              style={{
-                width: "200px",
-                height: "200px",
-              }}
-              alt=""
-            />
-          </div>
           <label className="block text-gray-700">الاسم</label>
           <input
             type="text"
@@ -51,7 +40,7 @@ export default function AccountSettings() {
           <label className="block text-gray-700">كلمة المرور </label>
           <input
             type="password"
-            value={user.password}
+            value={user.zipcode}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full mt-1 p-2 border rounded-lg"
           />

@@ -56,12 +56,7 @@ export default function SideMenu() {
             >
               <GitPullRequest /> {links.request}
             </Link>
-            <Link
-              to="/reports"
-              className="flex items-center gap-2 p-3 hover:bg-gray-700"
-            >
-              <ClipboardPlus /> {links.reports}
-            </Link>
+        
             <Link
               to="/ads"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
@@ -69,10 +64,10 @@ export default function SideMenu() {
               <Signpost /> {links.ads}
             </Link>
             <Link
-              to="/AddCategoryManager"
-              className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
+              to="/reports"
+              className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
-              <BadgePlus /> {links.addDepartment}
+              <ClipboardPlus /> {links.reports}
             </Link>
             <div className="relative inline-block">
               {/* Button to open dropdown */}
@@ -98,7 +93,14 @@ export default function SideMenu() {
                         <User /> {links.accountSettings}
                       </Link>
                     </li>
-
+                    <li>
+                    <Link
+              to="/AddCategoryManager"
+              className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
+            >
+              <BadgePlus /> {links.addDepartment}
+            </Link>
+                    </li>
                     <li>
                       <Link
                         style={{ width: "250px" }}
@@ -108,6 +110,7 @@ export default function SideMenu() {
                         <LogOut /> {links.logout}
                       </Link>
                     </li>
+                  
                   </ul>
                 </div>
               )}

@@ -8,23 +8,16 @@ import ReportPage from "./pages/reports/Reports";
 import Requests from "./pages/requests/Requests";
 import RequestDetals from "./pages/requests/RequestDetals";
 import AdsPage from "./pages/ads/AdsPage";
-import { createContext } from "react";
 import AccountSettings from "./pages/Acountsettings/AcountSettings";
 import AddCategoryManager from "./pages/CategoryManager/AddCategoryManager";
 import Header from "./componentes/header/Header";
 import Artisans from "./pages/artisans/Artisans";
 import ArtisanForm from "./pages/artisans/AddArtisans";
-export const Context = createContext(null);
-
+import UseContext from "./componentes/context/UseContext";
 function App() {
-  const user = {
-    name: "jsassim mohamed",
-    email: "jassim-mohamed@email",
-    password: "123455678",
-    img: "https://th.bing.com/th/id/R.a69e7e8f62a7410d57a19b74c7a43644?rik=ZyvQN437cofFVg&pid=ImgRaw&r=0",
-  };
+
   return (
-    <Context.Provider value={user}>
+ <UseContext>
       <Router>
         <Header />
 
@@ -54,7 +47,8 @@ function App() {
           </Routes>
         </div>
       </Router>
-    </Context.Provider>
+    </UseContext>
+   
   );
 }
 
