@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { useAuth } from "../../componentes/context/UseContext";
+// import { useAuth } from "../../componentes/context/UseContext";
 export default function AccountSettings() {
-  const { user } = useAuth();
+  // const { user } = useAuth();
   const [name, setName] = useState();
   const [email, setEmail] = useState();
   const [password, setPassword] = useState("");
@@ -22,7 +22,7 @@ export default function AccountSettings() {
           <label className="block text-gray-700">الاسم</label>
           <input
             type="text"
-            value={user.name}
+            // value={user.name}
             onChange={(e) => setName(e.target.value)}
             className="w-full mt-1 p-2 border rounded-lg"
           />
@@ -31,7 +31,7 @@ export default function AccountSettings() {
           <label className="block text-gray-700">البريد الإلكتروني</label>
           <input
             type="email"
-            value={user.email}
+            // value={user.email}
             onChange={(e) => setEmail(e.target.value)}
             className="w-full mt-1 p-2 border rounded-lg"
           />
@@ -40,7 +40,7 @@ export default function AccountSettings() {
           <label className="block text-gray-700">كلمة المرور </label>
           <input
             type="password"
-            value={user.zipcode}
+            // value={user.zipcode}
             onChange={(e) => setPassword(e.target.value)}
             className="w-full mt-1 p-2 border rounded-lg"
           />

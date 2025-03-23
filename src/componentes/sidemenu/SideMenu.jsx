@@ -34,8 +34,8 @@ export default function SideMenu() {
             <img className="logo" src={logo} alt="" />
           </h2>
         </div>
-        {SideMenuUL.map((links) => (
-          <nav className="mt-4">
+        {SideMenuUL.map((links,index) => (
+          <nav key={index} className="mt-4">
             {/* <div className="user text-center">   <h1>Hello {user}</h1></div> */}
             <Link
               to="/"

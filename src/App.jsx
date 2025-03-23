@@ -14,6 +14,7 @@ import Header from "./componentes/header/Header";
 import Artisans from "./pages/artisans/Artisans";
 import ArtisanForm from "./pages/artisans/AddArtisans";
 import UseContext from "./componentes/context/UseContext";
+import Delete from "./pages/CategoryManager/method/Delete";
 function App() {
 
   return (
@@ -43,6 +44,8 @@ function App() {
             />
             <Route path="/accountSettings" element={<AccountSettings />} />
             <Route path="/requestid/:id" element={<RequestDetals />} />
+            <Route path="/delete/:id" element={<Delete />} />
+
             <Route path="/*" element={<Notfound />} />
           </Routes>
         </div>
