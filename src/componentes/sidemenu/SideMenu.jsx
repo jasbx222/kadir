@@ -104,7 +104,7 @@ export default function SideMenu() {
                     <li>
                       <Link
                         style={{ width: "250px" }}
-                        to="/login"
+                        to="/logout"
                         className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
                       >
                         <LogOut /> {links.logout}

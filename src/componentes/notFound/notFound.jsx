@@ -1,5 +1,4 @@
-import React from "react";
-import { useRoutes } from "react-router-dom";
+
 import swal from "sweetalert";
 const Notfound = () => {
   swal({

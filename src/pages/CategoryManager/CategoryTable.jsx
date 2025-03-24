@@ -3,10 +3,10 @@ import { Eye, PenLine, Trash2 } from "lucide-react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 import DeleteButton from "./method/Delete";
+import UpdateButton from "./method/Update";
 
 const CategoryTable = () => {
   const [categories, setCategories] = useState([]);
-
   useEffect(() => {
     fetchData();
   }, []);
@@ -20,8 +20,7 @@ const CategoryTable = () => {
         return;
       }
 
-      const res = await axios.get(
-        "https://back.kadrapp.com/admin/v1/category",
+      const res = await axios.get("https://back.kadrapp.com/admin/v1/category",
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -43,6 +42,11 @@ const CategoryTable = () => {
   const handleDelete = (deletedId) => {
     setCategories(categories.filter((cat) => cat.id !== deletedId));
   };
+  // const handleUpdate = (updatedId, updatedName, updatedImage) => {
+  //   setCategories(categories.map(cat =>
+  //     cat.id === updatedId ? { ...cat, name: updatedName, image: updatedImage } : cat
+  //   ));
+  // };
 
   return (
     <div className="overflow-x-auto md:relative md:left-24 ml-4">
@@ -69,11 +73,10 @@ const CategoryTable = () => {
               </td>
               <td className="border border-gray-300 p-2">
                 <DeleteButton id={cat.id} onDeleteSuccess={handleDelete} />
-                <Link to={`/edit/${cat.id}`}>
-                  <button className="bg-blue-400 text-white px-2 m-2 py-1 rounded">
-                    <PenLine />
-                  </button>
-                </Link>
+                
+             
+          {/* <UpdateButton id={cat.id } name={cat.name} image={cat.image} onUpSuccess={handleUpdate}/>
+               */}
                 <Link to={`/view/${cat.id}`}>
                   <button className="bg-green-300 text-white px-2 m-2 py-1 rounded">
                     <Eye />

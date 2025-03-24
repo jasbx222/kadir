@@ -12,16 +12,14 @@ export default function AddCategoryManager() {
     e.preventDefault();
     const url = "https://back.kadrapp.com";
     
-    // جلب التوكن من التخزين المحلي
+
     const token = localStorage.getItem("token");
 
-    // التحقق من وجود التوكن
     if (!token) {
       console.error("No token found. Please log in.");
       return;
     }
 
-    // تجهيز البيانات باستخدام FormData
     const formData = new FormData();
     formData.append("name", categoryName);
     formData.append("image", categoryImage);
@@ -30,9 +28,9 @@ export default function AddCategoryManager() {
       const response = await fetch(`${url}/admin/v1/category`, {
         method: "POST",
         headers: {
-          Authorization: `Bearer ${token}`, // إرسال التوكن مع الطلب
+          Authorization: `Bearer ${token}`,
         },
-        body: formData, // إرسال البيانات كـ FormData
+        body: formData,
       });
 if(response.ok){
   swal({
@@ -40,13 +38,14 @@ if(response.ok){
     icon: "success",
     dangerMode: false,
   });
-  navigate('/')
+setInterval(() => {
+   window.location.href='/AddCategoryManager'
+}, 1000);
 }else if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
 
-      const data = await response.json();
-    
+  
     } catch (error) {
       console.error("Error adding category:", error.message);
     }

@@ -1,10 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Login.css";
-import { useNavigate } from "react-router-dom";
 import Form from "./Form";
 
 const Login = () => {
-  const navigate = useNavigate();
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = async (e) => {
@@ -31,13 +29,11 @@ const Login = () => {
       console.log("Response Data:", data);
 
       if (data.token) {
-        // حفظ التوكن في localStorage
         localStorage.setItem("token", data.token);
-        console.log("تم تسجيل الدخول بنجاح، التوكن:", data.token);
-
       } else {
         console.error("لم يتم استلام توكن من السيرفر.");
       }
+    window.location.href='/'
     } catch (error) {
       console.error("خطأ أثناء تسجيل الدخول:", error.message);
     }

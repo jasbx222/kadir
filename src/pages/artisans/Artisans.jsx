@@ -1,16 +1,45 @@
 import { Pen, Trash2, Eye } from "lucide-react";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { CgAdd } from "react-icons/cg";
 import { Link } from "react-router-dom";
-import { artisans } from "./artisan";
+import GetBuyId_ from "./method/GetBuyId_";
+import axios from "axios";
 
 const Artisans = () => {
-  const [selected, setSelected] = useState(null);
+  const [show, setShow] = useState(null);
   const [search, setSearch] = useState("");
+  const [data, setData] = useState([]);
+  useEffect(() => {
+    fetchData();
+  }, []);
 
-  const filteredArtisan = artisans.filter(
+  const fetchData = async () => {
+    try {
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        console.error("No token found");
+        return;
+      }
+
+      const res = await axios.get(
+        "https://back.kadrapp.com/admin/v1/professional",
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+            "Content-Type": "application/json",
+          },
+        }
+      );
+  setData(res.data.data);
+    
+    } catch (error) {
+      console.error("Error fetching categories:", error);
+    }
+  };
+  const filterData = data.filter(
     (artisan) =>
-      artisan.name.includes(search) || artisan.specialty.includes(search)
+      artisan.name.includes(search) || artisan.service_name.includes(search)
   );
 
   return (
@@ -33,13 +62,13 @@ const Artisans = () => {
         </Link>
       </div>
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        {filteredArtisan.map((artisan, index) => (
+        {filterData.map((artisan, index) => (
           <div
             key={index}
             className="bg-white rounded-2xl shadow-lg overflow-hidden"
           >
             <img
-              src={artisan.background}
+              src={artisan.cover_image}
               alt="background"
               className="w-full h-40 object-cover"
             />
@@ -49,13 +78,13 @@ const Artisans = () => {
                 alt={artisan.name}
                 className="w-16 h-16 rounded-full mx-auto border-2 border-white -mt-10"
               />
-              <h3 className="text-lg font-bold mt-2">{artisan.name}</h3>
-              <p className="text-gray-500">{artisan.specialty}</p>
+
+              <h3 className="text-lg font-bold mt-2">{artisan.name}:الاسم</h3>
+              <p className="text-gray-500">{artisan.service_name}:القسم</p>
+              
               <p className="text-sm text-gray-400">
-                تاريخ الانشاء: {artisan.startDate}
-              </p>
-              <p className="text-sm text-gray-400">
-                تاريخ الانتهاء: {artisan.endDate}
+                عدد الاتصالات
+<span className="text-red-500">  {artisan.connection_count }</span>
               </p>
               <p className="text-sm text-gray-400 flex justify-around mt-2">
                 <span>
@@ -65,7 +94,7 @@ const Artisans = () => {
                   <Pen color="green" />
                 </span>
                 <span
-                  onClick={() => setSelected(artisan)}
+                  onClick={() => setShow(artisan)}
                   className="cursor-pointer"
                 >
                   <Eye color="blue" />
@@ -76,28 +105,7 @@ const Artisans = () => {
         ))}
       </div>
 
-      {selected && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm w-full">
-            <h2 className="text-lg font-bold">تفاصيل الحرفي</h2>
-            <img
-              src={selected.image}
-              alt={selected.name}
-              className="w-24 h-24 rounded-full mx-auto border-2 border-gray-300 mt-4"
-            />
-            <h3 className="text-lg font-bold mt-2">{selected.name}</h3>
-            <p className="text-gray-500">{selected.specialty}</p>
-            <p className="text-sm text-gray-400">تاريخ الانشاء: 2025/2/3</p>
-            <p className="text-sm text-gray-400">تاريخ الانتهاء: 2025/2/3</p>
-            <button
-              onClick={() => setSelected(null)}
-              className="mt-4 px-4 py-2 bg-red-500 text-white rounded"
-            >
-              إغلاق
-            </button>
-          </div>
-        </div>
-      )}
+      {/* <GetBuyId_ setShow={setShow}/> */}
     </div>
   );
 };

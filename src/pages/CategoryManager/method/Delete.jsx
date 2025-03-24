@@ -4,17 +4,10 @@ import React from 'react';
 
 const DeleteButton = ({ id, onDeleteSuccess }) => {
     const deleteCat = async () => {
-        if (!window.confirm('Are you sure you want to delete this item?')) return;
+        if (!window.confirm('هل انت متاكد من حذف هذا القسم ؟')) return;
 
         const token = localStorage.getItem('token');
-        if (!token) {
-            swal({
-                title:"لا تملك صلاحية الحذف",
-                icon: "error",
-                dangerMode: true,
-              });
-            return;
-        }
+   
 
         try {
             await axios.delete(`https://back.kadrapp.com/admin/v1/category/${id}`, {
@@ -33,7 +26,7 @@ const DeleteButton = ({ id, onDeleteSuccess }) => {
             }
         } catch (error) {
             console.error('Error deleting item:', error.response?.data || error.message);
-            alert('Failed to delete item. Please try again.');
+            alert('فشل الحذف !');
         }
     };
 
