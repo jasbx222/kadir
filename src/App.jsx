@@ -17,7 +17,7 @@ import UpdateButton from "./pages/CategoryManager/method/Update";
 import Logout from "./pages/logout/Logout";
 import ContextApi from "./componentes/auth/context/ContextApi";
 import AdsById from "./pages/ads/AdsById";
-import Notfound from "./componentes/notFound/NotFound";
+// import Notfound from "./componentes/notFound/NotFound";
 import GetByIdCat from "./pages/CategoryManager/method/GetByIdCat";
 import GetById_Pro from "./pages/artisans/method/GetById_Pro";
 import DeleteAdsItem from "./pages/ads/DeleteAdsItem";
@@ -52,7 +52,7 @@ function App() {
               <Route path="/delete/ads/:id" element={<DeleteAdsItem />} />
               <Route path="/veiw_professional/:id" element={<GetById_Pro />} />
         
-              <Route path="/*" element={<Notfound />} />
+              {/* <Route path="/*" element={<Notfound />} /> */}
             </Routes>
           </div>
         </ContextApi>
