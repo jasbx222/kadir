@@ -2,7 +2,6 @@ import "./App.css";
 import HomePage from "./pages/homePage/HomePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Login from "./pages/login/Login";
-import Notfound from "./componentes/notFound/NotFound";
 import ButtonShowMenu from "./componentes/ButtonShowMenu/ButtonShowMenu";
 import ReportPage from "./pages/reports/Reports";
 import Requests from "./pages/requests/Requests";
@@ -21,6 +20,7 @@ import AdsById from "./pages/ads/AdsById";
 import GetByIdCat from "./pages/CategoryManager/method/GetByIdCat";
 import GetById_Pro from "./pages/artisans/method/GetById_Pro";
 import DeleteAdsItem from "./pages/ads/DeleteAdsItem";
+import Notfound from "./componentes/notFound/NotFound";
 function App() {
   return (
     <div>
