@@ -28,7 +28,7 @@ const Logout = () => {
           )
           .then(() => {
             localStorage.removeItem("token");
-            window.location.href = "/";
+            window.location.href = "/login";
           })
           .catch((error) => {
             console.error(
@@ -37,7 +37,7 @@ const Logout = () => {
             );
           });
       } else {
-        navigate("/home");
+        navigate("/");
       }
     });
   }, []);

@@ -39,7 +39,6 @@ function App() {
               <Route path="/reports" element={<ReportPage />} />
               <Route path="/request" element={<Requests />} />
               <Route path="/ads" element={<AdsPage />} />
-              <Route path="/" element={<Login />} />
               <Route path="/add_new_artisan" element={<ArtisanForm />} />
               <Route path="/AddCategoryManager"  element={<AddCategoryManager />}/>
               <Route path="/accountSettings" element={<AccountSettings />} />
@@ -67,7 +66,7 @@ export function LoginPage() {
   return (
     <Router>
       <Routes>
-        <Route path="/login" element={<Login />} />
+        <Route path="/" element={<Login />} />
       </Routes>
     </Router>
   );
