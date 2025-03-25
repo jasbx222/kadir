@@ -34,12 +34,12 @@ function App() {
           >
             <ButtonShowMenu />
             <Routes>
-              <Route path="/" element={<HomePage />} />
+              <Route path="/home" element={<HomePage />} />
               <Route path="/artisans" element={<Artisans />} />
               <Route path="/reports" element={<ReportPage />} />
               <Route path="/request" element={<Requests />} />
               <Route path="/ads" element={<AdsPage />} />
-              <Route path="/login" element={<Login />} />
+              <Route path="/" element={<Login />} />
               <Route path="/add_new_artisan" element={<ArtisanForm />} />
               <Route path="/AddCategoryManager"  element={<AddCategoryManager />}/>
               <Route path="/accountSettings" element={<AccountSettings />} />
