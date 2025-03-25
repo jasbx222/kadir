@@ -17,10 +17,10 @@ import UpdateButton from "./pages/CategoryManager/method/Update";
 import Logout from "./pages/logout/Logout";
 import ContextApi from "./componentes/auth/context/ContextApi";
 import AdsById from "./pages/ads/AdsById";
+import Notfound from "./componentes/notFound/NotFound";
 import GetByIdCat from "./pages/CategoryManager/method/GetByIdCat";
 import GetById_Pro from "./pages/artisans/method/GetById_Pro";
 import DeleteAdsItem from "./pages/ads/DeleteAdsItem";
-import Notfound from "./componentes/notFound/NotFound";
 function App() {
   return (
     <div>
