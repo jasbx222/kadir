@@ -1,42 +1,12 @@
 import { Pen, Trash2, Eye } from "lucide-react";
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import { CgAdd } from "react-icons/cg";
+import GetInfo from "../../componentes/methode/GetInfo";
 import { Link } from "react-router-dom";
-import GetBuyId_ from "./method/GetBuyId_";
-import axios from "axios";
-
 const Artisans = () => {
-  const [show, setShow] = useState(null);
   const [search, setSearch] = useState("");
-  const [data, setData] = useState([]);
-  useEffect(() => {
-    fetchData();
-  }, []);
-
-  const fetchData = async () => {
-    try {
-      const token = localStorage.getItem("token");
-
-      if (!token) {
-        console.error("No token found");
-        return;
-      }
-
-      const res = await axios.get(
-        "https://back.kadrapp.com/admin/v1/professional",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-  setData(res.data.data);
-    
-    } catch (error) {
-      console.error("Error fetching categories:", error);
-    }
-  };
+  const url = import.meta.env.VITE_URL_API;
+  const data = GetInfo(`${url}admin/v1/professional`);
   const filterData = data.filter(
     (artisan) =>
       artisan.name.includes(search) || artisan.service_name.includes(search)
@@ -81,10 +51,13 @@ const Artisans = () => {
 
               <h3 className="text-lg font-bold mt-2">{artisan.name}:الاسم</h3>
               <p className="text-gray-500">{artisan.service_name}:القسم</p>
-              
+
               <p className="text-sm text-gray-400">
                 عدد الاتصالات
-<span className="text-red-500">  {artisan.connection_count }</span>
+                <span className="text-red-500">
+                  {" "}
+                  {artisan.connection_count}
+                </span>
               </p>
               <p className="text-sm text-gray-400 flex justify-around mt-2">
                 <span>
@@ -93,19 +66,16 @@ const Artisans = () => {
                 <span>
                   <Pen color="green" />
                 </span>
-                <span
-                  onClick={() => setShow(artisan)}
-                  className="cursor-pointer"
-                >
-                  <Eye color="blue" />
+                <span className="cursor-pointer">
+                  <Link to={`/veiw_professional/${artisan.id}`}>
+                    <Eye color="blue" />
+                  </Link>
                 </span>
               </p>
             </div>
           </div>
         ))}
       </div>
-
-      {/* <GetBuyId_ setShow={setShow}/> */}
     </div>
   );
 };

@@ -1,16 +1,15 @@
 import React, { useEffect, useRef, useState } from "react";
 import "./Login.css";
 import Form from "./Form";
-
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = "https://back.kadrapp.com";
+    const url = import.meta.env.VITE_URL_API;
 
     try {
-      const response = await fetch(`${url}/admin/v1/auth/login`, {
+      const response = await fetch(`${url}admin/v1/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
@@ -38,7 +37,6 @@ const Login = () => {
       console.error("خطأ أثناء تسجيل الدخول:", error.message);
     }
   };
-
   const input = useRef();
   useEffect(() => {
     input.current.focus();

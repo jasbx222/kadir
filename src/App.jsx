@@ -13,12 +13,14 @@ import AddCategoryManager from "./pages/CategoryManager/AddCategoryManager";
 import Header from "./componentes/header/Header";
 import Artisans from "./pages/artisans/Artisans";
 import ArtisanForm from "./pages/artisans/AddArtisans";
-import Delete from "./pages/CategoryManager/method/Delete";
+import DeleteCategory from "./pages/CategoryManager/method/DeleteCategory";
 import UpdateButton from "./pages/CategoryManager/method/Update";
-import GetBuyId from "./pages/CategoryManager/method/GetBuyId";
-import GetBuyId_ from "./pages/artisans/method/GetBuyId_";
 import Logout from "./pages/logout/Logout";
 import ContextApi from "./componentes/auth/context/ContextApi";
+import AdsById from "./pages/ads/AdsById";
+import GetByIdCat from "./pages/CategoryManager/method/GetByIdCat";
+import GetById_Pro from "./pages/artisans/method/GetById_Pro";
+import DeleteAdsItem from "./pages/ads/DeleteAdsItem";
 function App() {
   return (
     <div>
@@ -39,17 +41,17 @@ function App() {
               <Route path="/ads" element={<AdsPage />} />
               <Route path="/login" element={<Login />} />
               <Route path="/add_new_artisan" element={<ArtisanForm />} />
-              <Route
-                path="/AddCategoryManager"
-                element={<AddCategoryManager />}
-              />
+              <Route path="/AddCategoryManager"  element={<AddCategoryManager />}/>
               <Route path="/accountSettings" element={<AccountSettings />} />
               <Route path="/requestid/:id" element={<RequestDetals />} />
-              <Route path="/delete/:id" element={<Delete />} />
+              <Route path="/delete/category/:id" element={<DeleteCategory />} />
               <Route path="/edit/:id" element={<UpdateButton />} />
-              <Route path="/view/:id" element={<GetBuyId />} />
+              <Route path="/view/cat/:id" element={<GetByIdCat/>}/>
+              <Route path="/view/ads/:id" element={<AdsById />} />
               <Route path="/logout" element={<Logout />} />
-              <Route path="/veiw_professional/:id" element={<GetBuyId_ />} />
+              <Route path="/delete/ads/:id" element={<DeleteAdsItem />} />
+              <Route path="/veiw_professional/:id" element={<GetById_Pro />} />
+        
               <Route path="/*" element={<Notfound />} />
             </Routes>
           </div>

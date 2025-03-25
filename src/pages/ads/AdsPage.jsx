@@ -1,53 +1,64 @@
 import { useState } from "react";
 import swal from "sweetalert";
-import {
-  Upload,
-  Calendar,
-  FileText,
-  Layers,
-  ImagePlus,
-  PlusCircle,
-} from "lucide-react";
+import { Upload, FileText, ImagePlus, PlusCircle } from "lucide-react";
 import AdsTable from "./AdsTable";
-
+import axios from "axios";
 export default function AdsPage() {
-  const [adTitle, setAdTitle] = useState("");
-  const [adDetails, setAdDetails] = useState("");
-  const [adDate, setAdDate] = useState("");
-  const [category, setCategory] = useState("عام");
+  const [title, setTitle] = useState("");
+  const [type, setType] = useState("عام");
   const [image, setImage] = useState(null);
-  const [ads, setAds] = useState([]);
   const [showForm, setShowForm] = useState(false);
-
-  const handleImageUpload = (e) => {
+  const handleFileChange = (e) => {
     const file = e.target.files[0];
-    if (file) {
-      setImage(URL.createObjectURL(file));
+    const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
+
+    if (!allowedTypes.includes(file.type)) {
+      alert("Invalid file type! Please upload a JPEG, PNG, JPG, or GIF image.");
+      return;
     }
+
+    setImage(file);
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-    const newAd = {
-      title: adTitle,
-      details: adDetails,
-      date: adDate,
-      category: category,
-      image: image,
-    };
-    setAds([...ads, newAd]);
-    setAdTitle("");
-    setAdDetails("");
-    setAdDate("");
-    setCategory("عام");
-    setImage(null);
-    setShowForm(false);
-    swal({
-      title: "تم اضافة المعلومات بنجاح",
-      text: "هل تريد مغاردة الصفحة ؟",
-      icon: "success",
-      dangerMode: false,
-    });
+    const url = import.meta.env.VITE_URL_API;
+
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      console.error("No token found. Please log in.");
+      return;
+    }
+
+    const formData = new FormData();
+    formData.append("title", title);
+    formData.append("image", image);
+    formData.append("type", type);
+
+    try {
+      await axios.post(`${url}/admin/v1/ads`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
+
+      swal({
+        title: "تم ارسال بياناتك بنجاح",
+        icon: "success",
+        dangerMode: false,
+      });
+
+      setTimeout(() => {
+        window.location.href = "/ads";
+      }, 1000);
+    } catch (error) {
+      console.error(
+        "Error adding category:",
+        error.response?.data || error.message
+      );
+    }
   };
 
   return (
@@ -71,36 +82,21 @@ export default function AdsPage() {
               type="text"
               className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
               placeholder="أدخل عنوان الإعلان"
-              value={adTitle}
-              onChange={(e) => setAdTitle(e.target.value)}
+              value={title}
+              onChange={(e) => setTitle(e.target.value)}
               required
             />
           </div>
-
           <div>
             <label className="flex items-center gap-2 text-gray-700 font-medium">
-              <Layers className="w-5 h-5 text-gray-500" /> تفاصيل الإعلان
-            </label>
-            <textarea
-              className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-              rows="3"
-              placeholder="أدخل تفاصيل الإعلان"
-              value={adDetails}
-              onChange={(e) => setAdDetails(e.target.value)}
-              required
-            />
-          </div>
-
-          <div>
-            <label className="flex items-center gap-2 text-gray-700 font-medium">
-              <Calendar className="w-5 h-5 text-gray-500" /> تاريخ انتهاء
-              الإعلان
+              <FileText className="w-5 h-5 text-gray-500" /> نوع الاعلان
             </label>
             <input
-              type="date"
+              type="text"
               className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-              value={adDate}
-              onChange={(e) => setAdDate(e.target.value)}
+              placeholder="أدخل عنوان الإعلان"
+              value={type ? type : ""}
+              onChange={(e) => setType(e.target.value)}
               required
             />
           </div>
@@ -113,15 +109,8 @@ export default function AdsPage() {
               type="file"
               accept="image/*"
               className="mt-2"
-              onChange={handleImageUpload}
+              onChange={handleFileChange}
             />
-            {image && (
-              <img
-                src={image}
-                alt="Preview"
-                className="mt-3 w-full h-40 object-cover rounded-lg shadow-md"
-              />
-            )}
           </div>
 
           <button
@@ -134,7 +123,7 @@ export default function AdsPage() {
         </form>
       )}
 
-      <AdsTable ads={ads} />
+      <AdsTable />
     </div>
   );
 }

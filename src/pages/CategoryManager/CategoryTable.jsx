@@ -1,52 +1,12 @@
-import React, { useEffect, useState } from "react";
-import { Eye, PenLine, Trash2 } from "lucide-react";
-import axios from "axios";
+import { Eye, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import DeleteButton from "./method/Delete";
 import UpdateButton from "./method/Update";
+import GetInfo from "../../componentes/methode/GetInfo";
 
 const CategoryTable = () => {
-  const [categories, setCategories] = useState([]);
-  useEffect(() => {
-    fetchData();
-  }, []);
+  const url = import.meta.env.VITE_URL_API;
+  const categories=GetInfo(`${url}admin/v1/category`)
 
-  const fetchData = async () => {
-    try {
-      const token = localStorage.getItem("token");
-
-      if (!token) {
-        console.error("No token found");
-        return;
-      }
-
-      const res = await axios.get("https://back.kadrapp.com/admin/v1/category",
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "application/json",
-          },
-        }
-      );
-
-      if (Array.isArray(res.data.data)) {
-        setCategories(res.data.data);
-      } else {
-        console.error("Data is not an array");
-      }
-    } catch (error) {
-      console.error("Error fetching categories:", error);
-    }
-  };
-
-  const handleDelete = (deletedId) => {
-    setCategories(categories.filter((cat) => cat.id !== deletedId));
-  };
-  // const handleUpdate = (updatedId, updatedName, updatedImage) => {
-  //   setCategories(categories.map(cat =>
-  //     cat.id === updatedId ? { ...cat, name: updatedName, image: updatedImage } : cat
-  //   ));
-  // };
 
   return (
     <div className="overflow-x-auto md:relative md:left-24 ml-4">
@@ -72,12 +32,14 @@ const CategoryTable = () => {
                 />
               </td>
               <td className="border border-gray-300 p-2">
-                <DeleteButton id={cat.id} onDeleteSuccess={handleDelete} />
-                
-             
-          {/* <UpdateButton id={cat.id } name={cat.name} image={cat.image} onUpSuccess={handleUpdate}/>
-               */}
-                <Link to={`/view/${cat.id}`}>
+                <button className="bg-red-500 text-white px-2 py-1 m-2 rounded">
+                  <Link to={`/delete/category/${cat.id}`}>
+                    <Trash2 />
+                  </Link>
+                </button>
+                <UpdateButton />
+
+                <Link to={`/view/cat/${cat.id}`}>
                   <button className="bg-green-300 text-white px-2 m-2 py-1 rounded">
                     <Eye />
                   </button>

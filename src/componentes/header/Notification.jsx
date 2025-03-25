@@ -28,8 +28,8 @@ const Notification = () => {
           <h3 className="text-sm font-semibold text-gray-700 mb-2">
             الإشعارات
           </h3>
-          {NotifData.map((li) => (
-            <ul>
+          {NotifData.map((li,index) => (
+            <ul key={index}>
               <li className="p-2 border-b flex text-gray-600 hover:bg-gray-100">
                 <Link to={"/request"}>{li.title} </Link>
                 <X color="red" />

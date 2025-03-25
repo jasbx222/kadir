@@ -1,16 +1,14 @@
 import { useState } from "react";
 import { PlusCircle } from "lucide-react";
 import CategoryTable from "./CategoryTable";
-import { useNavigate } from "react-router-dom";
 export default function AddCategoryManager() {
-  const navigate =useNavigate()
   const [categoryName, setCategoryName] = useState("");
   const [categoryImage, setCategoryImage] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = "https://back.kadrapp.com";
+    const url = import.meta.env.VITE_URL_API;
     
 
     const token = localStorage.getItem("token");

@@ -3,7 +3,6 @@ import { MdDelete } from "react-icons/md";
 import { FaPen, FaRegEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { requestData } from "./requestData";
-import Pageinition from "../../componentes/pageination/Pageinition";
 import "./Request.css";
 
 const Requests = () => {
@@ -69,7 +68,6 @@ const Requests = () => {
         </tbody>
       </table>
       <div className="flex justify-center items-center mt-5 mb-5">
-        <Pageinition />
       </div>
     </div>
   );
