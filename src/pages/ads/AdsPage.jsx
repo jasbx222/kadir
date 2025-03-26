@@ -37,7 +37,7 @@ export default function AdsPage() {
     formData.append("type", type);
 
     try {
-      await axios.post(`${url}/admin/v1/ads`, formData, {
+      await axios.post(`${url}admin/v1/ads`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
