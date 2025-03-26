@@ -3,7 +3,6 @@ import "./Artisans.css";
 import { useState } from "react";
 import swal from "sweetalert";
 import Form from "./Form";
-
 export default function ArtisanForm() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -18,9 +17,7 @@ export default function ArtisanForm() {
   const [expireDate, setExpireDate] = useState("");
   const url = import.meta.env.VITE_URL_API
   const handleSubmit = async (e) => {
-    e.preventDefault();
-
-    
+    e.preventDefault(); 
     const token = localStorage.getItem("token");
     if (!token) {
       console.error("No token found. Please log in.");

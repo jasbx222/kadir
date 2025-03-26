@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import DeleteMethod from "../../componentes/methode/DeleteMethod";
+import DeleteMethod from "../../../componentes/methode/DeleteMethod";
 import { useNavigate, useParams } from "react-router-dom";
 
 const DeleteAdsItem = () => {

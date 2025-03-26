@@ -2,7 +2,7 @@ import { Eye, PenLine, Trash2 } from "lucide-react";
 import GetInfo from "../../componentes/methode/GetInfo";
 import { Link } from "react-router-dom";
 const AdsTable = () => {
-  const url ="https://back.kadrapp.com/";
+  const url = "https://back.kadrapp.com/";
   const ads = GetInfo(`${url}admin/v1/ads`);
   return (
     <div className="overflow-x-auto mt-4 ml-5 md:ml-2">
@@ -32,12 +32,15 @@ const AdsTable = () => {
                 )}
               </td>
               <td className="border  border-gray-300 p-2">
-                <button  className="bg-red-500 text-white px-2 py-1 m-2 rounded">
-                 <Link to={`/delete/ads/${ad.id}`}>
-                 <Trash2 /></Link>
+                <button className="bg-red-500 text-white px-2 py-1 m-2 rounded">
+                  <Link to={`/delete/ads/${ad.id}`}>
+                    <Trash2 />
+                  </Link>
                 </button>
-                <button className="bg-blue-400 text-white px-2 m-2 py-1 rounded">
-                  <PenLine />
+                <button className="bg-blue-500 text-white px-2 py-1 m-2 rounded">
+                  <Link to={`/update/ads/${ad.id}`}>
+                    <PenLine />
+                  </Link>
                 </button>
 
                 <button className="bg-green-300 text-white px-2 m-2 py-1 rounded">

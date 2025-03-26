@@ -1,4 +1,4 @@
-import { Pen, Trash2, Eye } from "lucide-react";
+import { Pen, Trash2, Eye, PenLine } from "lucide-react";
 import React, { useState } from "react";
 import { CgAdd } from "react-icons/cg";
 import GetInfo from "../../componentes/methode/GetInfo";
@@ -66,7 +66,11 @@ const Artisans = () => {
                   </Link>
                 </span>
                 <span>
-                  <Pen color="green" />
+                <button className="bg-blue-500 text-white px-2 py-1 m-2 rounded">
+                              <Link to={`/update/pro/${artisan.id}`}>
+                                  <PenLine />
+                                </Link>
+                    </button>
                 </span>
                 <span className="cursor-pointer">
                   <Link to={`/veiw_professional/${artisan.id}`}>

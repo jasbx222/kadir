@@ -12,7 +12,7 @@ export default function AccountSettings() {
       throw new Error("you have no token ");
     }
     await axios.post(
-      "admin/v1/auth/password/changepassword", {  newPassword: newPassword, }, {
+      "admin/v1/auth/password/change/password", {  newPassword: newPassword, }, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

@@ -1,6 +1,5 @@
-import { Eye, Trash2 } from "lucide-react";
+import { Eye,  PenLine, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
-import UpdateButton from "./method/Update";
 import GetInfo from "../../componentes/methode/GetInfo";
 
 const CategoryTable = () => {
@@ -37,8 +36,12 @@ const CategoryTable = () => {
                     <Trash2 />
                   </Link>
                 </button>
-                <UpdateButton />
-
+                <button className="bg-blue-500 text-white px-2 py-1 m-2 rounded">
+                <Link to={`/update/category/${cat.id}`}>
+                    <PenLine />
+                  </Link>
+      </button>
+                
                 <Link to={`/view/cat/${cat.id}`}>
                   <button className="bg-green-300 text-white px-2 m-2 py-1 rounded">
                     <Eye />

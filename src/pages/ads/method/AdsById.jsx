@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import GetByIdInfo from "../../componentes/methode/GetByIdInfo";
+import GetByIdInfo from "../../../componentes/methode/GetByIdInfo";
 const AdsById = () => {
   const { id } = useParams();
   const url = import.meta.env.VITE_URL_API;
