@@ -1,21 +1,34 @@
 import { useState } from "react";
-import GetInfo from '../../componentes/methode/GetInfo'
+import GetInfo from "../../componentes/methode/GetInfo";
+import axios from "axios";
 
 export default function AccountSettings() {
   const [newPassword, setnewPassword] = useState("");
-
-  const handlePasswordChange = () => {
-    swal({
-      title: "تم تحديث الباسورد بنجاح",
-      icon: "success",
-      dangerMode: false,
-    });
-  };
   const url = import.meta.env.VITE_URL_API;
   const user = GetInfo(`${url}admin/v1/auth/profile`);
-
+  const ChangePassword = async () => {
+    const token = localStorage.getItem("token");
+    if (!token) {
+      throw new Error("you have no token ");
+    }
+    await axios.post(
+      "admin/v1/auth/password/changepassword", {  newPassword: newPassword, }, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "application/json",
+        },}
+    ).then(()=>{
+      swal({
+        title: "your password has been changeed",
+        icon: "success",
+        dangerMode: false,
+        buttons: "ok",
+      });
+    window.location.href='/'
+    })
+  };
   return (
-    <form className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-2xl">
+    <form onSubmit={ChangePassword} className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-2xl">
       <>
         <h2 className="text-2xl font-bold mb-5 text-center">إعدادات الحساب</h2>
         <div className="space-y-4">
@@ -48,7 +61,6 @@ export default function AccountSettings() {
           </div>
           <button
             type="button"
-            onClick={handlePasswordChange}
             className="w-full bg-blue-600 hover:bg-blue-700 text-white p-2 rounded-lg"
           >
             تحديث كلمة المرور

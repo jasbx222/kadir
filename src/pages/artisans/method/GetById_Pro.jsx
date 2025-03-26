@@ -8,7 +8,7 @@ const GetById_Pro = () => {
     id
   );
   return (
-    <div>
+    <div dir="ltr">
       {" "}
       {prof && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
@@ -19,13 +19,10 @@ const GetById_Pro = () => {
               alt={prof.name}
               className="w-24 h-24 rounded-full mx-auto border-2 border-gray-300 mt-4"
             />
-            <h3 className="text-lg font-bold mt-2">{prof.name}</h3>
-            <p className="text-gray-500">{prof.service_name}</p>
-            <p className="text-gray-500">{prof.description}</p>
-            <p className="text-gray-500">{prof.phone1}</p>
-            <p className="text-gray-500">{prof.phone2}</p>
-            <p className="text-sm text-gray-400">تاريخ الانشاء: 2025/2/3</p>
-            <p className="text-sm text-gray-400">تاريخ الانتهاء: 2025/2/3</p>
+            <p className="text-gray-500">{prof.description}الوصف:</p>
+            <p className="text-gray-500">{prof.city.name}المحافظة:</p>
+            <p className="text-gray-500">{prof.category.name}القسم:</p>
+            <p className="text-sm text-gray-400">{prof.expire_date}تاريخ الانتهاء: </p>
           </div>
         </div>
       )}

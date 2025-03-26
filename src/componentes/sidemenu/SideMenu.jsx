@@ -44,7 +44,7 @@ export default function SideMenu() {
               <House /> {links.homePage}
             </Link>
             <Link
-              to="/artisans"
+              to="/professional"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
             >
               <Shapes /> {links.artisans}

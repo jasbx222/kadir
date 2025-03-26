@@ -23,7 +23,7 @@ export default function AddCategoryManager() {
     formData.append("image", categoryImage);
 
     try {
-      const response = await fetch(`${url}/admin/v1/category`, {
+      const response = await fetch(`${url}admin/v1/category`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,

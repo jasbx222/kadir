@@ -61,7 +61,9 @@ const Artisans = () => {
               </p>
               <p className="text-sm text-gray-400 flex justify-around mt-2">
                 <span>
-                  <Trash2 color="red" />
+                <Link to={`/delete/professional/${artisan.id}`}>
+                    <Trash2 color="red" />
+                  </Link>
                 </span>
                 <span>
                   <Pen color="green" />

@@ -17,14 +17,13 @@ import UpdateButton from "./pages/CategoryManager/method/Update";
 import Logout from "./pages/logout/Logout";
 import ContextApi from "./componentes/auth/context/ContextApi";
 import AdsById from "./pages/ads/AdsById";
-// import Notfound from "./componentes/notFound/NotFound";
 import GetByIdCat from "./pages/CategoryManager/method/GetByIdCat";
 import GetById_Pro from "./pages/artisans/method/GetById_Pro";
 import DeleteAdsItem from "./pages/ads/DeleteAdsItem";
+import DeletePro from "./pages/artisans/method/DeletePro";
 function App() {
   return (
     <div>
-      <LoginPage />
       <Router>
         <ContextApi>
           <Header />
@@ -34,8 +33,8 @@ function App() {
           >
             <ButtonShowMenu />
             <Routes>
-              <Route path="/home" element={<HomePage />} />
-              <Route path="/artisans" element={<Artisans />} />
+              <Route path="/" element={<HomePage />} />
+              <Route path="/professional" element={<Artisans />} />
               <Route path="/reports" element={<ReportPage />} />
               <Route path="/request" element={<Requests />} />
               <Route path="/ads" element={<AdsPage />} />
@@ -50,8 +49,8 @@ function App() {
               <Route path="/logout" element={<Logout />} />
               <Route path="/delete/ads/:id" element={<DeleteAdsItem />} />
               <Route path="/veiw_professional/:id" element={<GetById_Pro />} />
-        
-              {/* <Route path="/*" element={<Notfound />} /> */}
+              <Route path="/delete/professional/:id" element={<DeletePro />} />
+    
             </Routes>
           </div>
         </ContextApi>
@@ -61,13 +60,3 @@ function App() {
 }
 
 export default App;
-
-export function LoginPage() {
-  return (
-    <Router>
-      <Routes>
-        <Route path="/" element={<Login />} />
-      </Routes>
-    </Router>
-  );
-}

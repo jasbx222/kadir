@@ -19,13 +19,7 @@ const Login = () => {
           password: password,
         }),
       });
-
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
-      }
-
       const data = await response.json();
-      console.log("Response Data:", data);
 
       if (data.token) {
         localStorage.setItem("token", data.token);
@@ -34,7 +28,12 @@ const Login = () => {
       }
     window.location.href='/'
     } catch (error) {
-      console.error("خطأ أثناء تسجيل الدخول:", error.message);
+      swal({
+        title: " تاكد من ادخال الايميل والباسوورد او تاكد من الاتصال بالسيرفر!",
+        timer: 5000,
+        icon: "warning",
+        dangerMode: true,
+      });
     }
   };
   const input = useRef();

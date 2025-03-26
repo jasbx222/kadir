@@ -27,7 +27,6 @@ const Form = ({
           className="w-full rounded-lg border-gray-200 p-4 pe-12 text-sm shadow-xs"
           placeholder="ادخل ايميلك"
         />
-        <p>{email!=email}</p>
       </div>
     </div>
 
