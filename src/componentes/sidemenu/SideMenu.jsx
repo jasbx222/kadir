@@ -14,6 +14,7 @@ import {
   User,
 } from "lucide-react";
 import "./SideMenu.css";
+import { MdPolicy } from "react-icons/md";
 export default function SideMenu() {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -100,6 +101,15 @@ export default function SideMenu() {
             >
               <BadgePlus /> {links.addDepartment}
             </Link>
+                    </li>
+                    <li>
+                      <Link
+                        style={{ width: "250px" }}
+                        to="/policy"
+                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
+                      >
+                        <MdPolicy /> {links.policy}
+                      </Link>
                     </li>
                     <li>
                       <Link

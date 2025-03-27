@@ -3,6 +3,7 @@ import "./Artisans.css";
 import { useState } from "react";
 import swal from "sweetalert";
 import Form from "./Form";
+import { useNavigate } from "react-router-dom";
 export default function ArtisanForm() {
   const [name, setName] = useState("");
   const [description, setDescription] = useState("");
@@ -16,6 +17,7 @@ export default function ArtisanForm() {
   const [price, setPrice] = useState("");
   const [expireDate, setExpireDate] = useState("");
   const url = import.meta.env.VITE_URL_API
+  const navigate=useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault(); 
     const token = localStorage.getItem("token");
@@ -50,6 +52,8 @@ export default function ArtisanForm() {
           title: "تم إرسال بياناتك بنجاح",
           icon: "success",
           dangerMode: false,
+        }).then(()=>{
+navigate('/professional')
         });
       }
     } catch (error) {

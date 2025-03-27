@@ -27,7 +27,7 @@ const Artisans = () => {
         />
       </div>
       <div style={{ width: "30px" }}>
-        <Link className=" relative bottom-10" to={"/add_new_artisan"}>
+        <Link className=" relative bottom-10" to={"/add_professional"}>
           <CgAdd size={30} color="#2A3890" />
         </Link>
       </div>

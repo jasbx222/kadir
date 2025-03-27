@@ -22,6 +22,7 @@ import DeletePro from "./pages/artisans/method/DeletePro";
 import UpdateCategory from "./pages/CategoryManager/method/Update";
 import UpdateAds from './pages/ads/method/UpdateAds';
 import UpdatePro from './pages/artisans/method/UpdatePro'
+import Policy from "./pages/policy/Policy";
 function App() {
   return (
     <div>
@@ -39,13 +40,14 @@ function App() {
               <Route path="/reports" element={<ReportPage />} />
               <Route path="/request" element={<Requests />} />
               <Route path="/ads" element={<AdsPage />} />
-              <Route path="/add_new_artisan" element={<ArtisanForm />} />
+              <Route path="/add_professional" element={<ArtisanForm />} />
               <Route path="/AddCategoryManager"  element={<AddCategoryManager />}/>
               <Route path="/accountSettings" element={<AccountSettings />} />
               <Route path="/requestid/:id" element={<RequestDetals />} />
               <Route path="/delete/category/:id" element={<DeleteCategory />} />
               <Route path="/update/category/:id" element={<UpdateCategory />} />
               <Route path="/update/ads/:id" element={<UpdateAds />} />
+              <Route path="/policy" element={<Policy />} />
               <Route path="/view/cat/:id" element={<GetByIdCat/>}/>
               <Route path="/view/ads/:id" element={<AdsById />} />
               <Route path="/logout" element={<Logout />} />

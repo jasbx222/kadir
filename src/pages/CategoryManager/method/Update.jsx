@@ -50,10 +50,6 @@ const UpdateCategory = () => {
       console.log("لم يتم اختيار صورة جديدة");
     }
 
-    // تسجيل القيم المرسلة
-    for (let [key, value] of formData.entries()) {
-      console.log(`formData key: ${key}`, value);
-    }
 
     try {
       const response = await axios.post(
@@ -99,7 +95,7 @@ const UpdateCategory = () => {
               value={updatedName}
               onChange={(e) => setUpdatedName(e.target.value)}
               className="border border-gray-300 rounded w-full p-2 mb-4"
-              required
+        
             />
 
             <label className="block mb-2">تحديث الصورة:</label>
