@@ -2,17 +2,14 @@ import { useEffect, useState } from "react";
 import axios from "axios";
 import swal from "sweetalert";
 import { Upload, FileText, ImagePlus, PlusCircle } from "lucide-react";
+import { useParams } from "react-router-dom";
 const UpdateAds = () => {
+  const {id}=useParams()
   const [title, setTitle] = useState("");
   const [image, setImage] = useState(null);
   const handleFileChange = (e) => {
     const file = e.target.files[0];
-    const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
-
-    if (!allowedTypes.includes(file.type)) {
-      alert("Invalid file type! Please upload a JPEG, PNG, JPG, or GIF image.");
-      return;
-    }
+ 
 
     setImage(file);
   };
@@ -33,7 +30,7 @@ const UpdateAds = () => {
     formData.append("image", image);
 
     try {
-      await axios.post(`${url}admin/v1/ads/update/`, formData, {
+      await axios.post(`${url}admin/v1/ads/update/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -47,7 +44,7 @@ const UpdateAds = () => {
       });
     } catch (error) {
       console.error(
-        "Error adding category:",
+        "Error adding ads:",
         error.response?.data || error.message
       );
     }
@@ -74,15 +71,13 @@ const UpdateAds = () => {
         
 
           <div className="flex flex-col">
-            <label className="flex items-center gap-2 text-gray-700 font-medium">
-              <ImagePlus className="w-5 h-5 text-gray-500" /> صورة الإعلان
-            </label>
+          <label className="block mb-2">تحديث الصورة:</label>
             <input
               type="file"
               accept="image/*"
-              className="mt-2"
               onChange={handleFileChange}
-            />
+              className="border border-gray-300 rounded w-full p-2 mb-4"
+            />      
           </div>
 
           <button

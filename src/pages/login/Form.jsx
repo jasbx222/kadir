@@ -1,3 +1,4 @@
+import { KeyRound } from 'lucide-react'
 import React from 'react'
 const Form = ({
     setEmail,
@@ -12,8 +13,13 @@ const Form = ({
     onSubmit={handleSubmit}
     className="mt-6 mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
   >
+<div className='flex justify-center items-center'>
+<div className='flex justify-center items-center ' style={{border:'2px solid #2A3890',backgroundColor:'#2A3890',borderRadius:'50%',width:'100px',height:'100px'}}><KeyRound color='#fff' size={40} /></div>
+   
+</div>
+   
     <p className="text-center text-lg font-medium">
-      صفحة تسجيل دخول الادمن
+مرحبا بك في ادارة تطبيق كادر 
     </p>
    
     <div>

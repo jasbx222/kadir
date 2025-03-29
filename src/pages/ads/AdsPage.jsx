@@ -3,6 +3,7 @@ import swal from "sweetalert";
 import { Upload, FileText, ImagePlus, PlusCircle } from "lucide-react";
 import AdsTable from "./AdsTable";
 import axios from "axios";
+
 export default function AdsPage() {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("عام");

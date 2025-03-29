@@ -1,5 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
+import Media from './Medai';
 
 const Policy = () => {
     const [title,setTitle]=useState('')
@@ -55,6 +56,7 @@ try {
        </div>
    </div>
 </form>
+<Media/>
 </div>
   )
 }
