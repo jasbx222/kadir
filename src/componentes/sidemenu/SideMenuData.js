@@ -9,6 +9,7 @@ export const SideMenuUL=[
        setting:'صفحة الاعدادات',
        accountSettings:'اعدادات الحساب ',
        policy:'الشروط والاستخدام ',
-       logout:'تسجيل  خروج'
+       logout:'تسجيل  خروج',
+      
     }
 ]

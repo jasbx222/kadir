@@ -7,6 +7,7 @@ import {
   ClipboardPlus,
   GitPullRequest,
   House,
+  LaptopMinimalCheck,
   LogOut,
   Settings,
   Shapes,
@@ -35,7 +36,7 @@ export default function SideMenu() {
             <img className="logo" src={logo} alt="" />
           </h2>
         </div>
-        {SideMenuUL.map((links,index) => (
+        {SideMenuUL.map((links, index) => (
           <nav key={index} className="mt-4">
             {/* <div className="user text-center">   <h1>Hello {user}</h1></div> */}
             <Link
@@ -57,7 +58,7 @@ export default function SideMenu() {
             >
               <GitPullRequest /> {links.request}
             </Link>
-        
+
             <Link
               to="/ads"
               className="flex items-center gap-2 p-3 hover:bg-gray-700"
@@ -95,12 +96,12 @@ export default function SideMenu() {
                       </Link>
                     </li>
                     <li>
-                    <Link
-              to="/AddCategoryManager"
-              className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
-            >
-              <BadgePlus /> {links.addDepartment}
-            </Link>
+                      <Link
+                        to="/AddCategoryManager"
+                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
+                      >
+                        <BadgePlus /> {links.addDepartment}
+                      </Link>
                     </li>
                     <li>
                       <Link
@@ -120,7 +121,6 @@ export default function SideMenu() {
                         <LogOut /> {links.logout}
                       </Link>
                     </li>
-                  
                   </ul>
                 </div>
               )}
