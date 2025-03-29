@@ -43,13 +43,12 @@ export default function AdsPage() {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
-      }).then(()=>{
-        swal({
+      })
+      swal({
           title: "تم ارسال بياناتك بنجاح",
           icon: "success",
           dangerMode: false,
         });
-      });
 
     } catch (error) {
       console.error(
