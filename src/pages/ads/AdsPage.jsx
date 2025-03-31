@@ -10,7 +10,7 @@ export default function AdsPage() {
   const [type, setType] = useState("عام");
   const [image, setImage] = useState(null);
   const [showForm, setShowForm] = useState(false);
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
@@ -45,43 +45,33 @@ export default function AdsPage() {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
-      })
+      });
       swal({
-<<<<<<< HEAD
         title: "تم ارسال بياناتك بنجاح",
         icon: "success",
         dangerMode: false,
       });
-  navigate('/')
-=======
-          title: "تم ارسال بياناتك بنجاح",
-          icon: "success",
-          dangerMode: false,
-        });
-
->>>>>>> ce0cec839016c46851f74b50648ce60fc310a5dc
+      navigate("/");
     } catch (error) {
-     swal({
-      title:'حدث خطأ بالسيرفر !',
-      icon:'warning',
-      dangerMode:true
-     }
-     )
+      swal({
+        title: "حدث خطأ بالسيرفر !",
+        icon: "warning",
+        dangerMode: true,
+      });
     }
   };
 
   return (
-<FormAddAds
-
-handleSubmit={handleSubmit}
-handleFileChange={handleFileChange}
-title={title}
-setTitle={setTitle}
-type={type}
-setType={setType}
-image={image}
-showForm={showForm}
-setShowForm={setShowForm}
-/>
+    <FormAddAds
+      handleSubmit={handleSubmit}
+      handleFileChange={handleFileChange}
+      title={title}
+      setTitle={setTitle}
+      type={type}
+      setType={setType}
+      image={image}
+      showForm={showForm}
+      setShowForm={setShowForm}
+    />
   );
 }
