@@ -3,7 +3,7 @@ import { useEffect } from "react";
 
 const DeleteMethod = async (url, id) => {
   try {
-    const token = localStorage.getItem("token");
+    const token =window.sessionStorage.getItem('token')
 
     if (!token) {
       console.log("no token !");

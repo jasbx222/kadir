@@ -10,7 +10,7 @@ const GetByIdInfo = (url,id) => {
   
     const fetchData = async () => {
       try {
-        const token = localStorage.getItem("token");
+        const token =window.sessionStorage.getItem('token')
   
         if (!token) {
           console.log("no token !");

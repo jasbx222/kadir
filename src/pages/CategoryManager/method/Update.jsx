@@ -29,7 +29,7 @@ const UpdateCategory = () => {
   const updateCat = async (e) => {
     e.preventDefault();
 
-    const token = localStorage.getItem("token");
+    const token =window.sessionStorage.getItem('token')
     if (!token) {
       swal({
         title: "لا تملك صلاحية التحديث",

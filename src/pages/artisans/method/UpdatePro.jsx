@@ -22,7 +22,7 @@ export default function FormUpdate() {
   const navigate=useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-    const token = localStorage.getItem("token");
+    const token =window.sessionStorage.getItem('token')
     if (!token) {
       console.error("No token found. Please log in.");
       return;

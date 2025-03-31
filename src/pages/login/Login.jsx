@@ -4,11 +4,12 @@ import Form from "./Form";
 const Login = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [isPending, setisPending] = useState(false);
   const handleSubmit = async (e) => {
     e.preventDefault();
     const url = import.meta.env.VITE_URL_API;
 
-    try {
+    try { 
       const response = await fetch(`${url}admin/v1/auth/login`, {
         method: "POST",
         headers: {
@@ -22,11 +23,12 @@ const Login = () => {
       const data = await response.json();
 
       if (data.token) {
-        localStorage.setItem("token", data.token);
+     sessionStorage.setItem("token", data.token);
       } else {
         console.error("لم يتم استلام توكن من السيرفر.");
       }
-    window.location.href='/'
+      setisPending(true);
+      window.location.href = "/";
     } catch (error) {
       swal({
         title: " تاكد من ادخال الايميل والباسوورد او تاكد من الاتصال بالسيرفر!",
@@ -51,6 +53,7 @@ const Login = () => {
           email={email}
           password={password}
           input={input}
+          isPending={isPending}
         />
       </div>
     </div>

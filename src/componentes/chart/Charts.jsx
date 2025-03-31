@@ -7,7 +7,7 @@ import axios from "axios";
 const ChartComponent = () => {
   const url = import.meta.env.VITE_URL_API;
   const [monthlyOrders, setMonthlyOrders] = useState([]);
-  const token = localStorage.getItem('token');
+  const token =window.sessionStorage.getItem('token')
 
   useEffect(() => {
     const fetchData = async () => {

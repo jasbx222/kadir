@@ -4,7 +4,7 @@ const Policy = () => {
   const [advertisement_terms, setAdvertisement_terms] = useState("");
   const [terms_conditions, setTerms_conditions] = useState("");
   const url = import.meta.env.VITE_URL_API;
-  const token = localStorage.getItem("token");
+  const token =window.sessionStorage.getItem('token')
   const formData = {
     terms_conditions: terms_conditions,
     advertisement_terms: advertisement_terms,

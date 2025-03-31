@@ -27,8 +27,7 @@ export default function AdsPage() {
     e.preventDefault();
     const url = import.meta.env.VITE_URL_API;
 
-    const token = localStorage.getItem("token");
-
+    const token =window.sessionStorage.getItem('token')
     if (!token) {
       console.error("No token found. Please log in.");
       return;

@@ -8,7 +8,8 @@ const HomePage = () => {
   const [activeProfessionals, setActivePro] = useState();
   const [expiredProfessionals, setExePro] = useState();
   const [totalOrders, setTotalOrder] = useState();
-  const token = localStorage.getItem('token');
+  const token =window.sessionStorage.getItem('token')
+  console.log(token)
 
   useEffect(() => {
     const fetchData = async () => {

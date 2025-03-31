@@ -9,7 +9,7 @@ const Media = () => {
     facebook_url: facebookUrl,
     telegram_url: telegramUrl,
   };
-  const token = localStorage.getItem("token");
+  const token =window.sessionStorage.getItem('token')
   const handleSubmit = async (e) => {
     e.preventDefault();
 

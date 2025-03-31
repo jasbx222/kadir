@@ -6,7 +6,7 @@ import swal from "sweetalert";
 const Logout = () => {
   const navigate = useNavigate();
   const url = import.meta.env.VITE_URL_API;
-  const token = localStorage.getItem("token");
+  const token =window.sessionStorage.getItem('token')
 
   useEffect(() => {
     swal({
@@ -27,7 +27,7 @@ const Logout = () => {
             }
           )
           .then(() => {
-            localStorage.removeItem("token");
+            const token =window.sessionStorage.removeItem('token')
             window.location.href = "/login";
           })
           .catch((error) => {
