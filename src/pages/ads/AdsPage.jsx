@@ -47,16 +47,12 @@ export default function AdsPage() {
         },
       })
       swal({
+
         title: "تم ارسال بياناتك بنجاح",
         icon: "success",
         dangerMode: false,
       });
   navigate('/')
-          title: "تم ارسال بياناتك بنجاح",
-          icon: "success",
-          dangerMode: false,
-        });
-
     } catch (error) {
      swal({
       title:'حدث خطأ بالسيرفر !',
