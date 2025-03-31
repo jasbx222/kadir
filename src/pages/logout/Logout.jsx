@@ -18,7 +18,7 @@ const Logout = () => {
       if (willLogout) {
         axios
           .post(
-            `${url}admin/v1/auth/logout`,
+            `${url}admin/v1/uth/logout`,
             {},
             {
               headers: {
@@ -31,10 +31,11 @@ const Logout = () => {
             window.location.href = "/login";
           })
           .catch((error) => {
-            console.error(
-              "Logout failed:",
-              error.response?.data || error.message
-            );
+          swal({
+            title:'خطا في تسجيل الخروج !'+error,
+            icon:'warning',
+            dangerMode:true
+          })
           });
       } else {
         navigate("/");

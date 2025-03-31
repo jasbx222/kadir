@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 const GetInfo = (url) => {
   const [data, setData] = useState([]);
   const token = localStorage.getItem("token");
-
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -15,12 +14,13 @@ const GetInfo = (url) => {
           },
         });
         setData(res.data.data);
-      } catch (error) {
+      } catch (error) { 
         console.error("Error fetching profile info:", error);
       }
     };
 
     fetchData();
+ 
   }, [url]);
 
   return data;

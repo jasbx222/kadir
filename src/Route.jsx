@@ -21,8 +21,9 @@ import DeleteAdsItem from "./pages/ads/method/DeleteAdsItem";
 import DeletePro from "./pages/artisans/method/DeletePro";
 import UpdateCategory from "./pages/CategoryManager/method/Update";
 import UpdateAds from './pages/ads/method/UpdateAds';
-import UpdatePro from './pages/artisans/method/UpdatePro'
+// import UpdatePro from './pages/artisans/method/UpdatePro'
 import Policy from "./pages/policy/Policy";
+import FormUpdate from "./pages/artisans/method/UpdatePro";
 function RoutePage() {
   return (
     <div>
@@ -54,7 +55,7 @@ function RoutePage() {
               <Route path="/delete/ads/:id" element={<DeleteAdsItem />} />
               <Route path="/veiw_professional/:id" element={<GetById_Pro />} />
               <Route path="/delete/professional/:id" element={<DeletePro />} />
-              <Route path="/update/pro/:id" element={<UpdatePro />} />
+              <Route path="/update/pro/:id" element={<FormUpdate />} />
     
             </Routes>
           </div>

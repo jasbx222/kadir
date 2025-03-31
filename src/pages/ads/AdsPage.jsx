@@ -3,12 +3,14 @@ import swal from "sweetalert";
 
 import axios from "axios";
 import FormAddAds from "./FormAddAds";
+import { useNavigate } from "react-router-dom";
 
 export default function AdsPage() {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("عام");
   const [image, setImage] = useState(null);
   const [showForm, setShowForm] = useState(false);
+  const navigate = useNavigate()
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     const allowedTypes = ["image/jpeg", "image/png", "image/jpg", "image/gif"];
@@ -43,19 +45,20 @@ export default function AdsPage() {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
         },
-      }).then(()=>{
-        swal({
-          title: "تم ارسال بياناتك بنجاح",
-          icon: "success",
-          dangerMode: false,
-        });
+      })
+      swal({
+        title: "تم ارسال بياناتك بنجاح",
+        icon: "success",
+        dangerMode: false,
       });
-
+  navigate('/')
     } catch (error) {
-      console.error(
-        "Error adding category:",
-        error.response?.data || error.message
-      );
+     swal({
+      title:'حدث خطأ بالسيرفر !',
+      icon:'warning',
+      dangerMode:true
+     }
+     )
     }
   };
 

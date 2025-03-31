@@ -1,25 +1,25 @@
 import GetInfo from "../../../componentes/methode/GetInfo";
 
-const FormUpdate = ({
+const FormUpdatePro = ({
   name,
   setName,
   description,
   setDescription,
   setCoverImage,
-  service_name,
+  serviceName,
   setServiceName,
   setImage,
   phone1,
   setPhone1,
   phone2,
   setPhone2,
-  city_id,
+  city,
   setCity,
-  category_id,
+  category,
   setCategory,
   price,
   setPrice,
-  expire_date,
+  expireDate,
   setExpireDate,
   handleSubmit,
 }) => {
@@ -37,16 +37,16 @@ const FormUpdate = ({
           value={name}
           onChange={(e) => setName(e.target.value)}
           className="w-full addform p-2 border rounded"
-        
+          
         />
 
         <label htmlFor="serviceName">اسم الخدمة</label>
         <input
           type="text"
-          value={service_name}
+          value={serviceName}
           onChange={(e) => setServiceName(e.target.value)}
           className="w-full addform p-2 border rounded"
-      
+          
         />
 
         <label htmlFor="image">صورة الحرفي</label>
@@ -66,21 +66,19 @@ const FormUpdate = ({
         />
 
         <label htmlFor="description">الوصف</label>
-     
- <input
-          type="text"
-          value={description}   
+        <textarea
+          value={description}
           onChange={(e) => setDescription(e.target.value)}
-          className="w-full addform p-2 border rounded"
-      
+          className="w-full textarea-art p-2 border rounded"
         />
+
         <label htmlFor="phone1">رقم الهاتف 1</label>
         <input
           type="text"
           value={phone1}
           onChange={(e) => setPhone1(e.target.value)}
           className="w-full addform p-2 border rounded"
-      
+          
         />
 
         <label htmlFor="phone2">رقم الهاتف 2 (اختياري)</label>
@@ -91,10 +89,10 @@ const FormUpdate = ({
           className="w-full addform p-2 border rounded"
         />
 
-         <label htmlFor="city">اختر محافظة</label>
+        <label htmlFor="city">اختر محافظة</label>
         <select
           id="city"
-          value={city_id.id} 
+          value={city.id} 
           onChange={(e) => {
             const selectedCity = cityApi.find(
               (c) => c.id === parseInt(e.target.value)
@@ -114,7 +112,7 @@ const FormUpdate = ({
         <label htmlFor="category">اختر قسم</label>
         <select
           id="category"
-          value={category_id.id} 
+          value={category.id} 
           onChange={(e) => {
             const selectedCategory = categoryApi.find(
               (cat) => cat.id === parseInt(e.target.value)
@@ -129,11 +127,11 @@ const FormUpdate = ({
               {cat.name}
             </option>
           ))}
-        </select> 
+        </select>
 
         <label htmlFor="price">السعر</label>
         <input
-          type="number"
+          type="text"
           value={price}
           onChange={(e) => setPrice(e.target.value)}
           className="w-full addform p-2 border rounded"
@@ -142,7 +140,7 @@ const FormUpdate = ({
         <label htmlFor="expireDate">تاريخ الانتهاء</label>
         <input
           type="date"
-          value={expire_date}
+          value={expireDate}
           onChange={(e) => setExpireDate(e.target.value)}
           className="w-full addform p-2 border rounded"
         />
@@ -158,4 +156,4 @@ const FormUpdate = ({
   );
 };
 
-export default FormUpdate;
+export default FormUpdatePro;

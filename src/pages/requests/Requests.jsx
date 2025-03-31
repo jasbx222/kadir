@@ -4,8 +4,10 @@ import { FaPen, FaRegEye } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { requestData } from "./requestData";
 import "./Request.css";
-
+import GetInfo from '../../componentes/methode/GetInfo'
 const Requests = () => {
+  const url = import.meta.env.VITE_URL_API;
+  const orders=GetInfo(`${url}admin/v1/order`)
   return (
     <div className=" request relative md:left-28 overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white w-full max-w-6xl mx-auto">
       <table className="w-full text-sm text-left text-gray-700 border border-gray-300 rounded-lg overflow-hidden">
@@ -29,19 +31,19 @@ const Requests = () => {
           </tr>
         </thead>
         <tbody>
-          {requestData.map((r) => (
+          {orders.map((r) => (
             <tr
               key={r.id}
               className="bg-white border-b hover:bg-gray-100 transition"
             >
               <td className="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">
-                {r.service_provider_name}
+                {r.professional}
               </td>
               <td className="px-4 py-4 whitespace-nowrap">
-                {r.operation_date_time}
+                {r.updated_at}
               </td>
               <td className="px-4 py-4 whitespace-nowrap">
-                {r.number_of_calls}
+                {r.created_at}
               </td>
               <td className="px-4 py-4 flex justify-center items-center gap-4 text-lg">
                 <Link
@@ -50,12 +52,7 @@ const Requests = () => {
                 >
                   <FaPen />
                 </Link>
-                <Link
-                  to="#"
-                  className="text-green-500 hover:text-green-700 transition"
-                >
-                  <FaRegEye />
-                </Link>
+               
                 <Link
                   to="#"
                   className="text-red-500 hover:text-red-700 transition"
