@@ -16,32 +16,26 @@ const Logout = () => {
       dangerMode: true,
     }).then((willLogout) => {
       if (willLogout) {
-        axios.post(
-          `${url}admin/v1/auth/logout`,
-          {},
-          {
-            headers: {
-              Authorization: `Bearer ${token}`,
-            },
-          }
-        );
-        swal({
-          title: "تم تسجيل الخروج بنجاح",
-          icon: "success",
-          dangerMode: false,
-          timer: 5,
-        })
+        axios
+          .post(
+            `${url}admin/v1/auth/logout`,
+            {},
+            {
+              headers: {
+                Authorization: `Bearer ${token}`,
+              },
+            }
+          )
           .then(() => {
             localStorage.removeItem("token");
-
             window.location.href = "/login";
           })
           .catch((error) => {
-            swal({
-              title: "خطا في تسجيل الخروج !" + error,
-              icon: "warning",
-              dangerMode: true,
-            });
+          swal({
+            title:'خطا في تسجيل الخروج !'+error,
+            icon:'warning',
+            dangerMode:true
+          })
           });
       } else {
         navigate("/");

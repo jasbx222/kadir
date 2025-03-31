@@ -22,8 +22,8 @@ import DeletePro from "./pages/artisans/method/DeletePro";
 import UpdateCategory from "./pages/CategoryManager/method/Update";
 import UpdateAds from './pages/ads/method/UpdateAds';
 // import UpdatePro from './pages/artisans/method/UpdatePro'
-import Policy from "./pages/policy/Policy";
 import FormUpdate from "./pages/artisans/method/UpdatePro";
+import MediaAndPolicy from "./pages/policy/MediaAndPolicy";
 function RoutePage() {
   return (
     <div>
@@ -48,7 +48,7 @@ function RoutePage() {
               <Route path="/delete/category/:id" element={<DeleteCategory />} />
               <Route path="/update/category/:id" element={<UpdateCategory />} />
               <Route path="/update/ads/:id" element={<UpdateAds />} />
-              <Route path="/policy" element={<Policy />} />
+              <Route path="/policy" element={<MediaAndPolicy />} />
               <Route path="/view/cat/:id" element={<GetByIdCat/>}/>
               <Route path="/view/ads/:id" element={<AdsById />} />
               <Route path="/logout" element={<Logout />} />
