@@ -20,7 +20,7 @@ const UpdateAds = () => {
   const updateAds = async (e) => {
     e.preventDefault();
 
-    const token =window.sessionStorage.getItem('token')
+    const  token=localStorage.getItem('token')
     if (!token) {
       swal({
         title: "لا تملك صلاحية التحديث",

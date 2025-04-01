@@ -1,10 +1,11 @@
 import axios from "axios";
 import React, { useState } from "react";
+import { CiWarning } from "react-icons/ci";
 const Policy = () => {
   const [advertisement_terms, setAdvertisement_terms] = useState("");
   const [terms_conditions, setTerms_conditions] = useState("");
   const url = import.meta.env.VITE_URL_API;
-  const token =window.sessionStorage.getItem('token')
+  const  token=localStorage.getItem('token')
   const formData = {
     terms_conditions: terms_conditions,
     advertisement_terms: advertisement_terms,
@@ -31,7 +32,11 @@ const Policy = () => {
   };
   return (
     <div className="md:relative md:left-32">
+      
       <div className="text-center relative md:right-10 top-32">
+      <div className="text-center relative bottom-9 flex justify-center items-center">
+        <CiWarning size={40} color="red"/>
+      </div>
         <form onSubmit={handleSubmit}>
           <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
             <div className="px-4 py-2 bg-white rounded-t-lg ">

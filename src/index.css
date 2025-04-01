@@ -13,4 +13,12 @@
     font-weight: 571;
     font-style: normal;
   }
-  
+
+
+
+.nav-link-active {
+    color: white;
+    background-color: rgb(55 65 81 (gray, 0.5));
+    font-weight: bold;
+    border-radius: 5px;
+}

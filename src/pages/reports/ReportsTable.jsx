@@ -16,16 +16,19 @@ const ReportsTable = ({orders}) => {
             {orders.map((order, index) => (
               <tr key={index} className="text-center border-b hover:bg-gray-200">
                 <td className="p-2 sm:p-3">{order.id}</td>
-                <td className="p-2 sm:p-3">{order.artisan}</td>
-                <td className="p-2 sm:p-3">{order.department}</td>
-                <td className="p-2 sm:p-3">{order.branch}</td>
+                <td className="p-2 sm:p-3">{order.professional}</td>
+                <td className="p-2 sm:p-3">{order.created_at}</td>
+                <td className="p-2 sm:p-3">{order.updated_at}</td>
                 <td className="p-2 sm:p-3 font-bold text-green-600">{order.total}</td>
+             
               </tr>
+              
             ))}
-            <tr className="text-center bg-gray-200 font-bold">
+    <tr className="text-center bg-gray-200 font-bold">
               <td className="p-2 sm:p-3" colSpan="4">المجموع الكلي</td>
-              <td className="p-2 sm:p-3 text-red-600">{orders.reduce((sum, order) => sum + order.total, 0)}</td>
+              <td className="p-2 sm:p-3 text-red-600">{orders.length}</td>
             </tr>
+          
           </tbody>
         </table>
   )

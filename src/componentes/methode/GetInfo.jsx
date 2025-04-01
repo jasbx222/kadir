@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 
 const GetInfo = (url) => {
   const [data, setData] = useState([]);
-  const token =window.sessionStorage.getItem('token')
+  const  token=localStorage.getItem('token')
   useEffect(() => {
     const fetchData = async () => {
       try {

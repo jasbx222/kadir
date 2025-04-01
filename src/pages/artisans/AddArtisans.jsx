@@ -20,7 +20,7 @@ export default function ArtisanForm() {
   const navigate=useNavigate()
   const handleSubmit = async (e) => {
     e.preventDefault(); 
-    const token =window.sessionStorage.getItem('token')
+    const  token=localStorage.getItem('token')
     if (!token) {
       console.error("No token found. Please log in.");
       return;

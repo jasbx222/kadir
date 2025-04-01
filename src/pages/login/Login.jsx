@@ -23,7 +23,7 @@ const Login = () => {
       const data = await response.json();
 
       if (data.token) {
-     sessionStorage.setItem("token", data.token);
+     localStorage.setItem("token", data.token);
       } else {
         console.error("لم يتم استلام توكن من السيرفر.");
       }

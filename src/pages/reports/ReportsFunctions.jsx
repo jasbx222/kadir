@@ -1,8 +1,7 @@
 import { FaFileExcel } from "react-icons/fa";
 import ReportsTable from "./ReportsTable";
 const ReportsFunctions = ({
-    exportOrdersByArtisan,
-    exportOrdersByDepartment,
+    exportOrders,
     orders
 }) => {
   return (
@@ -11,16 +10,10 @@ const ReportsFunctions = ({
       <h1 className="text-xl sm:text-3xl font-extrabold text-blue-700 mb-4 sm:mb-0">📊 صفحة التقارير</h1>
       <div className="flex flex-col sm:flex-row gap-2">
         <button
-          onClick={exportOrdersByArtisan}
-          className="flex items-center bg-blue-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-blue-700 transition duration-300 shadow-lg w-full sm:w-auto"
-        >
-          <FaFileExcel className="mr-2 text-lg sm:text-2xl" /> تصدير الطلبات حسب الحرفي
-        </button>
-        <button
-          onClick={exportOrdersByDepartment}
+          onClick={exportOrders}
           className="flex items-center bg-green-600 text-white px-4 py-2 sm:px-6 sm:py-3 rounded-lg hover:bg-green-700 transition duration-300 shadow-lg w-full sm:w-auto"
         >
-          <FaFileExcel className="mr-2 text-lg sm:text-2xl" /> تصدير حسب القسم
+          <FaFileExcel className="mr-2 text-lg sm:text-2xl" /> تصدير التقرير اكسل 
         </button>
       </div>
     </div>

@@ -1,13 +1,12 @@
 import { Link } from "react-router-dom";
-import { SideMenuUL } from "./SideMenuData";
 import logo from "../../assets/img/kadirs.jpg";
 import { useState } from "react";
 import {
   BadgePlus,
   ClipboardPlus,
   GitPullRequest,
-  House,
-  LaptopMinimalCheck,
+  HouseIcon,
+  FileWarning,
   LogOut,
   Settings,
   Shapes,
@@ -16,6 +15,7 @@ import {
 } from "lucide-react";
 import "./SideMenu.css";
 import { MdPolicy } from "react-icons/md";
+import SideMenuLink from "./SideMenuLink";
 export default function SideMenu() {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -36,41 +36,22 @@ export default function SideMenu() {
             <img className="logo" src={logo} alt="" />
           </h2>
         </div>
-        {SideMenuUL.map((links, index) => (
-          <nav key={index} className="mt-4">
+    
+          <nav  className="mt-4 ">
             {/* <div className="user text-center">   <h1>Hello {user}</h1></div> */}
-            <Link
-              to="/"
-              className="flex items-center gap-2 p-3 hover:bg-gray-700"
-            >
-              <House /> {links.homePage}
-            </Link>
-            <Link
-              to="/professional"
-              className="flex items-center gap-2 p-3 hover:bg-gray-700"
-            >
-              <Shapes /> {links.artisans}
-            </Link>
-
-            <Link
-              to="/request"
-              className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
-            >
-              <GitPullRequest /> {links.request}
-            </Link>
-
-            <Link
-              to="/ads"
-              className="flex items-center gap-2 p-3 hover:bg-gray-700"
-            >
-              <Signpost /> {links.ads}
-            </Link>
-            <Link
-              to="/reports"
-              className="flex items-center gap-2 p-3 hover:bg-gray-700"
-            >
-              <ClipboardPlus /> {links.reports}
-            </Link>
+      <SideMenuLink  href={'/'} label={'الصفحة الرئيسية'} icon={<HouseIcon/>}/>
+          
+            <SideMenuLink  href={'/professional'} label={'الحرفين '} icon={<Shapes/>}/>
+          
+          
+            <SideMenuLink  href={'/request'} label={'الطلبات '} icon={<GitPullRequest/>}/>
+  
+            <SideMenuLink  href={'/ads'} label={'الاعلانات '} icon={<Signpost/>}/>
+  
+            
+            <SideMenuLink  href={'/reports'} label={'التقارير '} icon={<ClipboardPlus/>}/>
+  
+            
             <div className="relative inline-block">
               {/* Button to open dropdown */}
               <button
@@ -79,7 +60,7 @@ export default function SideMenu() {
                 className="flex  items-center   gap-2 p-3  text-white px-4 py-2 hover:bg-gray-700 transition"
               >
                 <Settings />
-                {links.setting}
+                الاعدادات
               </button>
 
               {/* Dropdown Menu */}
@@ -87,46 +68,30 @@ export default function SideMenu() {
                 <div className="absolute  left-0 mt-2 w-56bg-gray-800 shadow-lg rounded-lg border border-gray-950 z-10">
                   <ul className="py-1">
                     <li>
-                      <Link
-                        style={{ width: "250px" }}
-                        to="/accountSettings"
-                        className="flex  items-center   gap-2 p-3  text-white px-4 py-2 hover:bg-gray-700 transition"
-                      >
-                        <User /> {links.accountSettings}
-                      </Link>
+                    <SideMenuLink  href={'/accountSettings'} label={'اعدادات المستخدم '} icon={<User/>}/>
+                 
                     </li>
                     <li>
-                      <Link
-                        to="/AddCategoryManager"
-                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
-                      >
-                        <BadgePlus /> {links.addDepartment}
-                      </Link>
+                    <SideMenuLink  href={'/AddCategoryManager'} label={'اضافة قسم  '} icon={<BadgePlus/>}/>
+                 
                     </li>
                     <li>
-                      <Link
-                        style={{ width: "250px" }}
-                        to="/policy"
-                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
-                      >
-                        <MdPolicy /> {links.policy}
-                      </Link>
+                    <SideMenuLink  href={'/policy'} label={'الشروط و الاستخدام'} icon={<FileWarning/>}/>
+                 
                     </li>
                     <li>
-                      <Link
-                        style={{ width: "250px" }}
-                        to="/logout"
-                        className="flex items-center gap-2 px-4 py-2 hover:bg-gray-900 transition"
-                      >
-                        <LogOut /> {links.logout}
-                      </Link>
+                    <SideMenuLink  href={'/logout'} icon={<LogOut/>} label={'تسجيل خروج'}/>
+                 
                     </li>
+                 
+                   
+                
                   </ul>
                 </div>
               )}
             </div>
           </nav>
-        ))}
+   
       </div>
     </div>
   );

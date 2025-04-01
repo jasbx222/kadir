@@ -2,9 +2,10 @@ import { useParams } from "react-router-dom";
 import GetByIdInfo from "../../../componentes/methode/GetByIdInfo";
 
 const GetById_Pro = () => {
+  const url = import.meta.env.VITE_URL_API;
   const { id } = useParams();
   const prof = GetByIdInfo(
-    "https://back.kadrapp.com/admin/v1/professional",
+    `${url}admin/v1/professiona`,
     id
   );
   return (
