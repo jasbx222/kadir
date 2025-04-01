@@ -3,6 +3,10 @@ import HomePage from "./pages/homePage/HomePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ButtonShowMenu from "./componentes/ButtonShowMenu/ButtonShowMenu";
 import ReportPage from "./pages/reports/Reports";
+import Home from './componentes/guide/home';
+import Profshinal from './componentes/guide/Profshinal';
+import AdsGuide from './componentes/guide/AdsGuide';
+import ReportGuide from './componentes/guide/ReportGuide';
 import Requests from "./pages/requests/Requests";
 import RequestDetals from "./pages/requests/RequestDetals";
 import AdsPage from "./pages/ads/AdsPage";
@@ -24,6 +28,7 @@ import UpdateAds from './pages/ads/method/UpdateAds';
 // import UpdatePro from './pages/artisans/method/UpdatePro'
 import FormUpdate from "./pages/artisans/method/UpdatePro";
 import MediaAndPolicy from "./pages/policy/MediaAndPolicy";
+import DashboardGuide from "./componentes/guide/DashboardGuide"
 function RoutePage() {
   return (
     <div>
@@ -56,6 +61,11 @@ function RoutePage() {
               <Route path="/veiw_professional/:id" element={<GetById_Pro />} />
               <Route path="/delete/professional/:id" element={<DeletePro />} />
               <Route path="/update/pro/:id" element={<FormUpdate />} />
+              <Route path="/guide" element={<DashboardGuide />} />
+              <Route path="/homePageGuide" element={<Home />} />
+              <Route path="/guideProfshinal" element={<Profshinal />} />
+              <Route path="/adsguide" element={<AdsGuide />} />
+              <Route path="/ReportGuide" element={<ReportGuide />} />
     
             </Routes>
           </div>
