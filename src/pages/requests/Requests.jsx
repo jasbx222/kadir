@@ -8,27 +8,23 @@ import { Eye } from "lucide-react";
 const Requests = () => {
   const url = import.meta.env.VITE_URL_API;
   const [orders, setOrders] = useState([]);
-  const professionalId = localStorage.getItem("professional_id") || "";
 
   const fetchOrders = async () => {
     try {
-      const response = await fetch(
-        `${url}admin/v1/order?professional_id=${professionalId}`,
-        {
-          method: "GET",
-          headers: {
-            "Content-Type": "application/json",
-            Authorization: `Bearer ${localStorage.getItem("token")}`,
-          },
-        }
-      );
+      const response = await fetch(`${url}admin/v1/order`, {
+        method: "GET",
+        headers: {
+          "Content-Type": "application/json",
+          Authorization: `Bearer ${localStorage.getItem("token")}`,
+        },
+      });
 
       if (!response.ok) {
         throw new Error("فشل في جلب البيانات");
       }
 
       const data = await response.json();
-      setOrders(data.data?.length ? [data.data[0]] : []);
+      setOrders(data.data || []); // ✅ الآن يجلب كل الطلبات
     } catch (error) {
       console.error("Error fetching orders:", error);
     }
@@ -44,7 +40,7 @@ const Requests = () => {
         "اسم مقدم الخدمة": order.professional?.name || "غير متوفر",
         "تاريخ وقت العملية": order.created_at || "غير متوفر",
         "عدد مرات الاتصال": order.professional?.connection_count || 0,
-        السعر: order.professional?.price || "غير متوفر",
+        "السعر": order.professional?.price || "غير متوفر",
       }))
     );
     const workbook = XLSX.utils.book_new();
@@ -84,12 +80,12 @@ const Requests = () => {
                 <td className="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">
                   {r.professional?.name || "غير متوفر"}
                 </td>
-                <td className="px-4 py-4 whitespace-nowrap">{r.created_at}</td>
+                <td className="px-4 py-4 whitespace-nowrap">{r.created_at || "غير متوفر"}</td>
                 <td className="px-4 py-4 whitespace-nowrap">
                   {r.professional?.connection_count || 0}
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap">
-                  {r.professional?.address || "لايوجد عنوان "}
+                  {r.professional?.address || "لا يوجد عنوان"}
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap">
                   {r.professional?.price || "0 د.ع"}
