@@ -5,7 +5,7 @@ const GetById_Pro = () => {
   const url = import.meta.env.VITE_URL_API;
   const { id } = useParams();
   const prof = GetByIdInfo(
-    `${url}admin/v1/professiona`,
+    `${url}admin/v1/professional`,
     id
   );
   return (
@@ -20,10 +20,10 @@ const GetById_Pro = () => {
               alt={prof.name}
               className="w-24 h-24 rounded-full mx-auto border-2 border-gray-300 mt-4"
             />
-            <p className="text-gray-500">{prof.description}الوصف:</p>
-            <p className="text-gray-500">{prof.city.name}المحافظة:</p>
-            <p className="text-gray-500">{prof.category.name}القسم:</p>
-            <p className="text-sm text-gray-400">{prof.expire_date}تاريخ الانتهاء: </p>
+            <p className="text-gray-500">{prof.description}</p>
+            <p className="text-gray-500">{prof.city.name}</p>
+            <p className="text-gray-500">{prof.category.name}</p>
+            <p className="text-sm text-gray-400">{prof.expire_date}  </p>
           </div>
         </div>
       )}

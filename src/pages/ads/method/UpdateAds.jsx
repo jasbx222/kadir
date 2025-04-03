@@ -1,114 +1,65 @@
-import { useEffect, useState } from "react";
-import axios from "axios";
+import { useState } from "react";
 import swal from "sweetalert";
-import { Upload, FileText, ImagePlus, PlusCircle } from "lucide-react";
-import { useParams } from "react-router-dom";
-const UpdateAds = () => {
-  const url=import.meta.env.VITE_URL_API;
-  const {id}=useParams()
-  const [titleUpdate, setTitle] = useState("");
+import axios from "axios";
+import FormUpdate from "./FormUpdate";
+import { useNavigate, useParams } from "react-router-dom";
+
+export default function UpdateAds() {
+  const { id } = useParams();
+  const [title, setTitle] = useState("");
+  const [type, setType] = useState("");
+  const date = new Date().toISOString().split("T")[0];
+  const [expire_date, setExpire_date] = useState(date);
   const [image, setImage] = useState(null);
+  const navigate = useNavigate();
 
-  const handleFileChange = (e) => {
-
-    const file = e.target.files[0];
- 
-
-    setImage(file);
-  };
-
-  const updateAds = async (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
-
-    const  token=localStorage.getItem('token')
+    const url = import.meta.env.VITE_URL_API;
+    const token = localStorage.getItem("token");
     if (!token) {
-      swal({
-        title: "لا تملك صلاحية التحديث",
-        icon: "error",
-        dangerMode: true,
-      });
+      swal({ title: "Unauthorized: No token found", icon: "error", dangerMode: true });
       return;
     }
 
     const formData = new FormData();
-    formData.append("title", titleUpdate);
-
-    // إضافة الصورة في حالة وجودها
-    if (image) {
-      formData.append("image", image);
-      console.log("تم إضافة الصورة:", image);
-    } else {
-      console.log("لم يتم اختيار صورة جديدة");
-    }
-
+    if (title) formData.append("title", title);
+    if (type) formData.append("type", type);
+    if (expire_date) formData.append("expire_date", expire_date);
+    if (image) formData.append("image", image);
 
     try {
-      const response = await axios.post(
-        `${url}admin/v1/ads/update/${id}`,
-        formData,
-        {
-          headers: {
-            Authorization: `Bearer ${token}`,
-            "Content-Type": "multipart/form-data",
-          },
-        }
-      );
+      await axios.post(`${url}admin/v1/ads/update/${id}`, formData, {
+        headers: {
+          Authorization: `Bearer ${token}`,
+          "Content-Type": "multipart/form-data",
+        },
+      });
 
-      console.log("Server Response:", response.data);
-
-      swal({ title: "تم التحديث بنجاح", icon: "success" });
-      setShowForm(false);
+      swal({ title: "تم ارسال بياناتك بنجاح", icon: "success" });
+      navigate("/");
     } catch (error) {
-      console.error("Error updating item:", error);
+      console.error("Server Error:", error);
       swal({
-        title: error.response?.data?.message || "فشل في تحديث القسم",
-        icon: "error",
+        title: error.response?.data?.message || "حدث خطأ بالسيرفر !",
+        icon: "warning",
         dangerMode: true,
       });
     }
   };
+
   return (
-    <div className="max-w-4xl ml-5 mr-5 mt-5  mx-auto w-full  bg-white shadow-lg rounded-xl">
-      <h1 className="text-xl font-bold mt-5 mb-4 text-center">إدارة الإعلان</h1>
-  
-        <form onSubmit={updateAds} className="space-y-4 mb-6">
-          <div>
-            <label className="flex items-center gap-2 text-gray-700 font-medium">
-              <FileText className="w-5 h-5 text-gray-500" /> عنوان الإعلان
-            </label>
-            <input
-              type="text"
-              className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-              placeholder="أدخل عنوان الإعلان"
-              value={titleUpdate}
-              onChange={(e) => setTitle(e.target.value)}
-            
-            />
-          </div>
-        
-
-          <div className="flex flex-col">
-          <label className="block mb-2">تحديث الصورة:</label>
-            <input
-              type="file"
-              accept="image/*"
-              onChange={handleFileChange}
-              className="border border-gray-300 rounded w-full p-2 mb-4"
-            />      
-          </div>
-
-          <button
-            type="submit"
-            style={{ backgroundColor: "#2A3890" }}
-            className="w-full flex items-center justify-center gap-2  text-white font-medium py-3 rounded-lg hover:bg-blue-700 transition"
-          >
-            تحديث الاعلان
-          </button>
-        </form>
-
-    
-    </div>
+    <FormUpdate
+      handleSubmit={handleSubmit}
+      setImage={setImage}
+   
+      title={title}
+      setTitle={setTitle}
+      type={type}
+      setType={setType}
+      image={image}
+      setExpire_date={setExpire_date}
+      expire_date={expire_date}
+    />
   );
-};
-
-export default UpdateAds;
+}

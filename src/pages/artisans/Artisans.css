@@ -13,3 +13,24 @@
 .artisan{
     width: 80%;
 }
+
+.custom-button {
+    width: 50%;
+    border: 2px solid #2A3890;
+    border-radius: 10px;
+    padding: 10px;
+    margin: 10px;
+    font-size: 16px;
+    text-align: center;
+    background-color: white;
+    color: #2A3890;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: 0.3s;
+}
+
+.custom-button:hover,
+.custom-button:focus {
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
+    outline: none;
+}

@@ -9,7 +9,9 @@ type,
 setType,
 image,
 showForm,
-setShowForm
+setShowForm,
+setExpire_date,
+expire_date
 }) => {
   return (
     <div className="max-w-4xl ml-5 mr-5 mt-5  mx-auto w-full  bg-white shadow-lg rounded-xl">
@@ -37,6 +39,7 @@ setShowForm
             required
           />
         </div>
+     
         <div>
           <label className="flex items-center gap-2 text-gray-700 font-medium">
             <FileText className="w-5 h-5 text-gray-500" /> نوع الاعلان
@@ -44,9 +47,23 @@ setShowForm
           <input
             type="text"
             className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
-            placeholder="أدخل عنوان الإعلان"
+            placeholder="أدخل نوع الإعلان"
             value={type ? type : ""}
             onChange={(e) => setType(e.target.value)}
+            required
+          />
+        </div>
+     
+        <div>
+          <label className="flex items-center gap-2 text-gray-700 font-medium">
+            <FileText className="w-5 h-5 text-gray-500" /> تارريخ الانتهاء
+          </label>
+          <input
+            type="date"
+            className="w-full mt-1 p-3 border rounded-lg focus:ring-2 focus:ring-blue-500 outline-none"
+          
+            value={expire_date}
+            onChange={(e) => setExpire_date(e.target.value)}
             required
           />
         </div>

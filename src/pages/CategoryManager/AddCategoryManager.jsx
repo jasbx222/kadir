@@ -1,15 +1,24 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { PlusCircle } from "lucide-react";
 import CategoryTable from "./CategoryTable";
+import GetInfo from "../../componentes/methode/GetInfo";
+
 export default function AddCategoryManager() {
   const [categoryName, setCategoryName] = useState("");
+  const [parent_id, setParentId] = useState("");
   const [categoryImage, setCategoryImage] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
+  const url = import.meta.env.VITE_URL_API;
+ const parentCategories =GetInfo(`${url}admin/v1/category`);
+        
+   
+ 
+
   const handleSubmit = async (e) => {
     e.preventDefault();
-    const url = import.meta.env.VITE_URL_API;
-    const  token=localStorage.getItem('token')
+
+    const token = localStorage.getItem("token");
     if (!token) {
       console.error("No token found. Please log in.");
       return;
@@ -18,6 +27,7 @@ export default function AddCategoryManager() {
     const formData = new FormData();
     formData.append("name", categoryName);
     formData.append("image", categoryImage);
+    formData.append("parent_id", parent_id);
 
     try {
       const response = await fetch(`${url}admin/v1/category`, {
@@ -27,24 +37,23 @@ export default function AddCategoryManager() {
         },
         body: formData,
       });
-if(response.ok){
-  swal({
-    title:"تم ارسال بياناتك بنجاح",
-    icon: "success",
-    dangerMode: false,
-  });
-setInterval(() => {
-   window.location.href='/AddCategoryManager'
-}, 1000);
-}else if (!response.ok) {
+
+      if (response.ok) {
+        swal({
+          title: "تم إرسال بياناتك بنجاح",
+          icon: "success",
+          dangerMode: false,
+        });
+
+        setTimeout(() => {
+          window.location.href = "/AddCategoryManager";
+        }, 1000);
+      } else {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
-
-  
     } catch (error) {
       console.error("Error adding category:", error.message);
     }
-
   };
 
   return (
@@ -56,7 +65,7 @@ setInterval(() => {
         style={{ backgroundColor: "#2A3890" }}
         className="mb-4 ml-5 flex items-center gap-2 text-white px-4 py-2 rounded-lg transition"
       >
-        <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع " : "إضافة "}
+        <PlusCircle className="w-5 h-5" /> {showForm ? "تراجع" : "إضافة"}
       </button>
 
       {showForm && (
@@ -73,6 +82,18 @@ setInterval(() => {
             onChange={(e) => setCategoryImage(e.target.files[0])}
             className="border p-2 rounded w-full"
           />
+          <select
+            value={parent_id}
+            onChange={(e) => setParentId(e.target.value)}
+            className="border p-2 rounded w-full"
+          >
+            <option value="">اختر قسم رئيسي</option>
+            {parentCategories.map((item) => (
+              <option key={item.id} value={item.id}>
+                {item.name}
+              </option>
+            ))}
+          </select>
           <button
             style={{ backgroundColor: "#2A3890" }}
             onClick={handleSubmit}

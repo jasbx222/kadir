@@ -29,9 +29,9 @@ const FormUpdatePro = ({
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-xl font-bold mb-4">إضافة حساب حرفي</h2>
+      <h2 className="text-xl font-bold mb-4">تحديث حساب حرفي</h2>
       <form className="space-y-4" onSubmit={handleSubmit}>
-        <label htmlFor="name">الاسم</label>
+        <label htmlFor="name">تعديل الاسم</label>
         <input
           type="text"
           value={name}
@@ -40,7 +40,7 @@ const FormUpdatePro = ({
           
         />
 
-        <label htmlFor="serviceName">اسم الخدمة</label>
+        <label htmlFor="serviceName">تعديل اسم الخدمة </label>
         <input
           type="text"
           value={serviceName}
@@ -49,7 +49,7 @@ const FormUpdatePro = ({
           
         />
 
-        <label htmlFor="image">صورة الحرفي</label>
+        <label htmlFor="image"> تعديل صورة الحرفي</label>
         <input
           type="file"
           onChange={(e) => setImage(e.target.files[0])}
@@ -57,7 +57,7 @@ const FormUpdatePro = ({
           className="w-full addform p-2 border rounded"
         />
 
-        <label htmlFor="coverImage">صورة الخدمة</label>
+        <label htmlFor="coverImage">تعديل صورة الخدمة </label>
         <input
           type="file"
           onChange={(e) => setCoverImage(e.target.files[0])}
@@ -65,7 +65,7 @@ const FormUpdatePro = ({
           className="w-full addform p-2 border rounded"
         />
 
-        <label htmlFor="description">الوصف</label>
+        <label htmlFor="description">تعديل الوصف</label>
         <textarea
           value={description}
           onChange={(e) => setDescription(e.target.value)}
@@ -89,7 +89,7 @@ const FormUpdatePro = ({
           className="w-full addform p-2 border rounded"
         />
 
-        <label htmlFor="city">اختر محافظة</label>
+        <label htmlFor="city"> تعديل المحافظة</label>
         <select
           id="city"
           value={city.id} 
@@ -109,7 +109,7 @@ const FormUpdatePro = ({
           ))}
         </select>
 
-        <label htmlFor="category">اختر قسم</label>
+        <label htmlFor="category"> تعديل القسم</label>
         <select
           id="category"
           value={category.id} 
@@ -129,7 +129,7 @@ const FormUpdatePro = ({
           ))}
         </select>
 
-        <label htmlFor="price">السعر</label>
+        <label htmlFor="price">تعديل السعر</label>
         <input
           type="text"
           value={price}
@@ -137,7 +137,7 @@ const FormUpdatePro = ({
           className="w-full addform p-2 border rounded"
         />
 
-        <label htmlFor="expireDate">تاريخ الانتهاء</label>
+        <label htmlFor="expireDate">تعديل تاريخ الانتهاء </label>
         <input
           type="date"
           value={expireDate}

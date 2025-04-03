@@ -1,14 +1,21 @@
 
+import { useNavigate } from "react-router-dom";
 import swal from "sweetalert";
 const Notfound = () => {
+  const navigate =useNavigate()
   swal({
-    title: "للاسف هذا الصفحة غير موجودة",
-    text: " OK للرجوع الى الصفحة الرئيسية اضغط ",
+    title: 'الصفحة غير موجودة',
+    buttons: {
+      cancel: "الغاء",
+      confirm: "الصفحة الرئيسية",
+    },
+    text: "الرجاء التوجه الى الصفحة الرئيسية",
+
     icon: "warning",
     dangerMode: true,
   }).then((willDelete) => {
     if (willDelete) {
-      window.location.pathname = "/";
+     navigate ("/")
     }
   });
   return <></>;

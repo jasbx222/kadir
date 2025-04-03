@@ -55,7 +55,7 @@ export default function SideMenu() {
 
           <SideMenuLink
             href={"/request"}
-            label={"الطلبات "}
+            label={"الطلبات والتقارير "}
             icon={<GitPullRequest />}
           />
 
@@ -63,12 +63,6 @@ export default function SideMenu() {
             href={"/ads"}
             label={"الاعلانات "}
             icon={<Signpost />}
-          />
-
-          <SideMenuLink
-            href={"/reports"}
-            label={"التقارير "}
-            icon={<ClipboardPlus />}
           />
 
           <div className="relative inline-block">
@@ -114,13 +108,7 @@ export default function SideMenu() {
                       label={"تسجيل خروج"}
                     />
                   </li>
-                  <li>
-                    <SideMenuLink
-                      href={"/guide"}
-                      icon={<CalendarCog />}
-                      label={"تعليمات للادمن  "}
-                    />
-                  </li>
+                 
                 </ul>
               </div>
             )}

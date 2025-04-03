@@ -7,7 +7,10 @@ import { useNavigate } from "react-router-dom";
 
 export default function AdsPage() {
   const [title, setTitle] = useState("");
-  const [type, setType] = useState("عام");
+  const [type, setType] = useState("");
+  const date = new Date().toISOString().split("T")[0];
+  const [expire_date, setExpire_date] = useState(date);
+ 
   const [image, setImage] = useState(null);
   const [showForm, setShowForm] = useState(false);
   const navigate = useNavigate()
@@ -36,6 +39,7 @@ export default function AdsPage() {
     formData.append("title", title);
     formData.append("image", image);
     formData.append("type", type);
+    formData.append("expire_date", expire_date);
 
     try {
       await axios.post(`${url}admin/v1/ads`, formData, {
@@ -72,6 +76,8 @@ setType={setType}
 image={image}
 showForm={showForm}
 setShowForm={setShowForm}
+setExpire_date={setExpire_date}
+expire_date={expire_date}
 />
   );
 }
