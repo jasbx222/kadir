@@ -24,11 +24,14 @@ const Artisans = () => {
           className="border space-y-7 custom-button p-2 rounded-md w-1/3"
         />
        <div className="flex justify-center items-center">
-       <button className="bg-blue-500 m-5 text-white px-4 py-2 rounded-md ml-2">
+       <button className="bg-blue-500 hover:bg-slate-50 hover:text-black m-5 text-white px-4 py-2 rounded-md ml-2">
       <Link to={"/expier_date"}>     الحرفين منتهي الصلاحية</Link>
         </button>
-        <button className="bg-blue-500 m-5 text-white px-4 py-2 rounded-md ml-2">
+        <button className="bg-blue-500 hover:bg-slate-50 hover:text-black m-5 text-white px-4 py-2 rounded-md ml-2">
       <Link to={"/active_professional"}>     الحرفين النشيطين</Link>
+        </button>
+        <button className="bg-blue-500 m-5 hover:bg-slate-50 hover:text-black text-white px-4 py-2 rounded-md ml-2">
+      <Link to={"/add_image"}> اضافة صور خدمات الحرفي</Link>
         </button>
        </div>
       </div>
