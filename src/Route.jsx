@@ -62,7 +62,6 @@ function RoutePage() {
               <Route path="/delete/professional/:id" element={<DeletePro />} />
               <Route path="/update/pro/:id" element={<FormUpdate />} />
               <Route path="add_image" element={<AddImage />} />
-
               <Route path="/expier_date" element={<ArtisansEndEx />} />
               <Route path="/active_professional" element={<ArtisansActive />} />
               <Route path="/delet_order/:id" element={<DeleteOrder />} />

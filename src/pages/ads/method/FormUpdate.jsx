@@ -8,6 +8,7 @@ const FormUpdate = ({
   setType,
   setExpire_date,
   expire_date,
+  isPending
 }) => {
   return (
     <div className="max-w-4xl ml-5 mr-5 mt-5  mx-auto w-full  bg-white shadow-lg rounded-xl">
@@ -69,7 +70,13 @@ const FormUpdate = ({
           style={{ backgroundColor: "#2A3890" }}
           className="w-full flex items-center justify-center gap-2  text-white font-medium py-3 rounded-lg hover:bg-blue-700 transition"
         >
-          <Upload className="w-5 h-5" /> رفع الإعلان
+          <Upload className="w-5 h-5" /> 
+          {isPending ? (
+            <span>جاري التحميل...</span>
+          ) : (
+            <span>تحديث الإعلان</span>
+          )}
+          
         </button>
       </form>
     </div>

@@ -9,16 +9,20 @@ export default function ArtisanForm() {
   const [description, setDescription] = useState("");
   const [coverImage, setCoverImage] = useState(null);
   const [serviceName, setServiceName] = useState("");
+  const [address, setAddress] = useState("");
+  const [address_details, setAddressDetails] = useState("");
   const [image, setImage] = useState(null);
   const [phone1, setPhone1] = useState("");
   const [phone2, setPhone2] = useState("");
   const [city, setCity] = useState('');
+  const [isPending, setIspending] = useState(false);
   const [category, setCategory] = useState('');
   const [price, setPrice] = useState("");
   const [expireDate, setExpireDate] = useState("");
   const url = import.meta.env.VITE_URL_API
   const navigate=useNavigate()
   const handleSubmit = async (e) => {
+    setIspending(true)
     e.preventDefault(); 
     const  token=localStorage.getItem('token')
     if (!token) {
@@ -36,6 +40,8 @@ export default function ArtisanForm() {
     if (phone2) formData.append("phone2", phone2);
     formData.append("category_id", category.id);
     formData.append("city_id", city.id);
+    formData.append("address", address);
+    formData.append("address_details", address_details);
     formData.append("price", price);
     formData.append("expire_date", expireDate);
     
@@ -62,7 +68,9 @@ navigate('/professional')
       } else {
         console.error("Error adding artisan:", error.message);
       }
+
     }
+    setIspending(false)
   };
 
   return (
@@ -70,6 +78,7 @@ navigate('/professional')
   name={name}
   setName={setName}
   description={description}
+  isPending={isPending}
   setDescription={setDescription}
   coverImage={coverImage}
   setCoverImage={setCoverImage}
@@ -90,6 +99,10 @@ navigate('/professional')
   expireDate={expireDate}
   setExpireDate={setExpireDate}
   handleSubmit={handleSubmit}
+  address={address}
+  setAddress={setAddress}
+  address_details={address_details}
+  setAddressDetails={setAddressDetails}
   />
   );
 }

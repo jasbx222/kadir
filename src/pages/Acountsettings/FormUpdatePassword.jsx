@@ -11,7 +11,7 @@ handlChangePassword
 
 }) => {
   return (
-    <div className="max-w-md mx-auto mt-10 p-6 bg-white shadow-lg rounded-2xl">
+    <div className="max-w-md mx-auto mt-10 p-6  rounded-2xl">
     <form onSubmit={handlChangePassword} className="space-y-4">
       <input
         type="password"

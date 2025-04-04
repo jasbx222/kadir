@@ -4,6 +4,7 @@ import axios from "axios";
 const Media = () => {
   const [facebookUrl, setFacebookUrl] = useState("");
   const [telegramUrl, setTelegramUrl] = useState("");
+  const [isPending, setIspending] = useState(false);
   const url = import.meta.env.VITE_URL_API;
   const formData = {
     facebook_url: facebookUrl,
@@ -11,6 +12,7 @@ const Media = () => {
   };
   const  token=localStorage.getItem('token')
   const handleSubmit = async (e) => {
+    setIspending(true);
     e.preventDefault();
 
     try {
@@ -32,10 +34,11 @@ const Media = () => {
         error.response ? error.response.data : error.message
       );
     }
+    setIspending(false);
   };
 
   return (
-    <div className="max-w-md mx-auto mt-28 p-6 bg-white shadow-lg rounded-2xl">
+    <div className="max-w-md mx-auto mt-28 p-6 rounded-2xl">
       <h2 className="text-2xl font-bold mb-4 text-center">
         أضف روابط السوشيال ميديا
       </h2>
@@ -59,8 +62,9 @@ const Media = () => {
         <button
           type="submit"
           className="w-full bg-blue-600 text-white p-3 rounded-lg hover:bg-blue-700 transition"
-        >
-          ارسال الروابط
+        >{
+          isPending? "جاري التحميل..." : "إرسال"
+        }
         </button>
       </form>
     </div>

@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GetInfo from "../../../componentes/methode/GetInfo";
 
 const FormUpdatePro = ({
@@ -144,7 +145,7 @@ const FormUpdatePro = ({
           onChange={(e) => setExpireDate(e.target.value)}
           className="w-full addform p-2 border rounded"
         />
-
+   
         <button
           type="submit"
           className="w-full bg-blue-500 text-white p-2 rounded"

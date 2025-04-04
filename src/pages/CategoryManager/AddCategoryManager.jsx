@@ -6,6 +6,7 @@ import GetInfo from "../../componentes/methode/GetInfo";
 export default function AddCategoryManager() {
   const [categoryName, setCategoryName] = useState("");
   const [parent_id, setParentId] = useState("");
+  const [isPending, setIspending] = useState(false);
   const [categoryImage, setCategoryImage] = useState(null);
   const [showForm, setShowForm] = useState(false);
 
@@ -16,6 +17,7 @@ export default function AddCategoryManager() {
  
 
   const handleSubmit = async (e) => {
+    setIspending(true);
     e.preventDefault();
 
     const token = localStorage.getItem("token");
@@ -54,6 +56,7 @@ export default function AddCategoryManager() {
     } catch (error) {
       console.error("Error adding category:", error.message);
     }
+    setIspending(false);
   };
 
   return (
@@ -99,7 +102,15 @@ export default function AddCategoryManager() {
             onClick={handleSubmit}
             className="text-white btn-cat px-4 py-2 rounded w-full sm:w-auto"
           >
-            إضافة قسم
+  {
+    isPending ? ( 
+      <span className="loader">
+    جاري التحميل...
+      </span>
+    ):(
+      <span>إضافة</span>
+    )
+  }
           </button>
         </div>
       )}

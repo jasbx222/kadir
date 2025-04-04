@@ -1,4 +1,4 @@
-import { Pen, Trash2, Eye, PenLine } from "lucide-react";
+import { Trash2, Eye, PenLine } from "lucide-react";
 import React, { useState } from "react";
 import { CgAdd } from "react-icons/cg";
 import GetInfo from "../../componentes/methode/GetInfo";

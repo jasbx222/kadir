@@ -1,3 +1,4 @@
+import { Link } from "react-router-dom";
 import GetInfo from "../../componentes/methode/GetInfo";
 
 const Form = ({
@@ -22,6 +23,11 @@ const Form = ({
   expireDate,
   setExpireDate,
   handleSubmit,
+  address,
+  setAddress,
+  address_details,
+  setAddressDetails,
+  isPending,
 }) => {
   const url = import.meta.env.VITE_URL_API;
   const cityApi = GetInfo(`${url}admin/v1/city`);
@@ -57,7 +63,7 @@ const Form = ({
           className="w-full addform p-2 border rounded"
         />
 
-        <label htmlFor="coverImage">صورة الخدمة</label>
+        <label htmlFor="coverImage">صورة الغلاف</label>
         <input
           type="file"
           onChange={(e) => setCoverImage(e.target.files[0])}
@@ -71,6 +77,25 @@ const Form = ({
           onChange={(e) => setDescription(e.target.value)}
           className="w-full textarea-art p-2 border rounded"
         />
+        <label htmlFor="adress">العنوان</label>
+        <input
+
+          type="text"
+          value={address}
+          onChange={(e) => setAddress(e.target.value)}
+          className="w-full addform p-2 border rounded"
+      
+
+          />
+        <label htmlFor="address_details">تفاصيل العنوان</label>
+        <input
+
+          type="text"
+          value={address_details}
+          onChange={(e) => setAddressDetails(e.target.value)}
+          className="w-full addform p-2 border rounded"
+          />
+      
 
         <label htmlFor="phone1">رقم الهاتف 1</label>
         <input
@@ -92,7 +117,7 @@ const Form = ({
         <label htmlFor="city">اختر محافظة</label>
         <select
           id="city"
-          value={city.id} 
+          value={city.id}
           onChange={(e) => {
             const selectedCity = cityApi.find(
               (c) => c.id === parseInt(e.target.value)
@@ -112,7 +137,7 @@ const Form = ({
         <label htmlFor="category">اختر قسم</label>
         <select
           id="category"
-          value={category.id} 
+          value={category.id}
           onChange={(e) => {
             const selectedCategory = categoryApi.find(
               (cat) => cat.id === parseInt(e.target.value)
@@ -145,11 +170,12 @@ const Form = ({
           className="w-full addform p-2 border rounded"
         />
 
+  
         <button
           type="submit"
           className="w-full bg-blue-500 text-white p-2 rounded"
         >
-          إضافة
+          {isPending ? <span>جاري التحميل...</span> : <span>إضافة</span>}
         </button>
       </form>
     </div>

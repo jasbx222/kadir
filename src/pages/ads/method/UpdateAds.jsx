@@ -9,11 +9,13 @@ export default function UpdateAds() {
   const [title, setTitle] = useState("");
   const [type, setType] = useState("");
   const date = new Date().toISOString().split("T")[0];
+  const [isPending, setIspending] = useState(false);
   const [expire_date, setExpire_date] = useState(date);
   const [image, setImage] = useState(null);
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    setIspending(true);
     e.preventDefault();
     const url = import.meta.env.VITE_URL_API;
     const token = localStorage.getItem("token");
@@ -46,13 +48,15 @@ export default function UpdateAds() {
         dangerMode: true,
       });
     }
+  
+setIspending(false);
   };
 
   return (
     <FormUpdate
       handleSubmit={handleSubmit}
       setImage={setImage}
-   
+      isPending={isPending}
       title={title}
       setTitle={setTitle}
       type={type}

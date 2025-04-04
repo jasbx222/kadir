@@ -4,26 +4,32 @@ import GetByIdInfo from "../../../componentes/methode/GetByIdInfo";
 const GetById_Pro = () => {
   const url = import.meta.env.VITE_URL_API;
   const { id } = useParams();
-  const prof = GetByIdInfo(
-    `${url}admin/v1/professional`,
-    id
-  );
+  const prof = GetByIdInfo(`${url}admin/v1/professional`, id);
+
   return (
     <div dir="ltr">
-      {" "}
       {prof && (
         <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
           <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm w-full">
-            <h2 className="text-lg font-bold">تفاصيل الحرفي</h2>
+            <h2 className="text-lg font-bold mb-4">تفاصيل الحرفي</h2>
+
             <img
               src={prof.image}
               alt={prof.name}
-              className="w-24 h-24 rounded-full mx-auto border-2 border-gray-300 mt-4"
+              className="w-24 h-24 rounded-full mx-auto border-2 border-gray-300 mb-4"
             />
-            <p className="text-gray-500">{prof.description}</p>
-            <p className="text-gray-500">{prof.city.name}</p>
-            <p className="text-gray-500">{prof.category.name}</p>
-            <p className="text-sm text-gray-400">{prof.expire_date}  </p>
+
+            <div className="text-gray-700 text-right">
+              <p className="border-b py-2"><strong>الاسم:</strong> {prof.name}</p>
+              <p className="border-b py-2"><strong>المدينة:</strong> {prof.city.name}</p>
+              <p className="border-b py-2"><strong>التصنيف:</strong> {prof.category.name}</p>
+              <p className="border-b py-2"><strong>الخدمة المقدمة:</strong> {prof.service_name}</p>
+              <p className="border-b py-2"><strong>السعر:</strong> {prof.price} د.ع</p>
+              <p className="border-b py-2"><strong>الوصف:</strong> {prof.description}</p>
+              <p className="border-b py-2"><strong>العنوان:</strong> {prof.address}</p>
+              <p className="border-b py-2"><strong>تفاصيل العنوان:</strong> {prof.address_details}</p>
+              <p className="text-sm text-red-400 mt-4"><strong>تاريخ انتهاء الاشتراك:</strong> {prof.expire_date}</p>
+            </div>
           </div>
         </div>
       )}

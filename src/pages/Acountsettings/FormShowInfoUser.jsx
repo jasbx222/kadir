@@ -5,7 +5,7 @@ const FormShowInfoUser = () => {
     const user = GetInfo(`${url}admin/v1/auth/profile`);
    
   return (
-    <div  className="max-w-2xl mx-auto mt-10 p-6 bg-white shadow-lg rounded-2xl">
+    <div  className="max-w-2xl mx-auto mt-10 p-6  rounded-2xl">
     <>
       <h2 className="text-2xl font-bold mb-5 text-center">إعدادات الحساب</h2>
       <div className="space-y-4">
