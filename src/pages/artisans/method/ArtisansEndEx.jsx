@@ -40,13 +40,21 @@ const ArtisansEndEx = () => {
               <p className="text-sm text-gray-400">
             <span className="text-red-500">{artisan.expire_date}</span>
               </p>
-              <p className="text-sm text-gray-400 flex justify-around mt-2">
-                <span>
-                  <Link to={`/delete/professional/${artisan.id}`}>
-                    <Trash2 color="red" />
-                  </Link>
-                </span>
-              </p>
+                 <div className="text-sm text-gray-400 flex justify-around mt-2">
+                            <p className="text-sm text-gray-400 flex justify-around mt-2">
+                              <span>
+                                <Link to={`/delete/professional/${artisan.id}`}>
+                                  <Trash2 color="red" />
+                                </Link>
+                              </span>
+                            </p>
+            
+                            <button className="bg-blue-500 text-white px-2 py-1 m-2 rounded">
+                              <Link to={`/update/pro/${artisan.id}`}>
+                                <PenLine />
+                              </Link>
+                            </button>
+                          </div>
             </div>
           </div>
         ))}

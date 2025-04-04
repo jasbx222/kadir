@@ -54,6 +54,8 @@ const Requests = () => {
         "عدد مرات الاتصال": order.connection_count || 0,
         المنطقة: order.address || "لا يوجد عنوان",
         السعر: order.price || "0 د.ع",
+        الوصف: order.description || "لا يوجد وصف",
+        "تاريخ الطلب": order.created_at || "لا يوجد تاريخ",
       }))
     );
     const workbook = XLSX.utils.book_new();

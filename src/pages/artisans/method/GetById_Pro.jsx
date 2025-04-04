@@ -1,17 +1,27 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import GetByIdInfo from "../../../componentes/methode/GetByIdInfo";
+import { FaLeftLong } from "react-icons/fa6";
 
 const GetById_Pro = () => {
   const url = import.meta.env.VITE_URL_API;
   const { id } = useParams();
   const prof = GetByIdInfo(`${url}admin/v1/professional`, id);
-
+const nav=useNavigate()
   return (
     <div dir="ltr">
       {prof && (
-        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
+        <div className="fixed  inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
           <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm w-full">
+            <button className="
+               top-4 text-red-500  hover:text-gray-700 focus:outline-none"
+              onClick={()=>nav('/professional')}
+            >
+            <FaLeftLong/>
+           رجوع
+            </button>
+
             <h2 className="text-lg font-bold mb-4">تفاصيل الحرفي</h2>
+
 
             <img
               src={prof.image}
@@ -20,6 +30,7 @@ const GetById_Pro = () => {
             />
 
             <div className="text-gray-700 text-right">
+
               <p className="border-b py-2"><strong>الاسم:</strong> {prof.name}</p>
               <p className="border-b py-2"><strong>المدينة:</strong> {prof.city.name}</p>
               <p className="border-b py-2"><strong>التصنيف:</strong> {prof.category.name}</p>

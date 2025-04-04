@@ -1,27 +1,21 @@
 import { useEffect, useState } from "react";
 import { BellRingIcon } from "lucide-react";
 import { Link } from "react-router-dom";
-import "./Header.css";
-// import { GetInfo } from "../../componentes/methode/GetInfo";
 import axios from "axios";
 
 const Notification = () => {
   const url = import.meta.env.VITE_URL_API;
   const [notifData, setNotifData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-
+const token = localStorage.getItem("token");
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await axios.get(
-          `${url}admin/v1/order
-`,
-          {
-            headers: {
-              Authorization: `Bearer ${localStorage.getItem("token")}`,
-            },
-          }
-        );
+        const response = await axios.get(`${url}admin/v1/order`, {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        });
 
         if (response) {
           setNotifData(response.data.data);
@@ -35,52 +29,53 @@ const Notification = () => {
   }, []);
 
   return (
-    <div className="relative inline-block notif">
+    <div className="relative inline-block">
+      {/* زر الإشعارات */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative p-2 bg-gray-200 rounded-full hover:bg-gray-300"
+        className="relative  p-3 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg"
       >
-        {notifData.length > 0 && ( // التحقق من وجود إشعارات قبل عرض الرقم
-          <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold px-2 py-0.5 rounded-full z-10">
+        {notifData.length > 0 && (
+          <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-bounce">
             {notifData.length}
           </span>
         )}
-        <BellRingIcon className="w-6 h-6 text-gray-700" />
+        <BellRingIcon className="w-7 h-7 text-white" />
       </button>
 
+      {/* قائمة الإشعارات */}
       {isOpen && (
         <div
           dir="rtl"
-          className="absolute right-0 mt-2 w-64 bg-white shadow-lg rounded-lg p-4 z-20"
+          className="absolute right-0 mt-3 w-80 bg-white shadow-2xl rounded-2xl p-5 z-30 border border-gray-200 transform scale-95 transition-transform duration-200 ease-out hover:scale-100"
         >
-          <h3 className="text-sm font-semibold text-gray-700 mb-2">
-            الإشعارات
+          <h3 className="text-lg font-semibold text-gray-800 border-b pb-2 mb-3 flex items-center gap-2">
+            🔔 الإشعارات
           </h3>
           {notifData.length > 0 ? (
-            notifData.map((item, index) => (
-              <ul
-                key={index}
-                className=" flex justify-around items-center gap-2"
-              >
-                <Link
-                  to={`/veiw_professional/${item.professional.id}`}
-                  className="text-gray-900 "
+            <ul className="space-y-3 max-h-60 overflow-auto">
+              {notifData.map((item, index) => (
+                <li
+                  key={index}
+                  className="flex items-center justify-between bg-gray-50 p-3 rounded-lg hover:bg-gray-100 transition duration-300 shadow-sm"
                 >
-                  {item.professional.name || " لايوجد اشعار"}{" "}
-                </Link>
-
-                <Link
-                  to={`/veiw_professional/${item.professional.id}`}
-                  className="text-red-400  *:hover:text-red-600
-                mt-2 text-sm font-semibold"
-                >
-                  ( {item.professional.connection_count || "لا يوجد اشعار"}-
-                  {"اتصال "})
-                </Link>
-              </ul>
-            ))
+                  <Link
+                    to={`/veiw_professional/${item.professional.id}`}
+                    className="text-gray-900 font-medium hover:text-indigo-600 transition"
+                  >
+                    {item.professional.name || "لا يوجد إشعار"}
+                  </Link>
+                  <Link
+                    to={`/veiw_professional/${item.professional.id}`}
+                    className="text-red-500 text-sm font-semibold hover:text-red-700 transition"
+                  >
+                    ({item.professional.connection_count || "0"} - اتصال)
+                  </Link>
+                </li>
+              ))}
+            </ul>
           ) : (
-            <p className="text-gray-500 text-sm">لا توجد إشعارات</p>
+            <p className="text-gray-500 text-sm text-center">لا توجد إشعارات</p>
           )}
         </div>
       )}

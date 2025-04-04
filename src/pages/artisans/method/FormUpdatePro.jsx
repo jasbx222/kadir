@@ -23,6 +23,8 @@ const FormUpdatePro = ({
   expireDate,
   setExpireDate,
   handleSubmit,
+  ispending,
+  
 }) => {
   const url = import.meta.env.VITE_URL_API;
   const cityApi = GetInfo(`${url}admin/v1/city`);
@@ -150,7 +152,9 @@ const FormUpdatePro = ({
           type="submit"
           className="w-full bg-blue-500 text-white p-2 rounded"
         >
-          إضافة
+        {
+          ispending ? "جاري التحميل..." : "تحديث"
+        }
         </button>
       </form>
     </div>

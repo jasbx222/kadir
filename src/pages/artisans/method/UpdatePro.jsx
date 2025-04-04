@@ -10,6 +10,7 @@ export default function FormUpdate() {
   const [description, setDescription] = useState("");
   const [coverImage, setCoverImage] = useState(null);
   const [serviceName, setServiceName] = useState("");
+  const [ispending, setIspending] = useState(false);
   const [image, setImage] = useState(null);
   const [phone1, setPhone1] = useState("");
   const [phone2, setPhone2] = useState("");
@@ -22,6 +23,7 @@ export default function FormUpdate() {
   const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
+    setIspending(true);
     e.preventDefault();
     
     const token = localStorage.getItem("token");
@@ -65,12 +67,14 @@ export default function FormUpdate() {
     } catch (error) {
       console.error("Error updating professional:", error.response?.data || error.message);
     }
+    setIspending(false);
   };
 
   return (
     <FormUpdatePro
       name={name}
       setName={setName}
+      ispending={ispending}
       description={description}
       setDescription={setDescription}
       coverImage={coverImage}
