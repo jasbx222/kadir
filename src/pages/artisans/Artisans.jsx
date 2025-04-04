@@ -13,8 +13,18 @@ const Artisans = () => {
   );
 
   return (
-    <div   className="container artisan mx-auto md:relative md:left-40 p-4">
-      <div className="md:flex justify-center items-center block  mb-4">
+    <div   className=" artisan mx-auto md:relative  md:left-40 p-4">
+      
+      <div style={{ width: "30px" }}>
+      
+        <button style={{borderRadius:'50%',width:'70px',height:'70px'}} className="bg-blue-500 hover:bg-slate-50 hover:text-black m-5 text-white px-4 py-2 rounded-md ml-2">
+        <Link className="  flex items-center  justify-center " to={"/add_professional"}>
+          <CgAdd className="text-2xl"  size={40}/>
+        </Link>
+        </button>
+      
+      </div>
+      <div className="md:flex justify-center items-center block   mb-4" style={{width:'100%'}}>
         <input
           type="text"
           placeholder="ابحث عن الحرفي..."
@@ -23,7 +33,9 @@ const Artisans = () => {
           onChange={(e) => setSearch(e.target.value)}
           className="border space-y-7 custom-button p-2 rounded-md w-1/3"
         />
-       <div className="flex justify-center items-center">
+      
+      </div>
+      <div className="flex justify-center relative bottom-4 items-center">
        <button className="bg-blue-500 hover:bg-slate-50 hover:text-black m-5 text-white px-4 py-2 rounded-md ml-2">
       <Link to={"/expier_date"}>     الحرفين منتهي الصلاحية</Link>
         </button>
@@ -34,13 +46,6 @@ const Artisans = () => {
       <Link to={"/add_image"}> اضافة صور خدمات الحرفي</Link>
         </button>
        </div>
-      </div>
-
-      <div style={{ width: "30px" }}>
-        <Link className=" relative bottom-10  " to={"/add_professional"}>
-          <CgAdd size={30} color="#2A3890" className="mt-5" />
-        </Link>
-      </div>
 {
   filterData && filterData.length > 0 ? (      <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
     {filterData.map((artisan, index) => (
