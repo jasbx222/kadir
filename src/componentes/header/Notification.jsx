@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { BellRingIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
+import "./Header.css"; // تأكد من أن لديك هذا الملف CSS
 
 const Notification = () => {
   const url = import.meta.env.VITE_URL_API;
@@ -33,7 +34,7 @@ const token = localStorage.getItem("token");
       {/* زر الإشعارات */}
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative  p-3 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg"
+        className="relative left-32 md:left-0  p-3 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg"
       >
         {notifData.length > 0 && (
           <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-bounce">
