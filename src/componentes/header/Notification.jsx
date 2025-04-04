@@ -33,7 +33,7 @@ const token = localStorage.getItem("token");
   
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative  right-5 md:right-0 notif  md:left-0 sm:left-24  p-3 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg"
+        className="relative  right-10 md:right-0 notif  md:left-0 sm:left-24  p-3 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg"
       >
         {notifData.length > 0 && (
           <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-bounce">
