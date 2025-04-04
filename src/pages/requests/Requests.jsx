@@ -24,7 +24,6 @@ const Requests = () => {
       }
 
       const data = await response.json();
-<<<<<<< HEAD
 
       const uniqueProfessionals = {};
       data.data.forEach((order) => {
@@ -39,9 +38,6 @@ const Requests = () => {
       );
 
       setOrders(sortedOrders);
-=======
-      setOrders(data.data || []); // ✅ الآن يجلب كل الطلبات
->>>>>>> f367289c9fc24e9d8f99d34d5008d02c06b88d43
     } catch (error) {
       console.error("Error fetching orders:", error);
     }
@@ -54,17 +50,10 @@ const Requests = () => {
   const exportToExcel = () => {
     const worksheet = XLSX.utils.json_to_sheet(
       orders.map((order) => ({
-<<<<<<< HEAD
         "اسم مقدم الخدمة": order.name || "غير متوفر",
         "عدد مرات الاتصال": order.connection_count || 0,
         المنطقة: order.address || "لا يوجد عنوان",
         السعر: order.price || "0 د.ع",
-=======
-        "اسم مقدم الخدمة": order.professional?.name || "غير متوفر",
-        "تاريخ وقت العملية": order.created_at || "غير متوفر",
-        "عدد مرات الاتصال": order.professional?.connection_count || 0,
-        "السعر": order.professional?.price || "غير متوفر",
->>>>>>> f367289c9fc24e9d8f99d34d5008d02c06b88d43
       }))
     );
     const workbook = XLSX.utils.book_new();
@@ -88,10 +77,6 @@ const Requests = () => {
           <thead className="text-xs text-gray-600 uppercase bg-gray-100">
             <tr>
               <th className="px-4 py-3">اسم مقدم الخدمة</th>
-<<<<<<< HEAD
-=======
-              <th className="px-4 py-3">تاريخ وقت العملية</th>
->>>>>>> f367289c9fc24e9d8f99d34d5008d02c06b88d43
               <th className="px-4 py-3">عدد مرات الاتصال</th>
               <th className="px-4 py-3">المنطقة</th>
               <th className="px-4 py-3">السعر</th>
@@ -105,7 +90,6 @@ const Requests = () => {
                 className="bg-white border-b hover:bg-gray-100 transition"
               >
                 <td className="px-4 py-4 font-medium text-gray-900 whitespace-nowrap">
-<<<<<<< HEAD
                   {r.name || "غير متوفر"}
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap">
@@ -116,19 +100,6 @@ const Requests = () => {
                 </td>
                 <td className="px-4 py-4 whitespace-nowrap">
                   {r.price || "0 د.ع"}
-=======
-                  {r.professional?.name || "غير متوفر"}
-                </td>
-                <td className="px-4 py-4 whitespace-nowrap">{r.created_at || "غير متوفر"}</td>
-                <td className="px-4 py-4 whitespace-nowrap">
-                  {r.professional?.connection_count || 0}
-                </td>
-                <td className="px-4 py-4 whitespace-nowrap">
-                  {r.professional?.address || "لا يوجد عنوان"}
-                </td>
-                <td className="px-4 py-4 whitespace-nowrap">
-                  {r.professional?.price || "0 د.ع"}
->>>>>>> f367289c9fc24e9d8f99d34d5008d02c06b88d43
                 </td>
                 <td className="px-4 py-4 flex justify-center items-center gap-4 text-lg">
                   <Link
