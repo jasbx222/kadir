@@ -2,7 +2,8 @@ import { useEffect, useState } from "react";
 import { BellRingIcon } from "lucide-react";
 import { Link } from "react-router-dom";
 import axios from "axios";
-
+import "./Header.css"; 
+import {motion} from "framer-motion";
 const Notification = () => {
   const url = import.meta.env.VITE_URL_API;
   const [notifData, setNotifData] = useState([]);
@@ -30,10 +31,10 @@ const token = localStorage.getItem("token");
 
   return (
     <div className="relative inline-block">
-      {/* زر الإشعارات */}
+  
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative  p-3 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg"
+        className="relative md:fixed z-50 left-44 md:left-0  p-3 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg"
       >
         {notifData.length > 0 && (
           <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-bounce">
@@ -43,11 +44,12 @@ const token = localStorage.getItem("token");
         <BellRingIcon className="w-7 h-7 text-white" />
       </button>
 
-      {/* قائمة الإشعارات */}
+
       {isOpen && (
-        <div
+        <motion.div
+        drag
           dir="rtl"
-          className="absolute right-0 mt-3 w-80 bg-white shadow-2xl rounded-2xl p-5 z-30 border border-gray-200 transform scale-95 transition-transform duration-200 ease-out hover:scale-100"
+          className="fixed  right-0 mt-3 w-80 bg-white shadow-2xl rounded-2xl p-5 z-50 border border-gray-200 transform scale-95 transition-transform duration-200 ease-out hover:scale-100"
         >
           <h3 className="text-lg font-semibold text-gray-800 border-b pb-2 mb-3 flex items-center gap-2">
             🔔 الإشعارات
@@ -77,7 +79,7 @@ const token = localStorage.getItem("token");
           ) : (
             <p className="text-gray-500 text-sm text-center">لا توجد إشعارات</p>
           )}
-        </div>
+        </motion.div>
       )}
     </div>
   );
