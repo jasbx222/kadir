@@ -65,7 +65,8 @@ const Requests = () => {
 
   return (
     <div className="request relative md:left-28 overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white w-full max-w-6xl mx-auto">
-      <button
+     <button
+      dir="rtl"
         onClick={exportToExcel}
         className="mb-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
       >
