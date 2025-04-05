@@ -9,20 +9,21 @@ const GetByIdCat = () => {
   return (
     <div className="max-w-3xl mx-auto mt-10 p-8 bg-white shadow-lg rounded-lg">
       <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-        Category Details
+تفاصيل القسم
       </h1>
       {category &&
         <div className="space-y-6">
           <div className="flex flex-col sm:flex-row items-start sm:items-center">
             <span className="font-semibold text-lg text-gray-700 w-full sm:w-1/4 mb-2 sm:mb-0">
-              Name:
+              الاسم:
             </span>
             <p className="text-lg text-gray-800 sm:w-3/4">{category.name}</p>
           </div>
+      
 
           <div className="flex flex-col sm:flex-row items-start sm:items-center">
             <span className="font-semibold text-lg text-gray-700 w-full sm:w-1/4 mb-2 sm:mb-0">
-              Image:
+              الصورة:
             </span>
             <img
               src={category.image}
