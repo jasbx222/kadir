@@ -4,9 +4,6 @@ import { useEffect, useState } from "react";
 const GetByIdInfo = (url,id) => {
     const [data, setData] = useState(null);
 
-    useEffect(() => {
-      fetchData();
-    }, []);
   
     const fetchData = async () => {
       try {
@@ -32,6 +29,10 @@ const GetByIdInfo = (url,id) => {
         console.error("Error fetching category:", error);
       }
     };
+    
+    useEffect(() => {
+      fetchData();
+    }, []);
   return data
 }
 

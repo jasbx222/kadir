@@ -5,7 +5,7 @@ import { FaLeftLong } from "react-icons/fa6";
 const GetById_Pro = () => {
   const url = import.meta.env.VITE_URL_API;
   const { id } = useParams();
-  const prof = GetByIdInfo(`${url}admin/v1/professional`, id);
+  const prof = GetByIdInfo(`${url}/professional`, id);
 const nav=useNavigate()
   return (
     <div dir="ltr">

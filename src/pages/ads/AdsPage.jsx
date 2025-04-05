@@ -48,7 +48,7 @@ export default function AdsPage() {
     formData.append("expire_date", expire_date);
 
     try {
-      await axios.post(`${url}admin/v1/ads`, formData, {
+      await axios.post(`${url}/ads`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",

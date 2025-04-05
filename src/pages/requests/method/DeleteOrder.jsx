@@ -6,7 +6,7 @@ const DeleteOrder = () => {
     const navigate=useNavigate()
     const url = import.meta.env.VITE_URL_API;
   const { id } = useParams();
-  const deleteAds = DeleteMethod(`${url}admin/v1/order`, id);
+  const deleteAds = DeleteMethod(`${url}/order`, id);
 
  useEffect(()=>{
   swal({

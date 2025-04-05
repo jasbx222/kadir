@@ -6,7 +6,7 @@ const DeleteAdsItem = () => {
     const navigate=useNavigate()
     const url = import.meta.env.VITE_URL_API;
   const { id } = useParams();
-  const deleteAds = DeleteMethod(`${url}admin/v1/ads`, id);
+  const deleteAds = DeleteMethod(`${url}/ads`, id);
 
  useEffect(()=>{
   swal({

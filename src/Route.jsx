@@ -2,7 +2,6 @@ import HomePage from "./pages/homePage/HomePage";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import ButtonShowMenu from "./componentes/ButtonShowMenu/ButtonShowMenu";
 import Requests from "./pages/requests/Requests";
-import RequestDetals from "./pages/requests/RequestDetals";
 import AdsPage from "./pages/ads/AdsPage";
 import AccountSettings from "./pages/Acountsettings/AcountSettings";
 import AddCategoryManager from "./pages/CategoryManager/AddCategoryManager";
@@ -24,9 +23,10 @@ import MediaAndPolicy from "./pages/policy/MediaAndPolicy";
 import ArtisansEndEx from "./pages/artisans/method/ArtisansEndEx";
 import ArtisansActive from "./pages/artisans/method/ArtisansActive";
 import DeleteOrder from "./pages/requests/method/DeleteOrder";
-import ShowOrder from "./pages/requests/method/ShowOrder";
 import AddImage from "./pages/artisans/image/AddImage";
 import Notfound from "./componentes/notFound/notFound";
+import DeleteImage from "./pages/artisans/image/DeleteImage";
+import Image from "./pages/artisans/image/Image";
 function RoutePage() {
   return (
     <div>
@@ -49,7 +49,6 @@ function RoutePage() {
                 element={<AddCategoryManager />}
               />
               <Route path="/accountSettings" element={<AccountSettings />} />
-              <Route path="/requestid/:id" element={<RequestDetals />} />
               <Route path="/delete/category/:id" element={<DeleteCategory />} />
               <Route path="/update/category/:id" element={<UpdateCategory />} />
               <Route path="/update/ads/:id" element={<UpdateAds />} />
@@ -62,10 +61,11 @@ function RoutePage() {
               <Route path="/delete/professional/:id" element={<DeletePro />} />
               <Route path="/update/pro/:id" element={<FormUpdate />} />
               <Route path="add_image" element={<AddImage />} />
+              <Route path="/image/:id" element={<Image />} />
+              <Route path="delete_image/:id" element={<DeleteImage />} />
               <Route path="/expier_date" element={<ArtisansEndEx />} />
               <Route path="/active_professional" element={<ArtisansActive />} />
-              <Route path="/delet_order/:id" element={<DeleteOrder />} />
-              <Route path="/ShowOrder/:id" element={<ShowOrder />} />
+              <Route path="/delete_order/:id" element={<DeleteOrder />} />
               <Route path="/*" element={<Notfound />} />
             </Routes>
           </div>

@@ -5,7 +5,7 @@ import { useNavigate, useParams } from "react-router-dom";
 const DeleteCategory = () => {
   const url = import.meta.env.VITE_URL_API;
   const { id } = useParams();
-  const deleteCat = DeleteMethod(`${url}admin/v1/category`, id);
+  const deleteCat = DeleteMethod(`${url}/category`, id);
 const navigate=useNavigate()
 
  useEffect(()=>{

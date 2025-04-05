@@ -31,7 +31,7 @@ export default function UpdateAds() {
     if (image) formData.append("image", image);
 
     try {
-      await axios.post(`${url}admin/v1/ads/update/${id}`, formData, {
+      await axios.post(`${url}/ads/update/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",

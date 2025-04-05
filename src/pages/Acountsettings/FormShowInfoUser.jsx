@@ -2,7 +2,7 @@
 import GetInfo from "../../componentes/methode/GetInfo";
 const FormShowInfoUser = () => {
     const url = import.meta.env.VITE_URL_API;
-    const user = GetInfo(`${url}admin/v1/auth/profile`);
+    const user = GetInfo(`${url}/auth/profile`);
    
   return (
     <div  className="max-w-2xl mx-auto mt-10 p-6  rounded-2xl">

@@ -24,11 +24,14 @@ const FormUpdatePro = ({
   setExpireDate,
   handleSubmit,
   ispending,
+  setGovernorate,
+  gevernorate
   
 }) => {
   const url = import.meta.env.VITE_URL_API;
-  const cityApi = GetInfo(`${url}admin/v1/city`);
-  const categoryApi = GetInfo(`${url}admin/v1/category`);
+  const cityApi = GetInfo(`${url}/city`);
+  const Gapi = GetInfo(`${url}/governorate`);
+  const categoryApi = GetInfo(`${url}/category`);
 
   return (
     <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
@@ -91,8 +94,26 @@ const FormUpdatePro = ({
           onChange={(e) => setPhone2(e.target.value)}
           className="w-full addform p-2 border rounded"
         />
-
-        <label htmlFor="city"> تعديل المحافظة</label>
+    <label htmlFor="city">تعديل  محافظة</label>
+        <select
+          id="gevernorate"
+          value={gevernorate.id}
+          onChange={(e) => {
+            const selectedCity = Gapi.find(
+              (c) => c.id === parseInt(e.target.value)
+            );
+            setGevernorate(selectedCity || { id: "", name: "" });
+          }}
+          className="w-full addform p-2 border rounded"
+        >
+          <option value="gevernorate">اختر محافظة</option>
+          {Gapi.map((gevernorate) => (
+            <option key={gevernorate.id} value={gevernorate.id}>
+              {gevernorate.name}
+            </option>
+          ))}
+        </select>
+        <label htmlFor="city"> تعديل القضاء</label>
         <select
           id="city"
           value={city.id} 
@@ -104,7 +125,7 @@ const FormUpdatePro = ({
           }}
           className="w-full addform p-2 border rounded"
         >
-          <option value="">اختر محافظة</option>
+          <option value="">اختر قضاء</option>
           {cityApi.map((city) => (
             <option key={city.id} value={city.id}>
               {city.name}

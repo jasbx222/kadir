@@ -53,7 +53,7 @@ const UpdateCategory = () => {
 
     try {
       const response = await axios.post(
-        `${url}admin/v1/category/update/${id}`,
+        `${url}/category/update/${id}`,
         formData,
         {
           headers: {

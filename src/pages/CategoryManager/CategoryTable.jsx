@@ -4,7 +4,7 @@ import GetInfo from "../../componentes/methode/GetInfo";
 
 const CategoryTable = () => {
   const url = import.meta.env.VITE_URL_API;
-  const categories=GetInfo(`${url}admin/v1/category`)
+  const categories=GetInfo(`${url}/category`)
   return (
     <div className="overflow-x-auto md:relative md:left-24 ml-4">
       <table className="w-full border-collapse border border-gray-300 mt-4">

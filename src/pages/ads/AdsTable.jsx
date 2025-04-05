@@ -2,8 +2,8 @@ import { Eye, PenLine, Trash2 } from "lucide-react";
 import GetInfo from "../../componentes/methode/GetInfo";
 import { Link } from "react-router-dom";
 const AdsTable = () => {
-  const url = "https://back.kadrapp.com/";
-  const ads = GetInfo(`${url}admin/v1/ads`);
+  const url = import.meta.env.VITE_URL_API
+  const ads = GetInfo(`${url}/ads`);
   return (
     <div className="overflow-x-auto mt-4 ml-5 md:ml-2">
  {

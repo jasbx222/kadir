@@ -6,7 +6,7 @@ import { Link } from "react-router-dom";
 const ArtisansEndEx = () => {
   const [search, setSearch] = useState("");
   const url = import.meta.env.VITE_URL_API;
-  const data = GetInfo(`${url}admin/v1/professional`);
+  const data = GetInfo(`${url}/professional`);
 
   const filterData = data.filter(
     (artisan) =>

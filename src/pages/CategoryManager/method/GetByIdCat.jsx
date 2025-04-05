@@ -3,7 +3,7 @@ import { useParams } from "react-router-dom";
 const GetByIdCat = () => {
   const { id } = useParams();
   const url = import.meta.env.VITE_URL_API;
-  const category = GetByIdInfo(`${url}admin/v1/category`,id)
+  const category = GetByIdInfo(`${url}/category`,id)
 
 
   return (

@@ -14,6 +14,7 @@ export default function FormUpdate() {
   const [image, setImage] = useState(null);
   const [phone1, setPhone1] = useState("");
   const [phone2, setPhone2] = useState("");
+  const [gevernorate, setGevernorate] = useState("");
   const [city, setCity] = useState("");
   const [category, setCategory] = useState("");
   const [price, setPrice] = useState("");
@@ -38,6 +39,7 @@ export default function FormUpdate() {
     if (name) formData.append("name", name);
     if (description) formData.append("description", description);
     if (coverImage) formData.append("cover_image", coverImage);
+    if (gevernorate) formData.append("governorate", gevernorate);
     if (serviceName) formData.append("service_name", serviceName);
     if (image) formData.append("image", image);
     if (phone1) formData.append("phone1", phone1);
@@ -48,7 +50,7 @@ export default function FormUpdate() {
     if (expireDate) formData.append("expire_date", expireDate);
     
     try {
-      const response = await axios.post(`${url}admin/v1/professional/update/${id}`, formData, {
+      const response = await axios.post(`${url}/professional/update/${id}`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -83,6 +85,8 @@ export default function FormUpdate() {
       setServiceName={setServiceName}
       image={image}
       setImage={setImage}
+      setGevernorate={setGevernorate}
+      gevernorate={gevernorate}
       phone1={phone1}
       setPhone1={setPhone1}
       phone2={phone2}

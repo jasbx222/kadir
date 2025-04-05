@@ -10,7 +10,7 @@ const Login = () => {
     const url = import.meta.env.VITE_URL_API;
 
     try { 
-      const response = await fetch(`${url}admin/v1/auth/login`, {
+      const response = await fetch(`${url}/auth/login`, {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

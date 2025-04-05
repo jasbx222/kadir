@@ -14,7 +14,7 @@ const HomePage = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`${url}admin/v1/home`, {
+        const res = await axios.get(`${url}/home`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",

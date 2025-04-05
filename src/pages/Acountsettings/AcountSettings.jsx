@@ -1,12 +1,12 @@
 
 import FormShowInfoUser from "./FormShowInfoUser";
-import FormUpdatePassword from "./FormUpdatePassword";
+import UpdatePassword from "./UpdatePassword";
 export default function AccountSettings() {
 
   return (
   <div>
   <FormShowInfoUser/>
-  <FormUpdatePassword/>
+  <UpdatePassword/>
   </div>
   );
 }

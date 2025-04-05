@@ -16,7 +16,7 @@ const Media = () => {
     e.preventDefault();
 
     try {
-      await axios.post(`${url}admin/v1/setting`, formData, {
+      await axios.post(`${url}/setting`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "application/json",

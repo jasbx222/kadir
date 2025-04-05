@@ -32,7 +32,7 @@ export default function AddImage() {
 
     try {
       const response = await axios.post(
-        `${url}admin/v1/professional/add-image/${selectedProfessional}`,
+        `${url}/professional/add-image/${selectedProfessional}`,
         formData,
         {
           headers: {

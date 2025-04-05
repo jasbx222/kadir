@@ -5,7 +5,7 @@ import GetByIdInfo from "../../../componentes/methode/GetByIdInfo";
 const AdsById = () => {
   const { id } = useParams();
   const url = import.meta.env.VITE_URL_API;
-  const ads = GetByIdInfo(`${url}admin/v1/ads`, id);
+  const ads = GetByIdInfo(`${url}/ads`, id);
 
   return (
     <div className="max-w-3xl mx-auto mt-10 p-8 bg-white shadow-lg rounded-lg">

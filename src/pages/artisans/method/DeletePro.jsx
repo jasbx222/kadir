@@ -7,7 +7,7 @@ const DeletePro = () => {
     const navigate=useNavigate()
     const url = import.meta.env.VITE_URL_API;
   const { id } = useParams();
-  const deletepro = DeleteMethod(`${url}admin/v1/professional`, id);
+  const deletepro = DeleteMethod(`${url}/professional`, id);
 
  useEffect(()=>{
   swal({

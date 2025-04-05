@@ -18,7 +18,7 @@ const Logout = () => {
       if (willLogout) {
         axios
           .post(
-            `${url}admin/v1/auth/logout`,
+            `${url}/auth/logout`,
             {},
             {
               headers: {

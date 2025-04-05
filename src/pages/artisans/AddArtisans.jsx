@@ -17,6 +17,7 @@ export default function ArtisanForm() {
   const [city, setCity] = useState('');
   const [isPending, setIspending] = useState(false);
   const [category, setCategory] = useState('');
+  const [governorate, setGovernorate] = useState("");
   const [price, setPrice] = useState("");
   const [expireDate, setExpireDate] = useState("");
   const url = import.meta.env.VITE_URL_API
@@ -37,6 +38,7 @@ export default function ArtisanForm() {
     formData.append("service_name", serviceName);
     if (image) formData.append("image", image);
     formData.append("phone1", phone1);
+    formData.append("governorate_id", governorate.id);
     if (phone2) formData.append("phone2", phone2);
     formData.append("category_id", category.id);
     formData.append("city_id", city.id);
@@ -46,7 +48,7 @@ export default function ArtisanForm() {
     formData.append("expire_date", expireDate);
     
     try {
-      const response = await axios.post(`${url}admin/v1/professional`, formData, {
+      const response = await axios.post(`${url}/professional`, formData, {
         headers: {
           Authorization: `Bearer ${token}`,
           "Content-Type": "multipart/form-data",
@@ -102,6 +104,8 @@ navigate('/professional')
   address={address}
   setAddress={setAddress}
   address_details={address_details}
+  gevernorate={governorate}
+  setGevernorate={setGovernorate}
   setAddressDetails={setAddressDetails}
   />
   );

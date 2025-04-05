@@ -19,7 +19,7 @@ const FormAddAds = ({
 }) => {
   const url = import.meta.env.VITE_URL_API;
 
-  const data = GetInfo(`${url}admin/v1/professional`);
+  const data = GetInfo(`${url}/professional`);
 
   return (
     <div className="max-w-4xl ml-5 mr-5 mt-5 mx-auto w-full bg-white shadow-lg rounded-xl">

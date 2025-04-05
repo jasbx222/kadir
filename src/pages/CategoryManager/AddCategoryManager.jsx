@@ -11,7 +11,7 @@ export default function AddCategoryManager() {
   const [showForm, setShowForm] = useState(false);
 
   const url = import.meta.env.VITE_URL_API;
- const parentCategories =GetInfo(`${url}admin/v1/category`);
+ const parentCategories =GetInfo(`${url}/category`);
         
    
  
@@ -32,7 +32,7 @@ export default function AddCategoryManager() {
     formData.append("parent_id", parent_id);
 
     try {
-      const response = await fetch(`${url}admin/v1/category`, {
+      const response = await fetch(`${url}/category`, {
         method: "POST",
         headers: {
           Authorization: `Bearer ${token}`,
