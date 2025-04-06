@@ -7,7 +7,7 @@ import GetByIdInfo from "../../../componentes/methode/GetByIdInfo";
 const Image = () => {
 const {id} = useParams()
   const url = import.meta.env.VITE_URL_API;
-const images = GetByIdInfo(`${url}admin/v1/professional`,id);
+const images = GetByIdInfo(`${url}/professional`,id);
 console.log(images);
   return (
     <div   className=" artisan mx-auto md:relative  md:left-40 p-4">
