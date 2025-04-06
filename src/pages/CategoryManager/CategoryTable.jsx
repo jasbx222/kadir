@@ -1,4 +1,4 @@
-import { Eye,  PenLine, Trash2 } from "lucide-react";
+import { BadgeCheck, BadgeX, Eye,  PenLine, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import GetInfo from "../../componentes/methode/GetInfo";
 
@@ -34,15 +34,17 @@ const CategoryTable = () => {
               <td className="border border-gray-300 p-2">
                   {cat.children.length > 0 ? (
                     <p>
-                      <span className="text-green-500 font-bold">
-                        رئيسي
+                      <span className="text-green-500 font-bold flex justify-center items-center">
+                      <BadgeCheck color="green" size={40} />
                         </span>
                     
 
                     </p>
                   ):(
                     <p>
-                      <span className="text-red-500 font-bold">فرعي او غير مربوط بقسم</span>
+                      <span className="text-red-500 font-bold  flex justify-center items-center">
+                      <BadgeX size={40} color="red" />
+                      </span>
                     </p>
                   )}
                 </td>
