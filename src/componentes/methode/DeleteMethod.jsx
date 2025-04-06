@@ -1,10 +1,7 @@
 import axios from "axios";
-import { useEffect } from "react";
-
 const DeleteMethod = async (url, id) => {
   try {
     const  token=localStorage.getItem('token')
-
     if (!token) {
       console.log("no token !");
       return;

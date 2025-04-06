@@ -12,12 +12,9 @@ import {
   Shapes,
   Signpost,
   User,
-  CalendarCog,
 } from "lucide-react";
 import "./SideMenu.css";
-import { MdPolicy } from "react-icons/md";
 import SideMenuLink from "./SideMenuLink";
-import { RiGuideLine } from "react-icons/ri";
 export default function SideMenu() {
   const [isOpen, setIsOpen] = useState(false);
   return (
@@ -37,10 +34,10 @@ export default function SideMenu() {
           <h2 className="text-lg font-semibold">
             <img className="logo" src={logo} alt="" />
           </h2>
+          
         </div>
 
         <nav className="mt-4 ">
-          {/* <div className="user text-center">   <h1>Hello {user}</h1></div> */}
           <SideMenuLink
             href={"/"}
             label={"الصفحة الرئيسية"}
@@ -108,7 +105,6 @@ export default function SideMenu() {
                       label={"تسجيل خروج"}
                     />
                   </li>
-                 
                 </ul>
               </div>
             )}

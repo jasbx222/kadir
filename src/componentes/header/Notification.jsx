@@ -1,36 +1,14 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { BellRingIcon } from "lucide-react";
 import { Link } from "react-router-dom";
-import axios from "axios";
-import "./Header.css"; 
+import GetInfo from "../methode/GetInfo";
+import "./Header.css";
 const Notification = () => {
   const url = import.meta.env.VITE_URL_API;
-  const [notifData, setNotifData] = useState([]);
   const [isOpen, setIsOpen] = useState(false);
-const token = localStorage.getItem("token");
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(`${url}/order`, {
-          headers: {
-            Authorization: `Bearer ${token}`,
-          },
-        });
-
-        if (response) {
-          setNotifData(response.data.data);
-        }
-      } catch (error) {
-        console.error("Error fetching notifications:", error);
-      }
-    };
-
-    fetchData();
-  }, []);
-
+  const notifData = GetInfo(`${url}/order`);
   return (
     <div className="relative inline-block">
-  
       <button
         onClick={() => setIsOpen(!isOpen)}
         className="relative  right-10 md:right-0 notif  md:left-0 sm:left-24  p-3 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg"
@@ -43,12 +21,10 @@ const token = localStorage.getItem("token");
         <BellRingIcon className="w-7 h-7 text-white" />
       </button>
 
-
       {isOpen && (
         <div
-     
           dir="rtl"
-          className={` absolute  right-0 top-12 bg-white shadow-lg rounded-lg p-4 w-72 z-50 transition-transform duration-300`}  
+          className={` absolute  right-0 top-12 bg-white shadow-lg rounded-lg p-4 w-72 z-50 transition-transform duration-300`}
         >
           <h3 className="text-lg font-semibold text-gray-800 border-b pb-2 mb-3 flex items-center gap-2">
             🔔 الإشعارات

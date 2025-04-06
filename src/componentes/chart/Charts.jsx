@@ -3,6 +3,7 @@ import {
   BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer 
 } from "recharts";
 import axios from "axios";
+import Loading from "../loading/Loading";
 
 const ChartComponent = () => {
   const url = import.meta.env.VITE_URL_API;
@@ -12,31 +13,31 @@ const ChartComponent = () => {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const res = await axios.get(`${url}admin/v1/home`, {
+        const res = await axios.get(`${url}/home`, {
           headers: {
             Authorization: `Bearer ${token}`,
             "Content-Type": "application/json",
           },
         });
 
-        // Reformat the data to an array with {name: '2025-03', value: 4}
+
         const formattedData = Object.entries(res.data.monthlyOrders).map(([name, value]) => ({
           name,
           monthlyOrders: value,
         }));
 
-        setMonthlyOrders(formattedData); // Set the formatted data
+        setMonthlyOrders(formattedData); 
       } catch (error) {
-        console.error("Error fetching profile info:", error);
+        console.error("Error fetching Chart info:", error);
       }
     };
 
     fetchData();
-  }, [url, token]);
-
+  }, []);
+console.log(monthlyOrders)
   return (
     <div className="w-full h-auto flex justify-center items-center p-4">
-      <div className="w-full max-w-4xl aspect-[16/9] min-h-[300px]">
+    <div className="w-full max-w-4xl aspect-[16/9] min-h-[300px]">
         <ResponsiveContainer width="90%" height="90%">
           <BarChart 
             data={monthlyOrders} 

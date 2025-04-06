@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 
 import * as XLSX from "xlsx";
 import "./Request.css";
@@ -25,7 +25,6 @@ const Requests = () => {
 
       const data = await response.json();
 
-      // Get unique professionals with their corresponding order ID
       const uniqueProfessionals = {};
       data.data.forEach((order) => {
         const prof = order.professional;
@@ -53,15 +52,16 @@ const Requests = () => {
   useEffect(() => {
     fetchOrders();
   }, []);
-
   const exportToExcel = () => {
     const worksheet = XLSX.utils.json_to_sheet(
       orders.map((order) => ({
         "اسم مقدم الخدمة": order.name || "غير متوفر",
         "عدد مرات الاتصال": order.connection_count || 0,
-        المنطقة: order.address || "لا يوجد عنوان",
-        السعر: order.price || "0 د.ع",
-        الوصف: order.description || "لا يوجد وصف",
+        "المنطقة": order.address || "لا يوجد عنوان",
+        "القسم": order.category.name || "غير متوفر",
+        "رقم الطلب": order.orderId || "غير متوفر",
+        "العنوان ": order.address || "غير متوفر",
+        "رقم الهاتف": order.phone1 || "غير متوفر",
         "تاريخ الطلب": order.created_at || "لا يوجد تاريخ",
       }))
     );
@@ -69,8 +69,15 @@ const Requests = () => {
     XLSX.utils.book_append_sheet(workbook, worksheet, "Orders");
     XLSX.writeFile(workbook, "طلبات.xlsx");
   };
-
-  return <RequestTable orders={orders} exportToExcel={exportToExcel} />;
+console.log(orders)
+  return (
+   <RequestTable
+      orders={orders} 
+      exportToExcel={exportToExcel}
+   
+   
+      />
+  );
 };
 
 export default Requests;

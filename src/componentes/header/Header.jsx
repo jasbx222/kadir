@@ -1,11 +1,5 @@
-import  { useContext } from "react";
-// import Profile from "../profile/Profile";
-// import { Context } from "../../App";
 import Notification from "./Notification";
-
 const Header = () => {
-  // const user = useContext(Context);
-
   return (
     <div className="flex justify-between items-center    p-4 bg-white  w-full">
       <div className="hidden md:flex">{""}</div>

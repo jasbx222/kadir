@@ -27,7 +27,7 @@ const Logout = () => {
             }
           )
           .then(() => {
-            const  token=localStorage.removeItem('token')
+           localStorage.removeItem('token')
             window.location.href = "/login";
           })
           .catch((error) => {

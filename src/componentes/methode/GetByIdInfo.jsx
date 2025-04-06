@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 const GetByIdInfo = (url,id) => {
     const [data, setData] = useState(null);
 
-  
     const fetchData = async () => {
       try {
         const  token=localStorage.getItem('token')

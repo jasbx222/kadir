@@ -1,13 +1,12 @@
 import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
+import Loading from "../../componentes/loading/Loading";
 const RequestTable = (
   { orders, exportToExcel }
 ) => {
-
   return (
     <div className="request relative md:left-28 overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white w-full max-w-6xl mx-auto">
     <button
-      dir="rtl"
       onClick={exportToExcel}
       className="mb-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
     >
@@ -23,8 +22,10 @@ const RequestTable = (
           <tr>
             <th className="px-4 py-3">اسم مقدم الخدمة</th>
             <th className="px-4 py-3">عدد مرات الاتصال</th>
-            <th className="px-4 py-3">المنطقة</th>
-            <th className="px-4 py-3">السعر</th>
+            <th className="px-4 py-3">العنوان</th>
+            <th className="px-4 py-3">القضاء</th>
+            <th className="px-4 py-3">القسم</th>
+            <th className="px-4 py-3">رقم الطلب</th>
             <th className="px-4 py-3 text-center">الحذف</th>
           </tr>
         </thead>
@@ -44,7 +45,13 @@ const RequestTable = (
                 {r.address || "لا يوجد عنوان"}
               </td>
               <td className="px-4 py-4 whitespace-nowrap">
-                {r.price || "0 د.ع"}
+                {r.city.name || "لا يوجد عنوان"}
+              </td>
+              <td className="px-4 py-4 whitespace-nowrap">
+                {r.category.name || "غير متوفر"}
+              </td>
+              <td className="px-4 py-4 whitespace-nowrap">
+                {r.orderId ||   "غير متوفر"}
               </td>
               <td className="px-4 py-4 whitespace-nowrap text-center">
                 <Link to={`/delete_order/${r.orderId}`}>
@@ -56,7 +63,9 @@ const RequestTable = (
         </tbody>
       </table>
     ) : (
-      <div className="text-center text-red-600">لا توجد طلبات حالياً</div>
+  <div className="flex justify-center items-center">
+  <Loading/>
+    </div>
     )}
   </div>
   )

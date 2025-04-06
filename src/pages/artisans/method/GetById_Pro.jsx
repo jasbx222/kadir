@@ -32,7 +32,7 @@ const nav=useNavigate()
             <div className="text-gray-700 text-right">
 
               <p className="border-b py-2"><strong>الاسم:</strong> {prof.name}</p>
-              <p className="border-b py-2"><strong>المدينة:</strong> {prof.city.name}</p>
+              <p className="border-b py-2"><strong>المحافظة:</strong> {prof.city.name}</p>
               <p className="border-b py-2"><strong>التصنيف:</strong> {prof.category.name}</p>
               <p className="border-b py-2"><strong>الخدمة المقدمة:</strong> {prof.service_name}</p>
               <p className="border-b py-2"><strong>السعر:</strong> {prof.price} د.ع</p>

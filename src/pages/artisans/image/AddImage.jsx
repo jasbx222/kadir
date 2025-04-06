@@ -1,6 +1,6 @@
 import axios from "axios";
 import '../Artisans.css'
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import swal from "sweetalert";
 import { useNavigate } from "react-router-dom";
 import GetInfo from "../../../componentes/methode/GetInfo";
@@ -11,7 +11,7 @@ export default function AddImage() {
   const [isPending,setIspending]=useState(false)
   const url = import.meta.env.VITE_URL_API;
   const navigate = useNavigate();
-        const professionals =GetInfo(`${url}admin/v1/professional`);
+        const professionals =GetInfo(`${url}/professional`);
 
   const handleSubmit = async (e) => {
     setIspending(true)

@@ -3,6 +3,7 @@ import React, { useState } from "react";
 import { CgAdd } from "react-icons/cg";
 import GetInfo from "../../componentes/methode/GetInfo";
 import { Link } from "react-router-dom";
+import Loading from "../../componentes/loading/Loading";
 const Artisans = () => {
   const [search, setSearch] = useState("");
   const url = import.meta.env.VITE_URL_API;
@@ -100,9 +101,9 @@ className="bg-white rounded-2xl shadow-lg overflow-hidden"
    </Link>
     ))}
   </div>):(
-    <div className="flex justify-center items-center ">
-      <h1 className="text-2xl font-bold text-red-500">لا يوجد حرفيين حاليا</h1>
-    </div>
+<div className="flex justify-center items-center">
+<Loading/>
+  </div>
 
   )
 }

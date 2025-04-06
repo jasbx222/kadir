@@ -10,7 +10,7 @@ const AdsById = () => {
   return (
     <div className="max-w-3xl mx-auto mt-10 p-8 bg-white shadow-lg rounded-lg">
       <h1 className="text-3xl font-semibold text-center text-gray-800 mb-6">
-        ads
+        تفاصيل الاعلان
       </h1>
       {ads ? (
         <div className="space-y-6">

@@ -1,11 +1,12 @@
 import { Eye, PenLine, Trash2 } from "lucide-react";
 import GetInfo from "../../componentes/methode/GetInfo";
 import { Link } from "react-router-dom";
+import Loading from "../../componentes/loading/Loading";
 const AdsTable = () => {
   const url = import.meta.env.VITE_URL_API
   const ads = GetInfo(`${url}/ads`);
   return (
-    <div className="overflow-x-auto mt-4 ml-5 md:ml-2">
+    <div className=" mt-4 ml-5 md:ml-2">
  {
   ads && ads.length > 0 ? (   <table className="w-full border-collapse border border-gray-300 text-center">
     <thead>
@@ -56,9 +57,9 @@ const AdsTable = () => {
       ))}
     </tbody>
   </table>):(
-    <div className="flex justify-center items-center ">
-      <h1 className="text-2xl font-bold text-red-500">لا توجد إعلانات متاحة</h1>
-    </div>
+ <div className="flex justify-center items-center">
+ <Loading/>
+   </div>
   )
  }
     </div>

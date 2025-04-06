@@ -2,14 +2,15 @@ import { useEffect, useState } from "react";
 import "./HomePage.css";
 import ChartComponent from "../../componentes/chart/Charts";
 import axios from "axios";
-
+import GetInfo from '../../componentes/methode/GetInfo';
+import Loading from "../../componentes/loading/Loading";
 const HomePage = () => {
   const url = import.meta.env.VITE_URL_API;
   const [activeProfessionals, setActivePro] = useState();
   const [expiredProfessionals, setExePro] = useState();
   const [totalOrders, setTotalOrder] = useState();
   const  token=localStorage.getItem('token')
-
+const totalprofessionals = GetInfo(`${url}/professional`)
 
   useEffect(() => {
     const fetchData = async () => {
@@ -36,10 +37,20 @@ const HomePage = () => {
         <dl className="mt-6 grid grid-cols-1 gap-10 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col px-4 py-8 text-center card">
             <dt className="order-last text-lg font-medium text-gray-500">
+              اجمالي الحرفين 
+            </dt>
+            <dd className="text-4xl font-extrabold card-text md:text-5xl">
+              { totalprofessionals.length}
+            </dd>
+          </div>
+        </dl>
+        <dl className="mt-6 grid grid-cols-1 gap-10 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
+          <div className="flex flex-col px-4 py-8 text-center card">
+            <dt className="order-last text-lg font-medium text-gray-500">
               الحرفين الفعال
             </dt>
             <dd className="text-4xl font-extrabold card-text md:text-5xl">
-              {activeProfessionals ? activeProfessionals.activeProfessionals : "جاري التحميل..."}
+              {activeProfessionals ? activeProfessionals.activeProfessionals : <Loading/>}
             </dd>
           </div>
         </dl>
@@ -49,7 +60,7 @@ const HomePage = () => {
               الحرفين الاكسباير
             </dt>
             <dd className="text-4xl font-extrabold card-text md:text-5xl">
-              {expiredProfessionals ? expiredProfessionals.expiredProfessionals : "جاري التحميل..."}
+              {expiredProfessionals ? expiredProfessionals.expiredProfessionals : <Loading/>}
             </dd>
           </div>
         </dl>
@@ -59,7 +70,7 @@ const HomePage = () => {
               اجمالي الطلبات
             </dt>
             <dd className="text-4xl font-extrabold card-text md:text-5xl">
-              {totalOrders ? totalOrders.totalOrders : "جاري التحميل..."}
+              {totalOrders ? totalOrders.totalOrders : <Loading/>}
             </dd>
           </div>
         </dl>
