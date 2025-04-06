@@ -32,7 +32,7 @@ const CategoryTable = () => {
                
               </td>
               <td className="border border-gray-300 p-2">
-                  {cat.children.length > 0 ? (
+                  {cat.children.length === 0 ? (
                     <p>
                       <span className="text-green-500 font-bold flex justify-center items-center">
                       <BadgeCheck color="green" size={40} />
