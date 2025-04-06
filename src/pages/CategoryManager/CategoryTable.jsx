@@ -13,7 +13,7 @@ const CategoryTable = () => {
           <tr className="bg-gray-200">
             <th className="border border-gray-300 p-2">اسم القسم</th>
             <th className="border border-gray-300 p-2">الصورة</th>
-            <th className="border border-gray-300 p-2">نوع القسم</th>
+            <th className="border border-gray-300 p-2"> رئيسي</th>
             <th className="border border-gray-300 p-2">الإجراءات</th>
           </tr>
         </thead>
