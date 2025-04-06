@@ -15,7 +15,7 @@ const AdsTable = () => {
         <th className="border border-gray-300 p-3">النوع</th>
         <th className="border border-gray-300 p-3">  انتهاء الصلاحية</th> 
         
-        <th className="border border-gray-300 p-3">الصورةس</th>
+        <th className="border border-gray-300 p-3">الصورة</th>
         <th className="border border-gray-300 p-3">الاجرائات</th>
       </tr>
     </thead>

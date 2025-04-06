@@ -43,9 +43,7 @@ const Artisans = () => {
         <button className="bg-blue-500 hover:bg-slate-50 hover:text-black m-5 text-white px-4 py-2 rounded-md ml-2">
       <Link to={"/active_professional"}>     الحرفين النشيطين</Link>
         </button>
-        <button className="bg-blue-500 m-5 hover:bg-slate-50 hover:text-black text-white px-4 py-2 rounded-md ml-2">
-      <Link to={"/add_image"}> اضافة صور خدمات الحرفي</Link>
-        </button>
+    
        </div>
 {
   filterData && filterData.length > 0 ? (      <div  className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">

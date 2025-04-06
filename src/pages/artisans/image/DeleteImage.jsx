@@ -7,9 +7,8 @@ const DeleteImage = () => {
      const url = import.meta.env.VITE_URL_API;
    const { id } = useParams();
    const deleteAds = DeleteMethod(`${url}/professional/delete-image`, id);
-   console.log(deleteAds)
- 
   useEffect(()=>{
+    deleteAds
    swal({
      title: "تم الحذف بنجاح ",
      icon: "success",
@@ -17,8 +16,8 @@ const DeleteImage = () => {
      dangerMode: false,
    }).then((willDelete) => {
      if (willDelete) {
-       deleteAds
-       navigate('/ads')
+      
+       navigate('/')
      }
    });
   },[])

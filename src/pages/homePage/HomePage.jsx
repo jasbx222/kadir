@@ -12,7 +12,9 @@ const HomePage = () => {
   const  token=localStorage.getItem('token')
 const totalprofessionals = GetInfo(`${url}/professional`)
 
-  useEffect(() => {
+  useEffect(
+    
+    () => {
     const fetchData = async () => {
       try {
         const res = await axios.get(`${url}/home`, {

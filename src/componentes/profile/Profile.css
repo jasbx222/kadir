@@ -1,0 +1,31 @@
+.profile {
+  position: relative;  
+  left: 120px;
+    padding: 20px;
+    width: 100%;
+  }
+  
+  .profile-name {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+  }
+  
+  .profile-avatar {
+    border: 2px solid gray;
+    margin: 10px;
+    width: 80px;
+    height: 80px;
+  }
+  
+  /* Responsive Design */
+  @media (max-width: 600px) {
+    .profile-name {
+      font-size: 1.2rem;
+    }
+  
+    .profile-avatar {
+      width: 60px;
+      height: 60px;
+    }
+  }
+  

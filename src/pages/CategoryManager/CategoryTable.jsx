@@ -1,17 +1,21 @@
-import { Eye,  PenLine, Trash2 } from "lucide-react";
+import { BadgeCheck, BadgeX, Eye,  PenLine, Trash2 } from "lucide-react";
 import { Link } from "react-router-dom";
 import GetInfo from "../../componentes/methode/GetInfo";
 
 const CategoryTable = () => {
   const url = import.meta.env.VITE_URL_API;
   const categories=GetInfo(`${url}/category`)
+ 
   return (
     <div className="overflow-x-auto md:relative md:left-24 ml-4">
+      
+
       <table className="w-full border-collapse border border-gray-300 mt-4">
         <thead>
           <tr className="bg-gray-200">
             <th className="border border-gray-300 p-2">اسم القسم</th>
             <th className="border border-gray-300 p-2">الصورة</th>
+            <th className="border border-gray-300 p-2"> فرعي</th>
             <th className="border border-gray-300 p-2">الإجراءات</th>
           </tr>
         </thead>
@@ -27,7 +31,26 @@ const CategoryTable = () => {
                   alt={cat.name}
                   className="w-16 h-16 mx-auto object-cover rounded-lg"
                 />
+               
               </td>
+              <td className="border border-gray-300 p-2">
+                  {cat.children.length > 0 ? (
+                    <p>
+                      <span className="text-green-500 font-bold flex justify-center items-center">
+                    
+                      <BadgeX size={40} color="red" />
+                        </span>
+                    
+
+                    </p>
+                  ):(
+                    <p>
+                      <span className="text-red-500 font-bold  flex justify-center items-center">
+                      <BadgeCheck color="green" size={40} />
+                      </span>
+                    </p>
+                  )}
+                </td>
               <td className="border border-gray-300 p-2">
                 <button className="bg-red-500 text-white px-2 py-1 m-2 rounded">
                   <Link to={`/delete/category/${cat.id}`}>

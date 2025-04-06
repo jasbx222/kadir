@@ -62,7 +62,7 @@ export default function AdsPage() {
       navigate("/");
     } catch (error) {
       swal({
-        title: "حدث خطأ بالسيرفر !",
+        title: "تاكد من الاتصال بالانترنت",
         icon: "warning",
         dangerMode: true,
       });

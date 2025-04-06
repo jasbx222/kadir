@@ -1,7 +1,8 @@
-import { useState, useEffect } from "react";
-import { PlusCircle } from "lucide-react";
+import { useState } from "react";
+import { BadgeCheck, BadgeX, PlusCircle } from "lucide-react";
 import CategoryTable from "./CategoryTable";
 import GetInfo from "../../componentes/methode/GetInfo";
+import { useNavigate } from "react-router-dom";
 
 export default function AddCategoryManager() {
   const [categoryName, setCategoryName] = useState("");
@@ -11,11 +12,8 @@ export default function AddCategoryManager() {
   const [showForm, setShowForm] = useState(false);
 
   const url = import.meta.env.VITE_URL_API;
- const parentCategories =GetInfo(`${url}/category`);
-        
-   
- 
-
+  const parentCategories = GetInfo(`${url}/category`);
+const navigate= useNavigate();
   const handleSubmit = async (e) => {
     setIspending(true);
     e.preventDefault();
@@ -48,7 +46,7 @@ export default function AddCategoryManager() {
         });
 
         setTimeout(() => {
-          window.location.href = "/AddCategoryManager";
+          navigate('/AddCategoryManager')
         }, 1000);
       } else {
         throw new Error(`HTTP error! Status: ${response.status}`);
@@ -85,32 +83,29 @@ export default function AddCategoryManager() {
             onChange={(e) => setCategoryImage(e.target.files[0])}
             className="border p-2 rounded w-full"
           />
-          <select
-            value={parent_id}
-            onChange={(e) => setParentId(e.target.value)}
-            className="border p-2 rounded w-full"
-          >
-            <option value="">اختر قسم رئيسي</option>
-            {parentCategories.map((item) => (
-              <option key={item.id} value={item.id}>
-                {item.name}
-              </option>
-            ))}
-          </select>
+       <select
+  value={parent_id}
+  onChange={(e) => setParentId(e.target.value)}
+  className="border p-2 rounded w-full"
+>
+  <option value="">اختر قسم </option>
+  {parentCategories.map((item) => (
+    <option key={item.id} value={item.id}>
+      {item.name} {item.children.length ===0 ? "(فرعي)" : "(رئيسي)"}
+    </option>
+  ))}
+</select>
+
           <button
             style={{ backgroundColor: "#2A3890" }}
             onClick={handleSubmit}
             className="text-white btn-cat px-4 py-2 rounded w-full sm:w-auto"
           >
-  {
-    isPending ? ( 
-      <span className="loader">
-    جاري التحميل...
-      </span>
-    ):(
-      <span>إضافة</span>
-    )
-  }
+            {isPending ? (
+              <span className="loader">جاري التحميل...</span>
+            ) : (
+              <span>إضافة</span>
+            )}
           </button>
         </div>
       )}

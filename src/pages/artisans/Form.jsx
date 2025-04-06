@@ -172,7 +172,10 @@ const Form = ({
           <option value="">اختر قسم</option>
           {categoryApi.map((cat) => (
             <option key={cat.id} value={cat.id}>
-              {cat.name}
+         
+          {
+            cat.children.length>0 ? cat.name : `${cat.name}- قسم فرعي`
+          }
             </option>
           ))}
         </select>
