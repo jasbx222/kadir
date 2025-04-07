@@ -34,3 +34,16 @@
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.3);
     outline: none;
 }
+/* tailwind.css أو global.css */
+.input-field {
+    @apply w-full px-4 py-2 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition;
+  }
+  
+  .input-file {
+    @apply w-full px-3 py-2 border border-dashed border-gray-400 rounded-xl text-gray-700 bg-gray-50;
+  }
+  
+  .textarea-field {
+    @apply w-full px-4 py-3 border border-gray-300 rounded-xl focus:outline-none focus:ring-2 focus:ring-blue-400 transition;
+  }
+  

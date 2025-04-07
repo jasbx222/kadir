@@ -39,6 +39,9 @@ const Form = ({
         </label>
         <div className="relative">
           <input
+          style={{
+            border:'2px solid #2A3890',
+          }}
             type="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -55,6 +58,9 @@ const Form = ({
         </label>
         <div className="relative">
           <input
+           style={{
+            border:'2px solid #2A3890',
+          }}
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}

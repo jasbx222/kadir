@@ -7,50 +7,52 @@ const GetById_Pro = () => {
   const url = import.meta.env.VITE_URL_API;
   const { id } = useParams();
   const prof = GetByIdInfo(`${url}/professional`, id);
-const nav=useNavigate()
+  const nav = useNavigate();
+
   return (
     <div dir="ltr">
       {prof && (
-        <div className="fixed  inset-0 flex items-center justify-center bg-black bg-opacity-50 p-4">
-          <div className="bg-white p-6 rounded-lg shadow-lg text-center max-w-sm w-full">
-            <button className="
-               top-4 text-red-500  hover:text-gray-700 focus:outline-none"
-              onClick={()=>nav('/professional')}
-            >
-            <FaLeftLong/>
-           رجوع
-            </button>
-
-            <h2 className="text-lg font-bold mb-4">تفاصيل الحرفي</h2>
-
-
-            <img
-              src={prof.image}
-              alt={prof.name}
-              className="w-24 h-24 rounded-full mx-auto border-2 border-gray-300 mb-4"
-            />
-
-            <div className="text-gray-700 text-right">
-           
-              <p className="border-b py-2"><strong>الاسم:</strong> {prof.name}</p>
-              <p className="border-b py-2"><strong>المحافظة:</strong> {prof.city.name}</p>
-              <p className="border-b py-2"><strong>التصنيف:</strong> {prof.category.name}</p>
-              <p className="border-b py-2"><strong>الخدمة المقدمة:</strong> {prof.service_name}</p>
-              <p className="border-b py-2"><strong>السعر:</strong> {prof.price} د.ع</p>
-              <p className="border-b py-2"><strong>الوصف:</strong> {prof.description}</p>
-              <p className="border-b py-2"><strong>العنوان:</strong> {prof.address}</p>
-              <p className="border-b py-2"><strong>تفاصيل العنوان:</strong> {prof.address_details}</p>
-              <p className="text-sm text-red-400 mt-4"><strong>تاريخ انتهاء الاشتراك:</strong> {prof.expire_date}</p>
-             
-              <p className="text-sm text-gray-900 bg-slate-400 rounded-lg h-[50px] hover:bg-white mt-4 font-bold flex justify-center items-center">
-              <Link to={`/image/${prof.id}`} className="flex gap-5" >
-          <Image size={20}/> 
-         <strong> صور خدمات الحرفي</strong>
-            </Link>
-              </p>
-             
+        <div className="fixed inset-0 flex items-center justify-center bg-black bg-opacity-60 p-4 overflow-auto">
+          <div className="bg-white p-6 rounded-2xl shadow-2xl w-full max-w-md sm:max-w-lg lg:max-w-xl">
+            
+            <div className="flex justify-between items-center mb-4">
+              <h2 className="text-xl font-bold text-gray-800">تفاصيل الحرفي</h2>
+              <button
+                onClick={() => nav('/professional')}
+                className="text-red-600 hover:text-gray-700 transition text-lg flex items-center gap-2"
+              >
+                <FaLeftLong />
+                <span>رجوع</span>
+              </button>
             </div>
-          
+
+            <div className="flex flex-col items-center gap-4">
+              <img
+                src={prof.image}
+                alt={prof.name}
+                className="w-28 h-28 rounded-full border-4 border-gray-300 shadow-md"
+              />
+
+              <div className="text-gray-700 w-full text-right space-y-3 text-sm sm:text-base">
+                <p><strong>الاسم:</strong> {prof.name}</p>
+                <p><strong>المحافظة:</strong> {prof.city.name}</p>
+                <p><strong>التصنيف:</strong> {prof.category.name}</p>
+                <p><strong>الخدمة المقدمة:</strong> {prof.service_name}</p>
+                <p><strong>السعر:</strong> {prof.price} د.ع</p>
+                <p><strong>الوصف:</strong> {prof.description}</p>
+                <p><strong>العنوان:</strong> {prof.address}</p>
+                <p><strong>تفاصيل العنوان:</strong> {prof.address_details}</p>
+                <p className="text-sm text-red-500"><strong>تاريخ انتهاء الاشتراك:</strong> {prof.expire_date}</p>
+              </div>
+
+              <Link
+                to={`/image/${prof.id}`}
+                className="mt-4 bg-slate-700 text-white hover:bg-white hover:text-black border border-slate-700 transition rounded-xl px-6 py-2 flex items-center gap-2 font-bold"
+              >
+                <Image size={20} />
+                صور خدمات الحرفي
+              </Link>
+            </div>
           </div>
         </div>
       )}

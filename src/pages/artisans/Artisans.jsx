@@ -18,7 +18,7 @@ const Artisans = () => {
       
       <div style={{ width: "30px" }}>
       
-        <button style={{borderRadius:'50%',width:'70px',height:'70px'}} className="bg-blue-500 hover:bg-slate-50 hover:text-black m-5 text-white px-4 py-2 rounded-md ml-2">
+        <button style={{borderRadius:'30%',width:'70px',height:'70px'}} className="bg-blue-500 hover:bg-slate-50 hover:text-black m-5 text-white px-4 py-2 rounded-md ml-2">
         <Link className="  flex items-center  justify-center " to={"/add_professional"}>
           <CgAdd className="text-2xl"  size={40}/>
         </Link>

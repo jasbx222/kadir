@@ -52,20 +52,28 @@ const ArtisansActive = () => {
               </p>
 
               <div className="text-sm text-gray-400 flex justify-around mt-2">
-                <p className="text-sm text-gray-400 flex justify-around mt-2">
-                  <span>
-                    <Link to={`/delete/professional/${artisan.id}`}>
-                      <Trash2 color="red" />
-                    </Link>
-                  </span>
-                </p>
-
-                <button className="bg-blue-500 text-white px-2 py-1 m-2 rounded">
-                  <Link to={`/update/pro/${artisan.id}`}>
-                    <PenLine />
-                  </Link>
-                </button>
-              </div>
+                            <button className="bg-red-500 text-white px-2 py-1 m-2 rounded">
+                                         <span>
+                                           <Link to={`/delete/professional/${artisan.id}`}>
+                                             <Trash2 color="#fff" />
+                                           </Link>
+                                         </span>
+                                       </button>
+                                
+                                       <button className="bg-green-300 text-white px-2 py-1 m-2 rounded">
+                                         <span>
+                                           <Link to={`/veiw_professional/${artisan.id}`}>
+                                             <Eye color="#fff" size={30} />
+                                           </Link>
+                                         </span>
+                                       </button>
+                                      
+                                       <button className="bg-blue-500 text-white px-2 py-1 m-2 rounded">
+                                         <Link to={`/update/pro/${artisan.id}`}>
+                                           <PenLine />
+                                         </Link>
+                                       </button>
+                                     </div>
             </div>
           </div>
         ))}

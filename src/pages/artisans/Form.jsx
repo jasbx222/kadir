@@ -1,3 +1,4 @@
+import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import GetInfo from "../../componentes/methode/GetInfo";
 
@@ -36,176 +37,135 @@ const Form = ({
   const Gapi = GetInfo(`${url}/governorate`);
   const categoryApi = GetInfo(`${url}/category`);
 
+  const [animate, setAnimate] = useState(false);
+
+  useEffect(() => {
+    setAnimate(true);
+  }, []);
+
   return (
-    <div className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
-      <h2 className="text-xl font-bold mb-4">إضافة حساب حرفي</h2>
+    <div
+      dir="rtl"
+      className={`max-w-2xl mx-auto p-6 mt-10 bg-gradient-to-tr from-white to-blue-50 shadow-xl rounded-2xl transition-all duration-700 ease-out transform ${
+        animate ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
+      }`}
+    >
+      <h2 className="text-2xl font-extrabold text-center text-blue-700 mb-6">
+        إضافة حساب حرفي
+      </h2>
       <form className="space-y-4" onSubmit={handleSubmit}>
-        <label htmlFor="name">الاسم</label>
-        <input
-          type="text"
-          value={name}
-          onChange={(e) => setName(e.target.value)}
-          className="w-full addform p-2 border rounded"
-          required
-        />
+        <div className="grid gap-4">
+          <Input label="الاسم" value={name} onChange={setName} required />
+          <Input label="اسم الخدمة" value={serviceName} onChange={setServiceName} required />
+          <FileInput label="صورة الحرفي" onChange={setImage} />
+          <FileInput label="صورة الغلاف" onChange={setCoverImage} />
+          <Textarea label="الوصف" value={description} onChange={setDescription} />
+          <Input label="العنوان" value={address} onChange={setAddress} />
+          <Input label="تفاصيل العنوان" value={address_details} onChange={setAddressDetails} />
+          <Input label="رقم الهاتف 1" value={phone1} onChange={setPhone1} required />
+          <Input label="رقم الهاتف 2 (اختياري)" value={phone2} onChange={setPhone2} />
 
-        <label htmlFor="serviceName">اسم الخدمة</label>
-        <input
-          type="text"
-          value={serviceName}
-          onChange={(e) => setServiceName(e.target.value)}
-          className="w-full addform p-2 border rounded"
-          required
-        />
-
-        <label htmlFor="image">صورة الحرفي</label>
-        <input
-          type="file"
-          onChange={(e) => setImage(e.target.files[0])}
-          accept="image/*"
-          className="w-full addform p-2 border rounded"
-        />
-
-        <label htmlFor="coverImage">صورة الغلاف</label>
-        <input
-          type="file"
-          onChange={(e) => setCoverImage(e.target.files[0])}
-          accept="image/*"
-          className="w-full addform p-2 border rounded"
-        />
-
-        <label htmlFor="description">الوصف</label>
-        <textarea
-          value={description}
-          onChange={(e) => setDescription(e.target.value)}
-          className="w-full textarea-art p-2 border rounded"
-        />
-        <label htmlFor="adress">العنوان</label>
-        <input
-
-          type="text"
-          value={address}
-          onChange={(e) => setAddress(e.target.value)}
-          className="w-full addform p-2 border rounded"
-      
-
+          <Select
+            label="اختر محافظة"
+            value={gevernorate.id}
+            options={Gapi}
+            onChange={(val) => {
+              const selected = Gapi.find((c) => c.id === parseInt(val));
+              setGevernorate(selected || { id: '', name: '' });
+            }}
           />
-        <label htmlFor="address_details">تفاصيل العنوان</label>
-        <input
 
-          type="text"
-          value={address_details}
-          onChange={(e) => setAddressDetails(e.target.value)}
-          className="w-full addform p-2 border rounded"
+          <Select
+            label="اختر قضاء"
+            value={city.id}
+            options={cityApi}
+            onChange={(val) => {
+              const selected = cityApi.find((c) => c.id === parseInt(val));
+              setCity(selected || { id: '', name: '' });
+            }}
           />
-      
 
-        <label htmlFor="phone1">رقم الهاتف 1</label>
-        <input
-          type="text"
-          value={phone1}
-          onChange={(e) => setPhone1(e.target.value)}
-          className="w-full addform p-2 border rounded"
-          required
-        />
+          <Select
+            label="اختر قسم"
+            value={category.id}
+            options={categoryApi}
+            renderOption={(cat) =>
+              cat.children.length > 0 ? cat.name : `${cat.name} - قسم فرعي`
+            }
+            onChange={(val) => {
+              const selected = categoryApi.find((cat) => cat.id === parseInt(val));
+              setCategory(selected || { id: '', name: '' });
+            }}
+          />
 
-        <label htmlFor="phone2">رقم الهاتف 2 (اختياري)</label>
-        <input
-          type="text"
-          value={phone2}
-          onChange={(e) => setPhone2(e.target.value)}
-          className="w-full addform p-2 border rounded"
-        />
+          <Input label="السعر" value={price} onChange={setPrice} />
+          <Input label="تاريخ الانتهاء" type="date" value={expireDate} onChange={setExpireDate} />
+        </div>
 
-    
-        <label htmlFor="city">اختر  محافظة</label>
-        <select
-          id="gevernorate"
-          value={gevernorate.id}
-          onChange={(e) => {
-            const selectedCity = Gapi.find(
-              (c) => c.id === parseInt(e.target.value)
-            );
-            setGevernorate(selectedCity || { id: "", name: "" });
-          }}
-          className="w-full addform p-2 border rounded"
-        >
-          <option value="gevernorate">اختر محافظة</option>
-          {Gapi.map((gevernorate) => (
-            <option key={gevernorate.id} value={gevernorate.id}>
-              {gevernorate.name}
-            </option>
-          ))}
-        </select>
-        <label htmlFor="city">اختر قضاء</label>
-        <select
-          id="city"
-          value={city.id}
-          onChange={(e) => {
-            const selectedCity = cityApi.find(
-              (c) => c.id === parseInt(e.target.value)
-            );
-            setCity(selectedCity || { id: "", name: "" });
-          }}
-          className="w-full addform p-2 border rounded"
-        >
-          <option value="">اختر قضاء</option>
-          {cityApi.map((city) => (
-            <option key={city.id} value={city.id}>
-              {city.name}
-            </option>
-          ))}
-        </select>
-
-        <label htmlFor="category">اختر قسم</label>
-        <select
-          id="category"
-          value={category.id}
-          onChange={(e) => {
-            const selectedCategory = categoryApi.find(
-              (cat) => cat.id === parseInt(e.target.value)
-            );
-            setCategory(selectedCategory || { id: "", name: "" });
-          }}
-          className="w-full addform p-2 border rounded"
-        >
-          <option value="">اختر قسم</option>
-          {categoryApi.map((cat) => (
-            <option key={cat.id} value={cat.id}>
-         
-          {
-            cat.children.length>0 ? cat.name : `${cat.name}- قسم فرعي`
-          }
-            </option>
-          ))}
-        </select>
-
-        <label htmlFor="price">السعر</label>
-        <input
-          type="text"
-          value={price}
-          onChange={(e) => setPrice(e.target.value)}
-          className="w-full addform p-2 border rounded"
-        />
-
-        <label htmlFor="expireDate">تاريخ الانتهاء</label>
-        <input
-          type="date"
-          value={expireDate}
-          onChange={(e) => setExpireDate(e.target.value)}
-          className="w-full addform p-2 border rounded"
-        />
-
-  
         <button
           type="submit"
-          className="w-full bg-blue-500 text-white p-2 rounded"
+          className="w-full bg-blue-600 hover:bg-blue-700 transition-all duration-200 text-white font-bold py-2 px-4 rounded-lg mt-6 shadow-md"
         >
-          {isPending ? <span>جاري التحميل...</span> : <span>إضافة</span>}
+          {isPending ? "جاري التحميل..." : "إضافة"}
         </button>
       </form>
     </div>
   );
 };
+
+const Input = ({ label, value, onChange, type = "text", required = false }) => (
+  <div>
+    <label className="block mb-1 text-sm font-medium text-gray-700">{label}</label>
+    <input
+      type={type}
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      required={required}
+      className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all"
+    />
+  </div>
+);
+
+const Textarea = ({ label, value, onChange }) => (
+  <div>
+    <label className="block mb-1 text-sm font-medium text-gray-700">{label}</label>
+    <textarea
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all"
+      rows={4}
+    />
+  </div>
+);
+
+const FileInput = ({ label, onChange }) => (
+  <div>
+    <label className="block mb-1 text-sm font-medium text-gray-700">{label}</label>
+    <input
+      type="file"
+      onChange={(e) => onChange(e.target.files[0])}
+      accept="image/*"
+      className="w-full file:border file:border-gray-300 file:rounded-lg file:p-2 text-sm"
+    />
+  </div>
+);
+
+const Select = ({ label, value, options, onChange, renderOption }) => (
+  <div>
+    <label className="block mb-1 text-sm font-medium text-gray-700">{label}</label>
+    <select
+      value={value}
+      onChange={(e) => onChange(e.target.value)}
+      className="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-400 transition-all"
+    >
+      <option value="">اختر</option>
+      {options.map((opt) => (
+        <option key={opt.id} value={opt.id}>
+          {renderOption ? renderOption(opt) : opt.name}
+        </option>
+      ))}
+    </select>
+  </div>
+);
 
 export default Form;
