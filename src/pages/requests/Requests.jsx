@@ -1,21 +1,22 @@
-import React, { useEffect, useMemo, useState } from "react";
-
+import React, { useEffect, useState } from "react";
 import * as XLSX from "xlsx";
 import "./Request.css";
-
 import RequestTable from "./RequestTable";
 
 const Requests = () => {
   const url = import.meta.env.VITE_URL_API;
   const [orders, setOrders] = useState([]);
-
+  const [filteredOrders, setFilteredOrders] = useState([]);
+  const [fromDate, setFromDate] = useState("");
+  const [toDate, setToDate] = useState("");
+  const token = localStorage.getItem("token");
   const fetchOrders = async () => {
     try {
       const response = await fetch(`${url}/order`, {
         method: "GET",
         headers: {
           "Content-Type": "application/json",
-          Authorization: `Bearer ${localStorage.getItem("token")}`,
+          Authorization: `Bearer ${token}`,
         },
       });
 
@@ -44,6 +45,7 @@ const Requests = () => {
       );
 
       setOrders(sortedOrders);
+      setFilteredOrders(sortedOrders);
     } catch (error) {
       console.error("Error fetching orders:", error);
     }
@@ -51,14 +53,57 @@ const Requests = () => {
 
   useEffect(() => {
     fetchOrders();
-  }, []);
+    filterByDate();
+  }, [fromDate, toDate, orders]);
+
+  const filterByDate = () => {
+    if (!fromDate || !toDate) {
+      setFilteredOrders(orders);
+      return;
+    }
+
+    const from = new Date(fromDate);
+    from.setHours(0, 0, 0, 0);
+
+    const to = new Date(toDate);
+    to.setHours(23, 59, 59, 999);
+
+    const filtered = orders.filter((order) => {
+      const orderDate = new Date(order.created_at);
+      return orderDate >= from && orderDate <= to;
+    });
+
+    setFilteredOrders(filtered);
+  };
+
   const exportToExcel = () => {
+    const from = new Date(fromDate);
+    from.setHours(0, 0, 0, 0);
+
+    const to = new Date(toDate);
+    to.setHours(23, 59, 59, 999);
+
+    const filtered = orders.filter((order) => {
+      const orderDate = new Date(order.created_at);
+      return orderDate >= from && orderDate <= to;
+    });
+
+    if (filtered.length === 0) {
+      swal({
+        title: "لا توجد بيانات",
+        text: "لا توجد طلبات في هذا النطاق الزمني.",
+        icon: "warning",
+        button: "حسناً",
+      });
+      return;
+    }
+
     const worksheet = XLSX.utils.json_to_sheet(
-      orders.map((order) => ({
+      filtered.map((order) => ({
         "اسم مقدم الخدمة": order.name || "غير متوفر",
         "عدد مرات الاتصال": order.connection_count || 0,
         "المنطقة": order.address || "لا يوجد عنوان",
-        "القسم": order.category.name || "غير متوفر",
+        "القسم": order.category?.name || "غير متوفر",
         "رقم الطلب": order.orderId || "غير متوفر",
         "العنوان ": order.address || "غير متوفر",
         "رقم الهاتف": order.phone1 || "غير متوفر",
@@ -69,15 +114,21 @@ const Requests = () => {
     XLSX.utils.book_append_sheet(workbook, worksheet, "Orders");
     XLSX.writeFile(workbook, "طلبات.xlsx");
   };
-console.log(orders)
+
   return (
-   <RequestTable
-      orders={orders} 
+    <RequestTable
+      orders={filteredOrders}
+      filterByDate={filterByDate}
+      fromDate={fromDate}
+      setFromDate={setFromDate}
+      toDate={toDate}
+      setToDate={setToDate}
       exportToExcel={exportToExcel}
-   
-   
-      />
+      setOrders={setOrders}
+      setFilteredOrders={setFilteredOrders}
+    />
   );
 };
 
 export default Requests;
+

@@ -2,16 +2,31 @@ import { MdDelete } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Loading from "../../componentes/loading/Loading";
 const RequestTable = (
-  { orders, exportToExcel }
+  { orders,
+    filterByDate,
+    fromDate,
+    setFromDate,
+    toDate,
+    setToDate,
+    exportToExcel,
+  
+
+   }
 ) => {
   return (
-    <div className="request relative md:left-28 overflow-x-auto shadow-md sm:rounded-lg p-4 bg-white w-full max-w-6xl mx-auto">
-    <button
-      onClick={exportToExcel}
-      className="mb-4 px-4 py-2 bg-green-500 text-white rounded hover:bg-green-600"
-    >
-      تصدير إلى Excel
-    </button>
+    <div className="request relative md:left-28  shadow-md sm:rounded-lg p-4 bg-white w-full max-w-6xl mx-auto">
+ <div className="filters">
+  <label>
+    من تاريخ:
+    <input type="date" value={fromDate} onChange={(e) => setFromDate(e.target.value)} />
+  </label>
+  <label>
+    إلى تاريخ:
+    <input type="date" value={toDate} onChange={(e) => setToDate(e.target.value)} />
+  </label>
+  <button onClick={filterByDate}>تطبيق الفلتر</button>
+  <button onClick={exportToExcel}>تصدير إلى Excel</button>
+</div>
 
     {orders.length > 0 ? (
       <table className="w-full text-sm text-left text-gray-700 border border-gray-300 rounded-lg overflow-hidden">
