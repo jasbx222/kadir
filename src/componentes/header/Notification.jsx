@@ -8,10 +8,10 @@ const Notification = () => {
   const [isOpen, setIsOpen] = useState(false);
   const notifData = GetInfo(`${url}/order`);
   return (
-    <div className="relative inline-block">
+    <div  className="relative  inline-block">
       <button
         onClick={() => setIsOpen(!isOpen)}
-        className="relative  right-10 md:right-0 notif  md:left-0 sm:left-24  p-3 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg"
+        className="relative   right-10 md:right-0 notif  md:left-0 sm:left-24  p-3 bg-gradient-to-r from-purple-500 to-indigo-600 rounded-full hover:scale-110 transition-transform duration-300 shadow-lg"
       >
         {notifData.length > 0 && (
           <span className="absolute -top-2 -right-2 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full animate-bounce">
@@ -24,7 +24,7 @@ const Notification = () => {
       {isOpen && (
         <div
           dir="rtl"
-          className={` absolute  right-0 top-12 bg-white shadow-lg rounded-lg p-4 w-72 z-50 transition-transform duration-300`}
+          className={` absolute md:right-0 top-12 bg-white shadow-lg rounded-lg p-4 w-72 z-50 transition-transform duration-300`}
         >
           <h3 className="text-lg font-semibold text-gray-800 border-b pb-2 mb-3 flex items-center gap-2">
             🔔 الإشعارات
