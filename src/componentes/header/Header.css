@@ -9,9 +9,18 @@
     .notif{
        position: relative;
          top: 0;
-         width: 50px;
-         height: 50px;
-         margin-left: 10px;
+       
+    
+  
+    }
+}
+@media screen and (min-width:762px){
+    .notif{
+       position: relative;
+         top: 10px;
+         right: 12px;
+       
+    
   
     }
 }
