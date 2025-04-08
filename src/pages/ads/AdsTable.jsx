@@ -11,7 +11,7 @@ const AdsTable = () => {
     <div className="mt-4 ml-5 w-[100%] md:ml-2">
       {ads && ads.length > 0 ? (
         <div className="overflow-x-auto">
-          <table className="min-w-full border-collapse border border-gray-300 text-center text-sm md:text-base">
+          <table className="min-w-full  border  text-center text-sm md:text-base">
             <thead>
               <tr className="">
                 <th className="border border-gray-300 p-2 md:p-3">عنوان الإعلان</th>
@@ -32,11 +32,11 @@ const AdsTable = () => {
                       <img
                         src={ad.image}
                         alt={ad.title}
-                        className="w-16 h-16 md:w-20 md:h-20 mx-auto object-cover rounded-lg"
+                        className="w-16 h-16 md:w-20 md:h-20 mx-auto object-cover "
                       />
                     )}
                   </td>
-                  <td className="border border-gray-300 p-2 flex justify-center flex-wrap gap-2">
+                  <td className="border p-2 flex justify-center flex-wrap gap-2">
                     <Link to={`/delete/ads/${ad.id}`}>
                       <button className="bg-red-500 text-white px-2 py-1 rounded flex items-center justify-center">
                         <Trash2 className="w-4 h-4 md:w-5 md:h-5" />

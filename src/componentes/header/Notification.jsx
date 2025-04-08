@@ -21,7 +21,7 @@ const Notification = () => {
         <BellRingIcon className="w-7 h-7 text-white" />
       </button>
 
-      {isOpen && (
+      {isOpen && (                                                                                                    
         <div
           dir="rtl"
           className={` absolute md:right-0 top-12 bg-white shadow-lg rounded-lg p-4 w-72 z-50 transition-transform duration-300`}

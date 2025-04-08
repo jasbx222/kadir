@@ -1,4 +1,4 @@
-import { KeyRound } from "lucide-react";
+import logo from '../../assets/img/kadirs.jpg'
 import React from "react";
 const Form = ({
   setEmail,
@@ -15,7 +15,8 @@ const Form = ({
       className="mt-6 mb-0 space-y-4 rounded-lg p-4 shadow-lg sm:p-6 lg:p-8"
     >
       <div className="flex justify-center items-center">
-        <div
+        <img
+        src={logo}
           className="flex justify-center items-center "
           style={{
             border: "2px solid #2A3890",
@@ -25,8 +26,8 @@ const Form = ({
             height: "100px",
           }}
         >
-          <KeyRound color="#fff" size={40} />
-        </div>
+        
+        </img>
       </div>
 
       <p className="text-center text-lg font-medium">
