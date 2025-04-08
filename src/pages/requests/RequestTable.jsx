@@ -14,7 +14,7 @@ const RequestTable = (
    }
 ) => {
   return (
-    <div className="request relative md:left-28  shadow-md sm:rounded-lg p-4 bg-white w-full max-w-6xl mx-auto">
+    <div className="request  relative top-24 md:left-28  shadow-md sm:rounded-lg p-4 bg-white w-full max-w-6xl mx-auto">
  <div className="filters">
   <label>
     من تاريخ:
@@ -29,7 +29,7 @@ const RequestTable = (
 </div>
 
     {orders.length > 0 ? (
-      <table className="w-full text-sm text-left text-gray-700 border border-gray-300 rounded-lg overflow-hidden">
+      <table className="w-full  text-sm text-left text-gray-700 border border-gray-300 rounded-lg overflow-hidden">
         <caption className="p-5 text-lg font-semibold text-gray-900 rounded-t-lg">
           الطلبات
         </caption>

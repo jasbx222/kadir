@@ -23,7 +23,7 @@ const FormUpdatePro = ({
   const categoryApi = GetInfo(`${url}/category`);
 
   return (
-    <div dir="rtl" className="max-w-lg mx-auto p-6 bg-white shadow-md rounded-lg">
+    <div dir="rtl" className="max-w-lg mx-auto mt-20 p-6 bg-white shadow-md rounded-lg">
       <h2 className="text-xl font-bold mb-4 text-center text-blue-500">تحديث حساب حرفي</h2>
       <form className="space-y-4" onSubmit={handleSubmit}>
         <TextInput label="تعديل الاسم" value={name} onChange={(e) => setName(e.target.value)} />

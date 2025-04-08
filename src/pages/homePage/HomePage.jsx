@@ -4,6 +4,7 @@ import ChartComponent from "../../componentes/chart/Charts";
 import axios from "axios";
 import GetInfo from '../../componentes/methode/GetInfo';
 import Loading from "../../componentes/loading/Loading";
+import { BriefcaseBusiness, CalendarArrowDown, ShieldBan, UsersRound } from "lucide-react";
 const HomePage = () => {
   const url = import.meta.env.VITE_URL_API;
   const [activeProfessionals, setActivePro] = useState();
@@ -38,6 +39,7 @@ const totalprofessionals = GetInfo(`${url}/professional`)
       <div className="mx-auto max-w-screen-xl px-4 py-6 sm:px-4 sm:py-6 lg:px-8">
         <dl className="mt-6 grid grid-cols-1 gap-10 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col px-4 py-8 text-center card">
+          <UsersRound size={40} className="mb-5" color="#2A3890"/>
             <dt className="order-last text-lg font-medium text-gray-500">
               اجمالي الحرفين 
             </dt>
@@ -48,6 +50,7 @@ const totalprofessionals = GetInfo(`${url}/professional`)
         </dl>
         <dl className="mt-6 grid grid-cols-1 gap-10 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col px-4 py-8 text-center card">
+          <BriefcaseBusiness color="#2A3890" size={40} className="mb-5" />
             <dt className="order-last text-lg font-medium text-gray-500">
               الحرفين الفعال
             </dt>
@@ -58,6 +61,7 @@ const totalprofessionals = GetInfo(`${url}/professional`)
         </dl>
         <dl className="mt-6 grid grid-cols-1 gap-10 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col px-4 py-8 text-center card">
+          <ShieldBan  color="#2A3890" size={40} className="mb-5"  />
             <dt className="order-last text-lg font-medium text-gray-500">
               الحرفين الاكسباير
             </dt>
@@ -68,6 +72,7 @@ const totalprofessionals = GetInfo(`${url}/professional`)
         </dl>
         <dl className="mt-6 grid grid-cols-1 gap-10 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col px-4 py-8 text-center card">
+            <CalendarArrowDown  color="#2A3890" size={40} className="mb-5" />
             <dt className="order-last text-lg font-medium text-gray-500">
               اجمالي الطلبات
             </dt>

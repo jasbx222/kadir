@@ -7,12 +7,12 @@ const CategoryTable = () => {
   const categories=GetInfo(`${url}/category`)
  
   return (
-    <div className="overflow-x-auto md:relative md:left-24 ml-4">
+    <div className="overflow-x-auto w-[100%] md:relative  ">
       
 
-      <table className="w-full border-collapse border border-gray-300 mt-4">
+      <table className=" w-[100%] border-collapse border border-gray-300 mt-4">
         <thead>
-          <tr className="bg-gray-200">
+          <tr className="">
             <th className="border border-gray-300 p-2">اسم القسم</th>
             <th className="border border-gray-300 p-2">الصورة</th>
             <th className="border border-gray-300 p-2"> فرعي</th>

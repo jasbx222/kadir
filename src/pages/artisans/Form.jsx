@@ -47,7 +47,7 @@ const Form = ({
   return (
     <div
       dir="rtl"
-      className={`max-w-2xl mx-auto p-6 mt-10 bg-gradient-to-tr from-white to-blue-50 shadow-xl rounded-2xl transition-all duration-700 ease-out transform ${
+      className={`max-w-2xl  mx-auto p-6 mt-24 bg-gradient-to-tr from-white to-blue-50 shadow-xl rounded-2xl transition-all duration-700 ease-out transform ${
         animate ? "translate-y-0 opacity-100" : "translate-y-10 opacity-0"
       }`}
     >
