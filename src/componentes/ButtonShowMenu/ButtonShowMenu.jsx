@@ -4,12 +4,12 @@ import SideMenu from "../sidemenu/SideMenu";
 import "./ButtonShowMenu.css";
 const ButtonShowMenu = () => {
   const [show, setShow] = useState(false);
-  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 1273);
 
   useEffect(() => {
     const handleResize = () => {
-      setIsMobile(window.innerWidth <= 768);
-      if (window.innerWidth > 768) {
+      setIsMobile(window.innerWidth <= 1273);
+      if (window.innerWidth > 1273) {
         setShow(true);
       } else {
         setShow(false);
