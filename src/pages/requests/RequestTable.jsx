@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 import Loading from "../../componentes/loading/Loading";
 const RequestTable = (
   { orders,
-    filterByDate,
+
     fromDate,
     setFromDate,
     toDate,
@@ -24,7 +24,7 @@ const RequestTable = (
     إلى تاريخ:
     <input type="date" value={toDate} onChange={(e) => setToDate(e.target.value)} />
   </label>
-  <button onClick={filterByDate}>تطبيق الفلتر</button>
+
   <button onClick={exportToExcel}>تصدير إلى Excel</button>
 </div>
 
