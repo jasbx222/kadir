@@ -54,7 +54,7 @@ const Requests = () => {
   useEffect(() => {
     fetchOrders();
     filterByDate();
-  }, [fromDate, toDate, orders]);
+  }, [fromDate, toDate]);
 
   const filterByDate = () => {
     if (!fromDate || !toDate) {
@@ -118,8 +118,8 @@ const Requests = () => {
   return (
     <RequestTable
       orders={filteredOrders}
-      filterByDate={filterByDate}
       fromDate={fromDate}
+      filterByDate={filterByDate}
       setFromDate={setFromDate}
       toDate={toDate}
       setToDate={setToDate}
