@@ -118,8 +118,8 @@ const Requests = () => {
   return (
     <RequestTable
       orders={filteredOrders}
-
       fromDate={fromDate}
+      filterByDate={filterByDate}
       setFromDate={setFromDate}
       toDate={toDate}
       setToDate={setToDate}
@@ -131,4 +131,5 @@ const Requests = () => {
 };
 
 export default Requests;
+
 
