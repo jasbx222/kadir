@@ -41,14 +41,11 @@
     padding: 0.5rem 1rem;
     font-size: 0.9rem;
     border: none;
-    background-color: #007bff;
-    color: white;
+    color: rgb(31, 25, 25);
     border-radius: 8px;
     cursor: pointer;
     transition: background-color 0.2s ease;
   }
   
-  .filters button:hover {
-    background-color: #0056b3;
-  }
+
   
