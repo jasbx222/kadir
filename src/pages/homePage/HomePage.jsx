@@ -36,7 +36,7 @@ const totalprofessionals = GetInfo(`${url}/professional`)
   }, []);
   return (
     <div className="home md:w-[70%]">
-      <div className="mx-auto max-w-screen-xl px-4 py-6 sm:px-4 sm:py-6 lg:px-8 md:flex md:items-center sm:flex sm:items-center">
+      <div className="mx-auto max-w-screen-xl px-4 py-6 sm:px-4 sm:py-6 lg:px-8 md:flex md:items-center">
         <dl className="mt-6 grid grid-cols-1 gap-10 sm:mt-8 sm:grid-cols-2 lg:grid-cols-4">
           <div className="flex flex-col px-4 py-8 text-center card">
           <UsersRound size={40} className="mb-5" color="#2A3890"/>
